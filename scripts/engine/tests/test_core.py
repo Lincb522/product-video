@@ -138,6 +138,22 @@ class SubtitleTests(unittest.TestCase):
         result = self.cues(['Hello', 'world.', 'Start', 'now.'], 'Hello world. Start now.')
         self.assertEqual([c['text'] for c in result], ['Hello world.', 'Start now.'])
 
+    def test_standalone_punctuation_extends_spoken_word(self):
+        result = self.cues(['测', '试', '。'], '测试。')
+        self.assertEqual(result, [{'start': 0, 'end': 1.4, 'text': '测试。'}])
+
+    def test_punctuation_and_whitespace_never_create_empty_cues(self):
+        result = self.cues(['“', 'Hello', ' ', 'world', '.', '”', ' ', 'Next', '!'], '“Hello world.” Next!')
+        self.assertTrue(all(c['text'].strip() for c in result))
+        self.assertEqual(''.join(c['text'] for c in result), '“Hello world.” Next!')
+        self.assertEqual(result[-1]['end'], 4.4)
+
+    def test_punctuation_timestamps_are_still_validated(self):
+        words = [{'word': 'a', 'startTime': 0, 'endTime': .4},
+                 {'word': '.', 'startTime': .5, 'endTime': .1}]
+        with self.assertRaisesRegex(VideoError, '时间戳'):
+            from_events([{'event': 364, 'data': {'words': words}}], 'a.', 2)
+
     def test_mismatch_and_no_captions(self):
         with self.assertRaises(VideoError):
             self.cues(['一'], '1')

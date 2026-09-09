@@ -33,6 +33,15 @@ def from_events(events, narration, duration, max_chars=28):
     actual = normalized("".join(w["text"] for w in clean))
     if not expected or actual != expected:
         raise VideoError("API 字幕与原稿不一致；未自动改写文案，请检查发音词典或该章旁白。")
+    # Standalone punctuation has timing but consumes no characters in the normalized script.
+    # Attach its interval to the preceding spoken word instead of creating an empty cue.
+    spoken = []
+    for word in clean:
+        if normalized(word["text"]):
+            spoken.append(word)
+        elif spoken:
+            spoken[-1]["end"] = word["end"]
+    clean = spoken
     # Use timing from the API, but preserve the approved script's spaces and punctuation.
     positions = [i for i, c in enumerate(narration) for _ in normalized(c)]
     offset, previous = 0, 0

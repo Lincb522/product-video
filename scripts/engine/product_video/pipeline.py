@@ -134,6 +134,7 @@ def build(config, allow_api=True, preview=False):
         if movie.exists() and report_path.exists():
             report = json.loads(report_path.read_text())
             if report["sha256"] == file_hash(movie):
+                write_json(output / "latest.json", {"movie": str(movie), "report": str(report_path)})
                 print(f"复用已验证成片：{movie}")
                 return folder
             raise VideoError("已有成片校验失败，请移走此 renders 子目录后重新渲染。")

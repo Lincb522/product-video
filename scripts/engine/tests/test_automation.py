@@ -15,7 +15,7 @@ from urllib.parse import urlencode
 from PIL import Image
 
 from product_video import credentials
-from product_video.capture import capture_project, read_plan
+from product_video.capture import capture_project, capture_web, read_plan, web_error, web_session
 from product_video.common import VideoError, file_hash, write_json
 from product_video.onboarding import SetupServer, setup
 
@@ -108,6 +108,8 @@ class SetupTests(unittest.TestCase):
 
 PAGE = b'''<!doctype html><meta charset="utf-8"><style>body{font:24px sans-serif;background:#f3f6fc}body.dark{background:#172c43;color:white}.secret{position:absolute;left:100px;top:200px;width:180px;height:45px;background:red}</style><h1>Capture Fixture</h1><button onclick="document.body.className='dark';document.querySelector('h1').textContent='Dark Ready'">Dark theme</button><input aria-label="Search" onchange="document.querySelector('#query').textContent=this.value"><p id="query"></p><div class="secret">PRIVATE FIXTURE</div><input type="password" value="synthetic-secret"><img src="/pixel.png"><a href="https://example.org/">Leave site</a>'''
 
+SCROLL_PAGE = b'''<!doctype html><style>body{margin:0;font:24px sans-serif}h2{margin:0}section{height:150px}footer{height:1200px}</style><header style="height:200px">Overview</header><section><h2>Features</h2><p>Feature details</p></section><section><h2>Install</h2><pre>install product-video</pre></section><footer>End</footer>'''
+
 
 class FixtureHandler(BaseHTTPRequestHandler):
     def log_message(self,*args): pass
@@ -115,11 +117,131 @@ class FixtureHandler(BaseHTTPRequestHandler):
         if self.path == '/pixel.png':
             import io
             f=io.BytesIO();Image.new('RGB',(10,10),'blue').save(f,format='PNG');body=f.getvalue();ct='image/png'
-        else: body=PAGE;ct='text/html'
-        self.send_response(200);self.send_header('Content-Type',ct);self.send_header('Content-Length',str(len(body)));self.end_headers();self.wfile.write(body)
+        else: body=SCROLL_PAGE if self.path == '/scroll' else PAGE;ct='text/html'
+        self.send_response(200)
+        if self.path == '/csp':
+            self.send_header('Content-Security-Policy', "script-src 'self'")
+        self.send_header('Content-Type',ct);self.send_header('Content-Length',str(len(body)));self.end_headers();self.wfile.write(body)
 
 
 class CaptureTests(unittest.TestCase):
+    def test_scroll_offset_avoids_fixed_header_and_restores_style(self):
+        with tempfile.TemporaryDirectory() as d, serving(ThreadingHTTPServer(('127.0.0.1', 0), FixtureHandler)) as server:
+            target = {'url': f'http://127.0.0.1:{server.server_port}/scroll', 'viewport': {'width': 960, 'height': 600}}
+            with web_session(target) as page:
+                page.locator('body').evaluate("""body => {
+                    const bar = document.createElement('aside');
+                    bar.style.cssText = 'position:fixed;top:0;left:0;right:0;height:48px;background:red;z-index:9';
+                    bar.textContent = 'Navigation'; body.appendChild(bar);
+                }""")
+                loc = page.get_by_role('heading', name='Install')
+                loc.evaluate("element => element.style.setProperty('scroll-margin-top', '7px', 'important')")
+                locator = {'role': 'heading', 'name': 'Install'}
+                shot = {'id': 'install', 'actions': [{'action': 'scroll', 'target': locator, 'offset': 64}],
+                        'ready': locator, 'mask': []}
+                capture_web(page, target, shot, Path(d) / 'offset.png')
+                self.assertAlmostEqual(loc.bounding_box()['y'], 64, delta=1)
+                self.assertTrue(loc.evaluate("element => {const r=element.getBoundingClientRect(); return element.contains(document.elementFromPoint(r.x+10,r.y+r.height/2));}"))
+                self.assertEqual(loc.evaluate("element => [element.style.getPropertyValue('scroll-margin-top'), element.style.getPropertyPriority('scroll-margin-top')]"), ['7px', 'important'])
+
+    def test_scroll_offset_validation(self):
+        with tempfile.TemporaryDirectory() as d:
+            folder = Path(d)
+            base = self.project(folder, 'http://localhost:9000')
+            for value in (-1, 600, True, '64'):
+                plan = copy.deepcopy(base)
+                plan['shots'][0]['actions'] = [{'action': 'scroll', 'target': {'text': 'Fixture'}, 'offset': value}]
+                write_json(folder / 'capture.json', plan)
+                with self.assertRaises(VideoError):
+                    read_plan(folder / 'capture.json')
+
+    def test_capture_under_strict_csp_without_disabling_policy(self):
+        with tempfile.TemporaryDirectory() as d, serving(ThreadingHTTPServer(('127.0.0.1', 0), FixtureHandler)) as server:
+            target = {'url': f'http://127.0.0.1:{server.server_port}/csp', 'viewport': {'width': 960, 'height': 600}}
+            with web_session(target) as page:
+                # Deferred page code is subject to CSP, unlike the initial DevTools evaluation.
+                policy = page.evaluate("""() => new Promise(resolve => setTimeout(() => {
+                    try { eval('1'); resolve('allowed'); } catch (error) { resolve(error.name); }
+                }, 0))""")
+                self.assertEqual(policy, 'EvalError')
+                destination = Path(d) / 'csp.png'
+                capture_web(page, target, {'id': 'csp', 'actions': [], 'mask': [],
+                                          'ready': {'role': 'heading', 'name': 'Capture Fixture'}}, destination)
+                with Image.open(destination) as image:
+                    self.assertEqual(image.size, (1920, 1200))
+
+    def test_scroll_re_resolves_detached_node_with_finite_retry(self):
+        from playwright.sync_api import Locator
+        original_evaluate = Locator.evaluate
+        with tempfile.TemporaryDirectory() as d, serving(ThreadingHTTPServer(('127.0.0.1', 0), FixtureHandler)) as server:
+            target = {'url': f'http://127.0.0.1:{server.server_port}/scroll', 'viewport': {'width': 960, 'height': 600}}
+            with web_session(target) as page:
+                locator = {'role': 'heading', 'name': 'Install'}
+                shot = {'id': 'install', 'actions': [{'action': 'scroll', 'target': locator}], 'ready': locator, 'mask': []}
+                for persistent in (False, True):
+                    calls = []
+                    def replace_node(loc, expression, *args, **kwargs):
+                        if 'element.scrollIntoView' in expression:
+                            calls.append(1)
+                            if persistent or len(calls) == 1:
+                                expression = expression.replace('if (!element.isConnected)',
+                                    'element.replaceWith(element.cloneNode(true)); if (!element.isConnected)')
+                        return original_evaluate(loc, expression, *args, **kwargs)
+                    destination = Path(d) / f'replaced-{persistent}.png'
+                    with patch.object(Locator, 'evaluate', replace_node):
+                        if persistent:
+                            with self.assertRaisesRegex(VideoError, '持续被页面替换'):
+                                capture_web(page, target, shot, destination)
+                            self.assertEqual(len(calls), 3)
+                            self.assertFalse(destination.exists())
+                        else:
+                            capture_web(page, target, shot, destination)
+                            self.assertEqual(len(calls), 2)
+                            self.assertAlmostEqual(page.get_by_role('heading', name='Install').bounding_box()['y'], 0, delta=1)
+
+    def test_capture_errors_identify_stage_without_echoing_page_data(self):
+        from playwright.sync_api import Error, TimeoutError
+        for error, expected in ((TimeoutError('synthetic-private'), '等待超时'),
+                                (Error('strict mode violation synthetic-private'), '多个控件'),
+                                (Error('net::ERR_CONNECTION_RESET https://private/?key=synthetic-private'), 'ERR_CONNECTION_RESET'),
+                                (Error("Executable doesn't exist synthetic-private"), 'scripts/setup.sh'),
+                                (Error('synthetic-private'), '浏览器操作失败')):
+            result = str(web_error(error, '等待 ready 控件'))
+            self.assertIn(expected, result)
+            self.assertIn('等待 ready 控件', result)
+            self.assertNotIn('synthetic-private', result)
+            self.assertNotIn('https://private', result)
+
+        with tempfile.TemporaryDirectory() as d, serving(ThreadingHTTPServer(('127.0.0.1', 0), FixtureHandler)) as server:
+            target = {'url': f'http://127.0.0.1:{server.server_port}', 'viewport': {'width': 960, 'height': 600}}
+            with web_session(target) as page:
+                page.set_default_timeout(200)
+                shot = {'id': 'missing', 'actions': [], 'mask': [], 'ready': {'text': 'synthetic-private'}}
+                with self.assertRaisesRegex(VideoError, '截图 missing / 等待 ready 控件') as error:
+                    capture_web(page, target, shot, Path(d) / 'missing.png')
+                self.assertNotIn('synthetic-private', str(error.exception))
+                page.set_content('<h1>Ready</h1><img width="100" height="100" src="/invalid-image">')
+                shot['ready'] = {'role': 'heading', 'name': 'Ready'}
+                with self.assertRaisesRegex(VideoError, '可见图片或字体加载失败'):
+                    capture_web(page, target, shot, Path(d) / 'broken.png')
+
+    def test_scroll_aligns_visible_sections_at_narrow_and_wide_sizes(self):
+        with tempfile.TemporaryDirectory() as d, serving(ThreadingHTTPServer(('127.0.0.1', 0), FixtureHandler)) as server:
+            for width in (390, 1440):
+                target = {'provider': 'web', 'url': f'http://127.0.0.1:{server.server_port}/scroll',
+                          'viewport': {'width': width, 'height': 600}}
+                with web_session(target) as page:
+                    files = []
+                    for name in ('Features', 'Install'):
+                        locator = {'role': 'heading', 'name': name}
+                        shot = {'id': name.lower(), 'actions': [{'action': 'scroll', 'target': locator}],
+                                'ready': locator, 'mask': []}
+                        destination = Path(d) / f'{width}-{name}.png'
+                        capture_web(page, target, shot, destination)
+                        self.assertAlmostEqual(page.get_by_role('heading', name=name).bounding_box()['y'], 0, delta=1)
+                        files.append(destination)
+                    self.assertNotEqual(file_hash(files[0]), file_hash(files[1]))
+
     def project(self, folder, url):
         plan={'schema_version':1,'target':{'provider':'web','url':url,'viewport':{'width':960,'height':600}},'shots':[
             {'id':'before','ready':{'role':'heading','name':'Capture Fixture'},'mask':[{'css':'.secret'}]},

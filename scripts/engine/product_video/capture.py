@@ -97,12 +97,15 @@ def read_plan(path):
         if not isinstance(actions, list) or len(actions) > 30:
             raise VideoError('每张截图最多 30 个操作。')
         for action in actions:
-            known(action, ('action', 'target', 'value', 'url'), '截图操作')
+            known(action, ('action', 'target', 'value', 'url', 'offset'), '截图操作')
             kind = action.get('action')
             allowed = ('goto', 'click', 'fill', 'press', 'scroll', 'wait') if provider == 'web' else ('press', 'wait')
             if kind not in allowed:
                 raise VideoError('截图操作不受此目标支持。')
             expected = {'action', 'url'} if kind == 'goto' else {'action', 'target', 'value'} if kind in ('fill',) or (kind == 'press' and provider == 'web') else {'action', 'target'}
+            if kind == 'scroll' and 'offset' in action:
+                expected.add('offset')
+                number(action['offset'], 0, target['viewport']['height'] - 1, '滚动顶部留白')
             if set(action) != expected:
                 raise VideoError('截图操作字段不匹配，请对照截图计划说明。')
             if kind == 'goto':
@@ -137,12 +140,33 @@ def web_locator(page, spec):
     return page.locator(spec['css'])
 
 
+def web_error(error, stage):
+    from playwright.sync_api import TimeoutError
+
+    # Playwright messages can contain URLs, field values and DOM text. Export only known categories.
+    message = str(error)
+    if isinstance(error, TimeoutError):
+        reason = '等待超时；请检查此步骤的定位器、登录状态和内容加载条件。'
+    elif 'strict mode violation' in message:
+        reason = '定位器匹配了多个控件；请使用唯一定位器。'
+    elif code := re.search(r'\bnet::(ERR_[A-Z_]+)\b', message):
+        reason = f'网络请求失败（{code.group(1)}）；请检查网络后重试。'
+    elif "Executable doesn't exist" in message:
+        reason = '未找到采集浏览器；请重新运行 Skill 的 scripts/setup.sh。'
+    elif 'Element is not visible' in message:
+        reason = '目标控件尚不可见；请先等待实际内容出现。'
+    else:
+        reason = '浏览器操作失败；请检查页面状态和截图计划后重试。'
+    return VideoError(f'网页采集失败（{stage}）：{reason}')
+
+
 @contextmanager
 def web_session(target):
     try:
         from playwright.sync_api import sync_playwright, Error
     except ImportError:
         raise VideoError('缺少网页采集环境，请执行 Skill 的 scripts/setup.sh。') from None
+    stage = '启动浏览器'
     try:
         with sync_playwright() as pw:
             channel = target.get('channel', 'chromium')
@@ -150,11 +174,14 @@ def web_session(target):
             state = None
             if 'login' in target:
                 print('需先登录：请在临时浏览器完成登录；检测成功后关闭该窗口，再在后台静默截图。', flush=True)
+                stage = '启动登录浏览器'
                 login_browser = pw.chromium.launch(headless=False, **options)
                 try:
                     login_context = login_browser.new_context(viewport=target['viewport'], accept_downloads=False)
                     login_page = login_context.new_page()
+                    stage = '打开登录页面'
                     login_page.goto(target['url'], wait_until='domcontentloaded', timeout=30000)
+                    stage = '等待登录完成'
                     web_locator(login_page, target['login']['ready']).wait_for(state='visible', timeout=target['login'].get('timeout', 300) * 1000)
                     if origin(login_page.url) != origin(target['url']):
                         raise VideoError('登录没有返回目标网站，已停止采集。')
@@ -163,6 +190,7 @@ def web_session(target):
                 finally:
                     login_browser.close()
                 print('登录已完成，前台准备窗口已关闭，开始后台截图。', flush=True)
+            stage = '启动后台浏览器'
             browser = pw.chromium.launch(headless=True, **options)
             try:
                 context = browser.new_context(viewport=target['viewport'], device_scale_factor=2,
@@ -173,51 +201,101 @@ def web_session(target):
                 page.set_default_timeout(15000)
                 page.set_default_navigation_timeout(30000)
                 page.on('dialog', lambda dialog: dialog.dismiss())
+                stage = '打开目标页面'
                 page.goto(target['url'], wait_until='domcontentloaded')
                 yield page
             finally:
                 browser.close()
-    except Error:
-        raise VideoError('网页采集失败：浏览器未就绪、控件不唯一或等待页面超时。检查截图计划与登录状态；缺少 Chromium 时重新运行 scripts/setup.sh。未把页面内容或请求信息写入日志。') from None
+    except Error as error:
+        raise web_error(error, stage) from None
 
 
 def capture_web(page, target, shot, destination):
-    def same_origin():
-        if origin(page.url) != origin(target['url']):
-            raise VideoError('页面已离开指定网站，已停止截图；请确认目标地址或完成登录。')
-    same_origin()
-    for index, action in enumerate(shot['actions'], 1):
-        print(f"  操作 {index}/{len(shot['actions'])}：{action['action']}", flush=True)
-        if action['action'] == 'goto':
-            page.goto(action['url'], wait_until='domcontentloaded')
-        else:
-            loc = web_locator(page, action['target'])
-            kind = action['action']
-            if kind == 'fill':
-                if loc.get_attribute('type') == 'password' or loc.get_attribute('autocomplete') in ('current-password', 'new-password', 'one-time-code'):
-                    raise VideoError('不能从截图计划填写密码或验证码，请使用手动登录等待。')
-                loc.fill(action['value'])
-            elif kind == 'click':
-                loc.click()
-            elif kind == 'press':
-                if loc.get_attribute('type') == 'password':
-                    raise VideoError('截图计划不能操作密码输入框。')
-                loc.press(action['value'])
-            elif kind == 'scroll':
-                loc.scroll_into_view_if_needed()
-            else:
-                loc.wait_for(state='visible')
+    from playwright.sync_api import Error
+
+    try:
+        def same_origin():
+            if origin(page.url) != origin(target['url']):
+                raise VideoError('页面已离开指定网站，已停止截图；请确认目标地址或完成登录。')
+        stage = '检查页面来源'
         same_origin()
-    web_locator(page, shot['ready']).wait_for(state='visible')
-    # Fonts and images must settle before capture; no fixed sleep substitutes for readiness.
-    page.wait_for_function('document.fonts.status === "loaded" && [...document.images].filter(i => {const r=i.getBoundingClientRect();return r.width && r.height && r.bottom>0 && r.top<innerHeight;}).every(i => i.complete && i.naturalWidth>0)', timeout=15000)
-    masks = [page.locator('input[type=password],input[autocomplete=one-time-code]')]
-    for spec in shot['mask']:
-        loc = web_locator(page, spec)
-        loc.wait_for(state='attached')
-        masks.append(loc)
-    page.screenshot(path=str(destination), full_page=False, animations='disabled', mask=masks)
-    same_origin()
+        for index, action in enumerate(shot['actions'], 1):
+            stage = f"操作 {index}/{len(shot['actions'])} {action['action']}"
+            print(f"  操作 {index}/{len(shot['actions'])}：{action['action']}", flush=True)
+            if action['action'] == 'goto':
+                page.goto(action['url'], wait_until='domcontentloaded')
+            else:
+                loc = web_locator(page, action['target'])
+                kind = action['action']
+                if kind == 'fill':
+                    if loc.get_attribute('type') == 'password' or loc.get_attribute('autocomplete') in ('current-password', 'new-password', 'one-time-code'):
+                        raise VideoError('不能从截图计划填写密码或验证码，请使用手动登录等待。')
+                    loc.fill(action['value'])
+                elif kind == 'click':
+                    loc.click()
+                elif kind == 'press':
+                    if loc.get_attribute('type') == 'password':
+                        raise VideoError('截图计划不能操作密码输入框。')
+                    loc.press(action['value'])
+                elif kind == 'scroll':
+                    # A hydrated page can replace the node after locator resolution. Re-resolve
+                    # only this idempotent operation, never retry clicks or form submissions.
+                    for attempt in range(3):
+                        loc.wait_for(state='visible')
+                        if loc.evaluate("""(element, offset) => {
+                            if (!element.isConnected) return false;
+                            const margin = element.style.getPropertyValue('scroll-margin-top');
+                            const priority = element.style.getPropertyPriority('scroll-margin-top');
+                            try {
+                                if (offset) element.style.setProperty('scroll-margin-top', `${offset}px`, 'important');
+                                element.scrollIntoView({block: 'start', inline: 'nearest', behavior: 'instant'});
+                            } finally {
+                                if (offset) {
+                                    if (margin) element.style.setProperty('scroll-margin-top', margin, priority);
+                                    else element.style.removeProperty('scroll-margin-top');
+                                }
+                            }
+                            return true;
+                        }""", action.get('offset', 0)):
+                            break
+                    else:
+                        raise VideoError(f"截图 {shot['id']} 的滚动目标持续被页面替换；请等待内容加载完成后重试。")
+                else:
+                    loc.wait_for(state='visible')
+            same_origin()
+        stage = '等待 ready 控件'
+        web_locator(page, shot['ready']).wait_for(state='visible')
+        # Native load promises avoid wait_for_function's repeated string eval under strict CSP.
+        stage = '等待可见图片和字体'
+        assets = page.evaluate("""async () => {
+            let timer;
+            const images = [...document.images].filter(image => {
+                const r = image.getBoundingClientRect();
+                return r.width && r.height && r.bottom > 0 && r.top < innerHeight;
+            });
+            try {
+                return await Promise.race([
+                    Promise.all([document.fonts.ready, ...images.map(image => image.decode())])
+                        .then(() => 'ready', () => 'failed'),
+                    new Promise(resolve => { timer = setTimeout(() => resolve('timeout'), 15000); })
+                ]);
+            } finally { clearTimeout(timer); }
+        }""")
+        if assets != 'ready':
+            reason = '等待超时' if assets == 'timeout' else '加载失败'
+            raise VideoError(f"截图 {shot['id']} 的可见图片或字体{reason}；请检查页面资源后重试。")
+        stage = '定位遮盖区域'
+        masks = [page.locator('input[type=password],input[autocomplete=one-time-code]')]
+        for spec in shot['mask']:
+            loc = web_locator(page, spec)
+            loc.wait_for(state='attached')
+            masks.append(loc)
+        stage = '保存截图'
+        page.screenshot(path=str(destination), full_page=False, animations='disabled', mask=masks)
+        same_origin()
+
+    except Error as error:
+        raise web_error(error, f"截图 {shot['id']} / {stage}") from None
 
 
 def capture_project(project):
