@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "product": {
+    "name": "产品视频示例"
+  },
+  "output": "output",
+  "voice": {
+    "speaker": "zh_female_xiaohe_uranus_bigtts"
+  },
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "chapters": [
+    {
+      "id": "workflow",
+      "title": "文稿、配音和画面",
+      "narration": "产品介绍视频可以直接读取文稿，生成配音和字幕，再把界面截图合成为视频。",
+      "steps": [
+        {
+          "at": 0,
+          "images": [
+            "assets/dark-0.png"
+          ],
+          "labels": [
+            "示例素材"
+          ],
+          "cursor": [
+            0.1,
+            0.19
+          ]
+        },
+        {
+          "at": 0.45,
+          "images": [
+            "assets/dark-1.png"
+          ],
+          "labels": [
+            "示例素材"
+          ],
+          "cursor": [
+            0.1,
+            0.27
+          ],
+          "click": true
+        }
+      ]
+    },
+    {
+      "id": "appearance",
+      "title": "展示不同界面",
+      "narration": "同一份介绍可以展示不同主题，也可以换成其他产品的截图，继续使用这套配音和视频流程。",
+      "steps": [
+        {
+          "at": 0,
+          "images": [
+            "assets/dark-1.png",
+            "assets/light-1.png"
+          ],
+          "labels": [
+            "深色示例",
+            "浅色示例"
+          ]
+        }
+      ]
+    }
+  ]
+}

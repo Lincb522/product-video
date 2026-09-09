@@ -1,0 +1,4 @@
+interface:
+  display_name: "产品介绍视频"
+  short_description: "自动采集产品界面，引导首次配音配置，生成带配音、字幕和操作演示的介绍视频"
+  default_prompt: "使用 $product-video，根据产品实际功能整理介绍，自动采集最新界面；首次使用引导配音配置，生成带字幕和操作演示的视频，保留我指定的角色与主题。"

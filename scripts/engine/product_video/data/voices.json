@@ -1,0 +1,8773 @@
+{
+  "source": "https://docs.volcengine.com/docs/6561/1257544?lang=zh",
+  "source_updated": "2026-08-31",
+  "retrieved": "2026-09-09",
+  "source_rows": 552,
+  "excluded": "25 S2S-only conversational entries are not text-to-speech voices. Account-specific cloned voices are not public.",
+  "voices": [
+    {
+      "id": "zh_female_vv_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Vivi 2.0"
+      ],
+      "languages": [
+        "语种：中文、日文、印尼、墨西哥西班牙语 方言：粤语、上海、河南、北京、天津、四川、陕西、东北"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_xiaohe_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "小何 2.0"
+      ],
+      "languages": [
+        "语种：中文 方言：粤语、上海、河南、北京、天津、四川、陕西、东北"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_m191_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "云舟 2.0"
+      ],
+      "languages": [
+        "语种：中文 方言：粤语、上海、河南、北京、天津、四川、陕西、东北"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_taocheng_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "小天 2.0"
+      ],
+      "languages": [
+        "语种：中文 方言：粤语、上海、河南、北京、天津、四川、陕西、东北"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_liufei_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "刘飞 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_sophie_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "魅力苏菲 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_qingxinnvsheng_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "清新女声 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_cancan_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "知性灿灿 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_sajiaoxuemei_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "撒娇学妹 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_tianmeixiaoyuan_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "甜美小源 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_tianmeitaozi_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "甜美桃子 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_shuangkuaisisi_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "爽快思思 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_peiqi_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "佩奇猪 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_linjianvhai_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "邻家女孩 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_shaonianzixin_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "少年梓辛 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_sunwukong_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "猴哥 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_yingyujiaoxue_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Tina老师 2.0"
+      ],
+      "languages": [
+        "中文、英式英语"
+      ],
+      "categories": [
+        "教育场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_kefunvsheng_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "暖阳女声 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_xiaoxue_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "儿童绘本 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "有声阅读"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_dayi_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "大壹 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_mizai_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "黑猫侦探社咪仔 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_jitangnv_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "鸡汤女 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_meilinvyou_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "魅力女友 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_liuchangnv_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "流畅女声 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_ruyayichen_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "儒雅逸辰 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_tim_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Tim"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_dacey_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Dacey"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_stokie_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Stokie"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_wenroumama_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "温柔妈妈 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_jieshuoxiaoming_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "解说小明 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_tvbnv_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "TVB女声 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_yizhipiannan_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "译制片男 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_qiaopinv_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "俏皮女声 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_zhishuaiyingzi_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "直率英子 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_linjiananhai_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "邻家男孩 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_silang_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "四郎 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_ruyaqingnian_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "儒雅青年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_qingcang_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "擎苍 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_xionger_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "熊二 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_yingtaowanzi_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "樱桃丸子 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_wennuanahu_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "温暖阿虎 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_naiqimengwa_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "奶气萌娃 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_popo_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "婆婆 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_gaolengyujie_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "高冷御姐 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_aojiaobazong_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "傲娇霸总 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_lanyinmianbao_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "懒音绵宝 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_fanjuanqingnian_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "反卷青年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_wenroushunv_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "温柔淑女 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_gufengshaoyu_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "古风少御 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_huolixiaoge_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "活力小哥 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_baqiqingshu_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "霸气青叔 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "有声阅读"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_xuanyijieshuo_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "悬疑解说 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "有声阅读"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_mengyatou_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "萌丫头 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_tiexinnvsheng_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "贴心女声 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_jitangmei_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "鸡汤妹妹 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_cixingjieshuonan_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "磁性解说男声 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_liangsangmengzai_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "亮嗓萌仔 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_kailangjiejie_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "开朗姐姐 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_gaolengchenwen_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "高冷沉稳 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_shenyeboke_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "深夜播客 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_lubanqihao_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "鲁班七号 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_jiaochuannv_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "娇喘女声 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_linxiao_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "林潇 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_lingling_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "玲玲姐姐 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_chunribu_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "春日部姐姐 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_tangseng_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "唐僧 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_zhuangzhou_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "庄周 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_kailangdidi_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "开朗弟弟 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_zhubajie_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "猪八戒 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_ganmaodianyin_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "感冒电音姐姐 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_chanmeinv_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "谄媚女声 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_nvleishen_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "女雷神 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_qinqienv_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "亲切女声 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_kuailexiaodong_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "快乐小东 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_kailangxuezhang_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "开朗学长 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_youyoujunzi_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "悠悠君子 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_wenjingmaomao_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "文静毛毛 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_zhixingnv_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "知性女声 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_qingshuangnanda_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "清爽男大 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_yuanboxiaoshu_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "渊博小叔 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_yangguangqingnian_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "阳光青年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_qingchezizi_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "清澈梓梓 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_tianmeiyueyue_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "甜美悦悦 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_xinlingjitang_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "心灵鸡汤 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_wenrouxiaoge_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "温柔小哥 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_roumeinvyou_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "柔美女友 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_dongfanghaoran_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "东方浩然 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_wenrouxiaoya_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "温柔小雅 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_tiancaitongsheng_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "天才童声 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_wuzetian_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "武则天 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_gujie_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "顾姐 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_male_guanggaojieshuo_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "广告解说 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "zh_female_shaoergushi_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "少儿故事 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "有声阅读"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_en_female_charlie_tob",
+      "model": "2.0",
+      "names": [
+        "Charlie 2.0"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_en_male_ethan_tob",
+      "model": "2.0",
+      "names": [
+        "Ethan 2.0"
+      ],
+      "languages": [
+        "澳洲英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_en_male_alastor_tob",
+      "model": "2.0",
+      "names": [
+        "Alastor 2.0"
+      ],
+      "languages": [
+        "英式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_en_male_chucky_tob",
+      "model": "2.0",
+      "names": [
+        "Chucky 2.0"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_en_male_noah_tob",
+      "model": "2.0",
+      "names": [
+        "Noah 2.0"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_en_male_jigsaw_tob",
+      "model": "2.0",
+      "names": [
+        "Jigsaw 2.0"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_en_male_clown_man_tob",
+      "model": "2.0",
+      "names": [
+        "Clown Man 2.0"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_en_male_cartoon_chef_tob",
+      "model": "2.0",
+      "names": [
+        "Cartoon Chef 2.0"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_en_male_frosty_man_tob",
+      "model": "2.0",
+      "names": [
+        "Frosty Man 2.0"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_en_male_the_grinch_tob",
+      "model": "2.0",
+      "names": [
+        "The Grinch 2.0"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_en_male_kevin_mccallister_tob",
+      "model": "2.0",
+      "names": [
+        "Kevin McCallister 2.0"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_en_male_michael_tob",
+      "model": "2.0",
+      "names": [
+        "Michael 2.0"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_en_male_big_boogie_tob",
+      "model": "2.0",
+      "names": [
+        "Big Boogie 2.0"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_en_male_xavier_tob",
+      "model": "2.0",
+      "names": [
+        "Xavier 2.0"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_en_male_zayne_tob",
+      "model": "2.0",
+      "names": [
+        "Zayne 2.0"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_kefuwanjun_tob",
+      "model": "2.0",
+      "names": [
+        "客服婉君 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_yingxiaokefu_v2_tob",
+      "model": "2.0",
+      "names": [
+        "营销小楠 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_aojiaonvyou_tob",
+      "model": "2.0",
+      "names": [
+        "傲娇女友 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演,S2S-SC"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_aomanjiaosheng_tob",
+      "model": "2.0",
+      "names": [
+        "傲慢娇声 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_xiemeinvwang_tob",
+      "model": "2.0",
+      "names": [
+        "邪魅女王 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_bingjiaojiejie_tob",
+      "model": "2.0",
+      "names": [
+        "病娇姐姐 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演,S2S-SC"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_bingjiaomengmei_tob",
+      "model": "2.0",
+      "names": [
+        "病娇萌妹 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_bingruoshaonv_tob",
+      "model": "2.0",
+      "names": [
+        "病弱少女 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_chengshuwenrou_tob",
+      "model": "2.0",
+      "names": [
+        "成熟温柔 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_chengshujiejie_tob",
+      "model": "2.0",
+      "names": [
+        "成熟姐姐 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演,S2S-SC"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_chunzhenshaonv_tob",
+      "model": "2.0",
+      "names": [
+        "纯真少女 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_chunchenvsheng_tob",
+      "model": "2.0",
+      "names": [
+        "纯澈女生 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_wumeikeren_tob",
+      "model": "2.0",
+      "names": [
+        "妩媚可人 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_guaiqiaokeer_tob",
+      "model": "2.0",
+      "names": [
+        "乖巧可儿 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_heainainai_tob",
+      "model": "2.0",
+      "names": [
+        "和蔼奶奶 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_huopodiaoman_tob",
+      "model": "2.0",
+      "names": [
+        "活泼刁蛮 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_huoponvhai_tob",
+      "model": "2.0",
+      "names": [
+        "活泼女孩 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_jiaohannvwang_tob",
+      "model": "2.0",
+      "names": [
+        "娇憨女王 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_jiaoruoluoli_tob",
+      "model": "2.0",
+      "names": [
+        "娇弱萝莉 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_jiaxiaozi_tob",
+      "model": "2.0",
+      "names": [
+        "假小子 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_jinglingxiangdao_tob",
+      "model": "2.0",
+      "names": [
+        "精灵向导 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_kailangtingting_tob",
+      "model": "2.0",
+      "names": [
+        "开朗婷婷 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_kaixinxiaohong_tob",
+      "model": "2.0",
+      "names": [
+        "开心小鸿 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_keainvsheng_tob",
+      "model": "2.0",
+      "names": [
+        "可爱女生 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演,S2S-SC"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_lingdongxinxin_tob",
+      "model": "2.0",
+      "names": [
+        "灵动欣欣 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_linjuayi_tob",
+      "model": "2.0",
+      "names": [
+        "邻居阿姨 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_tianmeijiaoqiao_tob",
+      "model": "2.0",
+      "names": [
+        "甜美娇俏 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_qinglenggaoya_tob",
+      "model": "2.0",
+      "names": [
+        "清冷高雅 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_lixingyuanzi_tob",
+      "model": "2.0",
+      "names": [
+        "理性圆子 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_xingganmeihuo_tob",
+      "model": "2.0",
+      "names": [
+        "性感魅惑 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_nuanxinqianqian_tob",
+      "model": "2.0",
+      "names": [
+        "暖心茜茜 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_nuanxinxuejie_tob",
+      "model": "2.0",
+      "names": [
+        "暖心学姐 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演,S2S-SC"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_qingtianmeimei_tob",
+      "model": "2.0",
+      "names": [
+        "清甜莓莓 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_qingtiantaotao_tob",
+      "model": "2.0",
+      "names": [
+        "清甜桃桃 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_qingxixiaoxue_tob",
+      "model": "2.0",
+      "names": [
+        "清晰小雪 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_qingxinshaonv_tob",
+      "model": "2.0",
+      "names": [
+        "倾心少女 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_rouguhunshi_tob",
+      "model": "2.0",
+      "names": [
+        "柔骨魂师 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_ruanmengtangtang_tob",
+      "model": "2.0",
+      "names": [
+        "软萌糖糖 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_ruanmengtuanzi_tob",
+      "model": "2.0",
+      "names": [
+        "软萌团子 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_tianmeihuopo_tob",
+      "model": "2.0",
+      "names": [
+        "甜美活泼 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_tianmeixiaoju_tob",
+      "model": "2.0",
+      "names": [
+        "甜美小橘 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_tianmeixiaoyu_tob",
+      "model": "2.0",
+      "names": [
+        "甜美小雨 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_tiaopigongzhu_tob",
+      "model": "2.0",
+      "names": [
+        "调皮公主 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_tiexinnvyou_tob",
+      "model": "2.0",
+      "names": [
+        "贴心女友 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演,S2S-SC"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_wenrounvshen_tob",
+      "model": "2.0",
+      "names": [
+        "温柔女神 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_wenrouwenya_tob",
+      "model": "2.0",
+      "names": [
+        "温柔文雅 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景,S2S-SC"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_zhixinjiejie_tob",
+      "model": "2.0",
+      "names": [
+        "知心姐姐 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_wumeiyujie_tob",
+      "model": "2.0",
+      "names": [
+        "妩媚御姐 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演,S2S-SC"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_yuanqitianmei_tob",
+      "model": "2.0",
+      "names": [
+        "元气甜妹 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_xiemeiyujie_tob",
+      "model": "2.0",
+      "names": [
+        "邪魅御姐 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_xingganyujie_tob",
+      "model": "2.0",
+      "names": [
+        "性感御姐 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演,S2S-SC"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_xiuliqianqian_tob",
+      "model": "2.0",
+      "names": [
+        "秀丽倩倩 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_tiexinguimi_tob",
+      "model": "2.0",
+      "names": [
+        "贴心闺蜜 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_tiexinmeimei_tob",
+      "model": "2.0",
+      "names": [
+        "贴心妹妹 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_wenroubaiyueguang_tob",
+      "model": "2.0",
+      "names": [
+        "温柔白月光 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_chuliannvyou_tob",
+      "model": "2.0",
+      "names": [
+        "初恋女友 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_zhixingwenwan_tob",
+      "model": "2.0",
+      "names": [
+        "知性温婉 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_aoqilingren_tob",
+      "model": "2.0",
+      "names": [
+        "傲气凌人 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演,S2S-SC"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_anrenqinzhu_tob",
+      "model": "2.0",
+      "names": [
+        "黯刃秦主 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_aojiaogongzi_tob",
+      "model": "2.0",
+      "names": [
+        "傲娇公子 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演,S2S-SC"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_aojiaojingying_tob",
+      "model": "2.0",
+      "names": [
+        "傲娇精英 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演,S2S-SC"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_aomanqingnian_tob",
+      "model": "2.0",
+      "names": [
+        "傲慢青年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_aomanshaoye_tob",
+      "model": "2.0",
+      "names": [
+        "傲慢少爷 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演,S2S-SC"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_zhenbiandiyu_tob",
+      "model": "2.0",
+      "names": [
+        "枕边低语 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_badaoshaoye_tob",
+      "model": "2.0",
+      "names": [
+        "霸道少爷 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演,S2S-SC"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_badaozongcai_tob",
+      "model": "2.0",
+      "names": [
+        "霸道总裁 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_bingjiaobailian_tob",
+      "model": "2.0",
+      "names": [
+        "病娇白莲 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演,S2S-SC"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_bingjiaodidi_tob",
+      "model": "2.0",
+      "names": [
+        "病娇弟弟 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演,S2S-SC"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_bingjiaogege_tob",
+      "model": "2.0",
+      "names": [
+        "病娇哥哥 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_bingjiaonanyou_tob",
+      "model": "2.0",
+      "names": [
+        "病娇男友 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_bingjiaoshaonian_tob",
+      "model": "2.0",
+      "names": [
+        "病娇少年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_bingruogongzi_tob",
+      "model": "2.0",
+      "names": [
+        "病弱公子 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_bingruoshaonian_tob",
+      "model": "2.0",
+      "names": [
+        "病弱少年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_bujiqingnian_tob",
+      "model": "2.0",
+      "names": [
+        "不羁青年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_chunhoudiyin_tob",
+      "model": "2.0",
+      "names": [
+        "醇厚低音 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_paoxiaoxiaoge_tob",
+      "model": "2.0",
+      "names": [
+        "咆哮小哥 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_yangyang_tob",
+      "model": "2.0",
+      "names": [
+        "炀炀 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_chanruoshaoye_tob",
+      "model": "2.0",
+      "names": [
+        "孱弱少爷 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_chengshuzongcai_tob",
+      "model": "2.0",
+      "names": [
+        "成熟总裁 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演,S2S-SC"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_chenwenmingzai_tob",
+      "model": "2.0",
+      "names": [
+        "沉稳明仔 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_qingyisugan_tob",
+      "model": "2.0",
+      "names": [
+        "清逸苏感 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_chunzhenxuedi_tob",
+      "model": "2.0",
+      "names": [
+        "纯真学弟 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_cixingnansang_tob",
+      "model": "2.0",
+      "names": [
+        "磁性男嗓 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演,S2S-SC"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_cujingnansheng_tob",
+      "model": "2.0",
+      "names": [
+        "醋精男生 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_cujingnanyou_tob",
+      "model": "2.0",
+      "names": [
+        "醋精男友 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演,S2S-SC"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_diyinchenyu_tob",
+      "model": "2.0",
+      "names": [
+        "低音沉郁 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_fengfashaonian_tob",
+      "model": "2.0",
+      "names": [
+        "风发少年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演,S2S-SC"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_ruyagongzi_tob",
+      "model": "2.0",
+      "names": [
+        "儒雅公子 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "有声阅读"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_fuheigongzi_tob",
+      "model": "2.0",
+      "names": [
+        "腹黑公子 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演,S2S-SC"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_ganjingshaonian_tob",
+      "model": "2.0",
+      "names": [
+        "干净少年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_gaolengzongcai_tob",
+      "model": "2.0",
+      "names": [
+        "高冷总裁 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_guaogongzi_tob",
+      "model": "2.0",
+      "names": [
+        "孤傲公子 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_gugaogongzi_tob",
+      "model": "2.0",
+      "names": [
+        "孤高公子 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_guiyishenmi_tob",
+      "model": "2.0",
+      "names": [
+        "诡异神秘 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_guzhibingjiao_tob",
+      "model": "2.0",
+      "names": [
+        "固执病娇 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_hanhoudunshi_tob",
+      "model": "2.0",
+      "names": [
+        "憨厚敦实 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_huoliqingnian_tob",
+      "model": "2.0",
+      "names": [
+        "活力青年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_huoponanyou_tob",
+      "model": "2.0",
+      "names": [
+        "活泼男友 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_huoposhuanglang_tob",
+      "model": "2.0",
+      "names": [
+        "活泼爽朗 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_huzishushu_tob",
+      "model": "2.0",
+      "names": [
+        "胡子叔叔 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_jijiazhineng_tob",
+      "model": "2.0",
+      "names": [
+        "机甲智能 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_jingyingqingnian_tob",
+      "model": "2.0",
+      "names": [
+        "精英青年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_junyigongzi_tob",
+      "model": "2.0",
+      "names": [
+        "俊逸公子 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_kailangqingkuai_tob",
+      "model": "2.0",
+      "names": [
+        "开朗轻快 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_kailangqingnian_tob",
+      "model": "2.0",
+      "names": [
+        "开朗青年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_lanyincaohunshi_tob",
+      "model": "2.0",
+      "names": [
+        "蓝银草魂师 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_lengaozongcai_tob",
+      "model": "2.0",
+      "names": [
+        "冷傲总裁 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_lengdanshuli_tob",
+      "model": "2.0",
+      "names": [
+        "冷淡疏离 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_lengjungaozhi_tob",
+      "model": "2.0",
+      "names": [
+        "冷峻高智 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_lengjunshangsi_tob",
+      "model": "2.0",
+      "names": [
+        "冷峻上司 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_lengkugege_tob",
+      "model": "2.0",
+      "names": [
+        "冷酷哥哥 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_lenglianxiongzhang_tob",
+      "model": "2.0",
+      "names": [
+        "冷脸兄长 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_lenglianxueba_tob",
+      "model": "2.0",
+      "names": [
+        "冷脸学霸 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_lengmonanyou_tob",
+      "model": "2.0",
+      "names": [
+        "冷漠男友 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_lengmoxiongzhang_tob",
+      "model": "2.0",
+      "names": [
+        "冷漠兄长 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_lingyunqingnian_tob",
+      "model": "2.0",
+      "names": [
+        "凌云青年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_qinglengjingui_tob",
+      "model": "2.0",
+      "names": [
+        "清冷矜贵 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_lvchaxiaoge_tob",
+      "model": "2.0",
+      "names": [
+        "绿茶小哥 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_mengdongqingnian_tob",
+      "model": "2.0",
+      "names": [
+        "懵懂青年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_menyoupingxiaoge_tob",
+      "model": "2.0",
+      "names": [
+        "闷油瓶小哥 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_xiaozhangxiaoge_tob",
+      "model": "2.0",
+      "names": [
+        "嚣张小哥 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_nianrennanyou_tob",
+      "model": "2.0",
+      "names": [
+        "粘人男友 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_neiliancaijun_tob",
+      "model": "2.0",
+      "names": [
+        "内敛才俊 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "有声阅读"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_nuanxintitie_tob",
+      "model": "2.0",
+      "names": [
+        "暖心体贴 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_pianpiangongzi_tob",
+      "model": "2.0",
+      "names": [
+        "翩翩公子 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_chenwenyouya_tob",
+      "model": "2.0",
+      "names": [
+        "沉稳优雅 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_qingsexiaosheng_tob",
+      "model": "2.0",
+      "names": [
+        "青涩小生 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_qingseqingnian_tob",
+      "model": "2.0",
+      "names": [
+        "青涩青年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_qingshuangshaonian_tob",
+      "model": "2.0",
+      "names": [
+        "清爽少年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_qingxinbobo_tob",
+      "model": "2.0",
+      "names": [
+        "清新波波 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_qinqieqingnian_tob",
+      "model": "2.0",
+      "names": [
+        "亲切青年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_qinqiexiaozhuo_tob",
+      "model": "2.0",
+      "names": [
+        "亲切小卓 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_qinglangwenrun_tob",
+      "model": "2.0",
+      "names": [
+        "清朗温润 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_rexueshaonian_tob",
+      "model": "2.0",
+      "names": [
+        "热血少年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_ruyacaijun_tob",
+      "model": "2.0",
+      "names": [
+        "儒雅才俊 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_ruyajunzi_tob",
+      "model": "2.0",
+      "names": [
+        "儒雅君子 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_ruyazongcai_tob",
+      "model": "2.0",
+      "names": [
+        "儒雅总裁 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_sajiaonansheng_tob",
+      "model": "2.0",
+      "names": [
+        "撒娇男生 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_sajiaonanyou_tob",
+      "model": "2.0",
+      "names": [
+        "撒娇男友 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_sajiaonianren_tob",
+      "model": "2.0",
+      "names": [
+        "撒娇粘人 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_satuoqingnian_tob",
+      "model": "2.0",
+      "names": [
+        "洒脱青年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_shaonianjiangjun_tob",
+      "model": "2.0",
+      "names": [
+        "少年将军 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_shenchenzongcai_tob",
+      "model": "2.0",
+      "names": [
+        "深沉总裁 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_jilingxiaohuo_tob",
+      "model": "2.0",
+      "names": [
+        "机灵小伙 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_shenmifashi_tob",
+      "model": "2.0",
+      "names": [
+        "神秘法师 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_shuaizhenxiaohuo_tob",
+      "model": "2.0",
+      "names": [
+        "率真小伙 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_shuanglangxiaoyang_tob",
+      "model": "2.0",
+      "names": [
+        "爽朗小阳 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_dichenqianquan_tob",
+      "model": "2.0",
+      "names": [
+        "低沉缱绻 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_siwenqingnian_tob",
+      "model": "2.0",
+      "names": [
+        "斯文青年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_tianxinanyou_tob",
+      "model": "2.0",
+      "names": [
+        "甜系男友 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_tiexinnanyou_tob",
+      "model": "2.0",
+      "names": [
+        "贴心男友 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_wenrounantongzhuo_tob",
+      "model": "2.0",
+      "names": [
+        "温柔男同桌 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_wenrounanyou_tob",
+      "model": "2.0",
+      "names": [
+        "温柔男友 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_wenrouxuezhang_tob",
+      "model": "2.0",
+      "names": [
+        "温柔学长 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_wenrunxuezhe_tob",
+      "model": "2.0",
+      "names": [
+        "温润学者 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_wenshunshaonian_tob",
+      "model": "2.0",
+      "names": [
+        "温顺少年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_guayanxiaoge_tob",
+      "model": "2.0",
+      "names": [
+        "寡言小哥 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_xiaohouye_tob",
+      "model": "2.0",
+      "names": [
+        "小侯爷 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_naiqixiaosheng_tob",
+      "model": "2.0",
+      "names": [
+        "奶气小生 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_xiaosasuixing_tob",
+      "model": "2.0",
+      "names": [
+        "潇洒随性 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_wenrouneilian_tob",
+      "model": "2.0",
+      "names": [
+        "温柔内敛 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_xuebanantongzhuo_tob",
+      "model": "2.0",
+      "names": [
+        "学霸男同桌 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_xuebatongzhuo_tob",
+      "model": "2.0",
+      "names": [
+        "学霸同桌 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_yangguangyangyang_tob",
+      "model": "2.0",
+      "names": [
+        "阳光洋洋 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_wennuanshaonian_tob",
+      "model": "2.0",
+      "names": [
+        "温暖少年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "有声阅读"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_yiqishaonian_tob",
+      "model": "2.0",
+      "names": [
+        "意气少年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_younidashu_tob",
+      "model": "2.0",
+      "names": [
+        "油腻大叔 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_youmodaye_tob",
+      "model": "2.0",
+      "names": [
+        "幽默大爷 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_youmoshushu_tob",
+      "model": "2.0",
+      "names": [
+        "幽默叔叔 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_youroubangzhu_tob",
+      "model": "2.0",
+      "names": [
+        "优柔帮主 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_yourougongzi_tob",
+      "model": "2.0",
+      "names": [
+        "优柔公子 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_yuanqishaonian_tob",
+      "model": "2.0",
+      "names": [
+        "元气少年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_zhangjianjunzi_tob",
+      "model": "2.0",
+      "names": [
+        "仗剑君子 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_zhangjianxiake_tob",
+      "model": "2.0",
+      "names": [
+        "仗剑侠客 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_zhengzhiqingnian_tob",
+      "model": "2.0",
+      "names": [
+        "正直青年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_zhishuaiqingnian_tob",
+      "model": "2.0",
+      "names": [
+        "直率青年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_zhongerqingnian_tob",
+      "model": "2.0",
+      "names": [
+        "中二青年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_zifuqingnian_tob",
+      "model": "2.0",
+      "names": [
+        "自负青年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_zixinqingnian_tob",
+      "model": "2.0",
+      "names": [
+        "自信青年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_tiancaitongzhuo_tob",
+      "model": "2.0",
+      "names": [
+        "天才同桌 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_qingxinmumu_tob",
+      "model": "2.0",
+      "names": [
+        "清新沐沐 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_wenwanshanshan_tob",
+      "model": "2.0",
+      "names": [
+        "温婉珊珊 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_reqingaina_tob",
+      "model": "2.0",
+      "names": [
+        "热情艾娜 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_male_shuanglangshaonian_tob",
+      "model": "2.0",
+      "names": [
+        "爽朗少年 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ICL_uranus_zh_female_qingyingduoduo_tob",
+      "model": "2.0",
+      "names": [
+        "轻盈朵朵 2.0"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "客服场景"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ar_female_dina_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Dina"
+      ],
+      "languages": [
+        "阿拉伯语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,阿拉伯语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ar_female_fatma_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Fatma"
+      ],
+      "languages": [
+        "阿拉伯语"
+      ],
+      "categories": [
+        "趣味口音,外语音色,阿拉伯语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ar_male_youssef_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Youssef"
+      ],
+      "languages": [
+        "阿拉伯语"
+      ],
+      "categories": [
+        "通用场景,有声阅读,外语音色,阿拉伯语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "de_female_bv081_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Stella"
+      ],
+      "languages": [
+        "德语"
+      ],
+      "categories": [
+        "教学场景, 客服场景,外语音色,德语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "de_male_sven_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Sven"
+      ],
+      "languages": [
+        "德语"
+      ],
+      "categories": [
+        "通用场景, 教学场景,外语音色,德语"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": false
+    },
+    {
+      "id": "en_male_adam-imitation_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Rowan"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景,有声阅读,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_alberto_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Alberto"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景, 教学场景,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_alex_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Alex"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_allison_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Allison"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_authoritative-british_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Charlotte"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "教学场景, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_authoritative-informative_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Margaret"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景,有声阅读,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_bill-jones_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Jones"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "趣味口音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_bill_jones_corey_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Bill"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": false
+    },
+    {
+      "id": "en_male_brad_pitt_p1_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Brad_Pitt"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_brittney_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Brittney"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_brittney_pimintel_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Zoe"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "有声阅读, 客服场景,美式英语,外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": false
+    },
+    {
+      "id": "en_male_bruce_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Adrian"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_chandler_p1_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Leo"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "趣味口音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_cowboy-bob_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Bob"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景, 教学场景,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_cowboy_john_b_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "John"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "趣味口音, 角色扮演,美式英语,外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": false
+    },
+    {
+      "id": "en_male_david_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "David"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景,有声阅读,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_deep-voice_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Orion"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "趣味口音, 角色扮演,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_diyuwenrounan_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Julian"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "有声阅读,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_evil-guy-oxley_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Harrison"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_excited-male-voice_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Jasper"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "趣味口音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_father-christmas_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Alfred"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景,有声阅读, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_female_tutor_ms-jenny_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Holly"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "教学场景, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": false
+    },
+    {
+      "id": "en_male_fernando-martinez_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Felix"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景, 教学场景,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_godfather_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Godfather"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "有声阅读, 角色扮演,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_gollum_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Gollum"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "角色扮演,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_hades_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Beau"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_hayley_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Hayley"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "教学场景, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_jamie_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Jamie"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景, 教学场景, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_jane_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Jane"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_jenny_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Jenny"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景, 客服场景,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_jidongchuanjiaoshi_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Blaze"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "趣味口音, 角色扮演,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_jimmy_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Jimmy"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_joanne_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Joanne"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景,有声阅读, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_joker_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Joker"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "趣味口音, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_josh_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Josh"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_josh_coery_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Josiah"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "教学场景, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": false
+    },
+    {
+      "id": "en_male_kevin_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Kevin"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "教学场景, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_knightley_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Knightley"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "有声阅读,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_lana_del_rey_kelley_d_p1_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Lynn"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "角色扮演,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_lana_del_rey_parky_s_p1_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Ivy"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "客服场景,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_marcus_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Marcus"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景,有声阅读,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_mel_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Mel"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "教学场景, 客服场景,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_michael_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Hank"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景, 教学场景,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_michael-mouse_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Chip"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "趣味口音, 角色扮演,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_michael_kevin_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Michael_Kevin"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景, 教学场景,美式英语,外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": false
+    },
+    {
+      "id": "en_male_motivational-coach_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Rory"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "趣味口音, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_myra_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Myra"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "教学场景,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_myra_cmb_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Sunny"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "教学场景, 客服场景,美式英语,外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": false
+    },
+    {
+      "id": "en_female_nadia_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Blair"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_natasha_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Natasha"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_pleasant-female_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Elaine"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "有声阅读,视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_rachel_p1_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Rachel"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "趣味口音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_ronald_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Ronald"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "有声阅读,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_russell_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Russell"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景, 教学场景,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_scarlet_p1_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Scarlet"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "客服场景,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_sharron_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Sharron"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "趣味口音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_simba_p1_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Simba"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_skye_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Skye"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_tom_hiddleston_p1_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Tom"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景,有声阅读,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_valentino_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Valentino"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_valentino_corey_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Clark"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "视频配音,美式英语,外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": false
+    },
+    {
+      "id": "en_female_wenrouzhishijieshuonv_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Megan"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "客服场景,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_xinwenjieshuonv_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Kayla"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "角色扮演,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_male_yangguangjieshuonan_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Dylan"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "en_female_zendaya_p1_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Zendaya"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "教学场景, 客服场景,美式英语,外语音色"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "es_female_bv084_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Gracie"
+      ],
+      "languages": [
+        "西班牙语"
+      ],
+      "categories": [
+        "通用场景, 客服场景,外语音色,西班牙语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "es_male_dani_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Dani"
+      ],
+      "languages": [
+        "西班牙语"
+      ],
+      "categories": [
+        "有声阅读,视频配音,外语音色,西班牙语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "es_male_guillem_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Guillem"
+      ],
+      "languages": [
+        "西班牙语"
+      ],
+      "categories": [
+        "有声阅读,外语音色,西班牙语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "es_female_ht_mx_f6_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Marisol"
+      ],
+      "languages": [
+        "西班牙语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,西班牙语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "fr_female_fr_bv078_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Simone"
+      ],
+      "languages": [
+        "法语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,法语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "fr_female_fr_f47_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Camille"
+      ],
+      "languages": [
+        "法语"
+      ],
+      "categories": [
+        "教学场景, 客服场景,外语音色,法语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "fr_male_fr_m29_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Maurice"
+      ],
+      "languages": [
+        "法语"
+      ],
+      "categories": [
+        "有声阅读,视频配音,外语音色,法语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "fr_male_usseau_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Usseau"
+      ],
+      "languages": [
+        "法语"
+      ],
+      "categories": [
+        "通用场景, 客服场景,外语音色,法语"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": false
+    },
+    {
+      "id": "id_male_bv160_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Rocco"
+      ],
+      "languages": [
+        "印尼语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,印尼语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "id_male_bv160dialogue_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Jude"
+      ],
+      "languages": [
+        "印尼语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,印尼语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "id_male_bv160narration_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Hugo"
+      ],
+      "languages": [
+        "印尼语"
+      ],
+      "categories": [
+        "有声阅读,视频配音,外语音色,印尼语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "id_female_bv161_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Clara"
+      ],
+      "languages": [
+        "印尼语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,印尼语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "id_female_bv161dialogue_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Sylvia"
+      ],
+      "languages": [
+        "印尼语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,印尼语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "id_female_bv161narration_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Celeste"
+      ],
+      "languages": [
+        "印尼语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,印尼语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "id_female_bv164_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Crew"
+      ],
+      "languages": [
+        "印尼语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,印尼语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "id_male_bv164dialogue_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Elian"
+      ],
+      "languages": [
+        "印尼语"
+      ],
+      "categories": [
+        "视频配音,外语音色,印尼语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "id_male_bv164narration_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Ronan"
+      ],
+      "languages": [
+        "印尼语"
+      ],
+      "categories": [
+        "有声阅读,视频配音,外语音色,印尼语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "id_female_f20_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Chloe"
+      ],
+      "languages": [
+        "印尼语"
+      ],
+      "categories": [
+        "视频配音,外语音色,印尼语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "id_male_han_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Han"
+      ],
+      "languages": [
+        "印尼语"
+      ],
+      "categories": [
+        "通用场景,外语音色,印尼语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": false
+    },
+    {
+      "id": "id_male_m08_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Kyle"
+      ],
+      "languages": [
+        "印尼语"
+      ],
+      "categories": [
+        "通用场景, 教学场景,外语音色,印尼语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "id_female_phulia_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Phulia"
+      ],
+      "languages": [
+        "印尼语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,印尼语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ja_female_bv024_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Bonnie"
+      ],
+      "languages": [
+        "日语"
+      ],
+      "categories": [
+        "通用场景, 教学场景,外语音色,日语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ja_female_bv520_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Poppy"
+      ],
+      "languages": [
+        "日语"
+      ],
+      "categories": [
+        "视频配音, 角色扮演,外语音色,日语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ja_female_bv521_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Aoi"
+      ],
+      "languages": [
+        "日语"
+      ],
+      "categories": [
+        "趣味口音, 角色扮演,外语音色,日语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ja_female_bv522_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Hana"
+      ],
+      "languages": [
+        "日语"
+      ],
+      "categories": [
+        "通用场景, 教学场景, 客服场景,外语音色,日语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ja_female_bv523_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Lily"
+      ],
+      "languages": [
+        "日语"
+      ],
+      "categories": [
+        "趣味口音, 角色扮演,外语音色,日语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ja_male_bv524_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Ken"
+      ],
+      "languages": [
+        "日语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,日语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ja_female_minimi_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Minimi"
+      ],
+      "languages": [
+        "日语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,日语"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": false
+    },
+    {
+      "id": "ja_female_shirou_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Shirou"
+      ],
+      "languages": [
+        "日语"
+      ],
+      "categories": [
+        "视频配音, 角色扮演,外语音色,日语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ko_male_bv545_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Jay"
+      ],
+      "languages": [
+        "韩语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,韩语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ko_female_bv546_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Momo"
+      ],
+      "languages": [
+        "韩语"
+      ],
+      "categories": [
+        "视频配音, 角色扮演,外语音色,韩语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ko_male_m03_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Minho"
+      ],
+      "languages": [
+        "韩语"
+      ],
+      "categories": [
+        "通用场景, 客服场景,外语音色,韩语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ko_male_shane_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Shane"
+      ],
+      "languages": [
+        "韩语"
+      ],
+      "categories": [
+        "有声阅读, 教学场景, 视频配音,外语音色,韩语"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": false
+    },
+    {
+      "id": "ms_male_ham_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Ham"
+      ],
+      "languages": [
+        "马来语"
+      ],
+      "categories": [
+        "通用场景, 教学场景,外语音色,马来语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ms_male_naim_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Naim"
+      ],
+      "languages": [
+        "马来语"
+      ],
+      "categories": [
+        "通用场景, 客服场景,外语音色,马来语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "mx_female_bv065_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Irene"
+      ],
+      "languages": [
+        "墨西哥西语"
+      ],
+      "categories": [
+        "教学场景, 视频配音,外语音色,墨西哥西语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "mx_male_bv165dialogue_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Diego"
+      ],
+      "languages": [
+        "墨西哥西语"
+      ],
+      "categories": [
+        "有声阅读,视频配音,外语音色,墨西哥西语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "mx_male_bv165narrator_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Marcos"
+      ],
+      "languages": [
+        "墨西哥西语"
+      ],
+      "categories": [
+        "有声阅读,视频配音,外语音色,墨西哥西语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "mx_female_bv166dialogue_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Lucy"
+      ],
+      "languages": [
+        "墨西哥西语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,墨西哥西语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "mx_female_bv166emotion_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Rosa"
+      ],
+      "languages": [
+        "墨西哥西语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,墨西哥西语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "mx_female_bv166narrator_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Freya"
+      ],
+      "languages": [
+        "墨西哥西语"
+      ],
+      "categories": [
+        "有声阅读, 视频配音, 客服场景,外语音色,墨西哥西语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "mx_male_felipe_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Felipe"
+      ],
+      "languages": [
+        "墨西哥西语"
+      ],
+      "categories": [
+        "通用场景,有声阅读,外语音色,墨西哥西语"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": false
+    },
+    {
+      "id": "mx_male_ht_mx_m012_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Derek"
+      ],
+      "languages": [
+        "墨西哥西语"
+      ],
+      "categories": [
+        "教学场景, 视频配音,外语音色,墨西哥西语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "mx_female_leslie_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Leslie"
+      ],
+      "languages": [
+        "墨西哥西语"
+      ],
+      "categories": [
+        "通用场景, 客服场景,外语音色,墨西哥西语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "mx_male_marcelo_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Marcelo"
+      ],
+      "languages": [
+        "墨西哥西语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,墨西哥西语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "pt_male_bv172_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Sam"
+      ],
+      "languages": [
+        "巴西葡萄牙语"
+      ],
+      "categories": [
+        "通用场景, 客服场景,外语音色,巴西葡萄牙语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "pt_male_bv172dialogue_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Walter"
+      ],
+      "languages": [
+        "巴西葡萄牙语"
+      ],
+      "categories": [
+        "视频配音,外语音色,巴西葡萄牙语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "pt_male_bv172emotion_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Vincent"
+      ],
+      "languages": [
+        "巴西葡萄牙语"
+      ],
+      "categories": [
+        "教学场景, 视频配音,外语音色,巴西葡萄牙语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "pt_male_bv172narrator_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Miles"
+      ],
+      "languages": [
+        "巴西葡萄牙语"
+      ],
+      "categories": [
+        "有声阅读, 角色扮演,外语音色,巴西葡萄牙语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "pt_female_bv173_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Diana"
+      ],
+      "languages": [
+        "巴西葡萄牙语"
+      ],
+      "categories": [
+        "通用场景, 教学场景,外语音色,巴西葡萄牙语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "pt_female_bv173dialogue_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Elena"
+      ],
+      "languages": [
+        "巴西葡萄牙语"
+      ],
+      "categories": [
+        "视频配音, 客服场景,外语音色,巴西葡萄牙语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "pt_female_bv173emotion_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Lola"
+      ],
+      "languages": [
+        "巴西葡萄牙语"
+      ],
+      "categories": [
+        "通用场景, 教学场景,外语音色,巴西葡萄牙语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "pt_female_bv173narrator_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Emma"
+      ],
+      "languages": [
+        "巴西葡萄牙语"
+      ],
+      "categories": [
+        "视频配音, 客服场景,外语音色,巴西葡萄牙语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "pt_female_bv530_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Sofia"
+      ],
+      "languages": [
+        "巴西葡萄牙语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,巴西葡萄牙语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "pt_male_bv531_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Arthur"
+      ],
+      "languages": [
+        "巴西葡萄牙语"
+      ],
+      "categories": [
+        "通用场景, 教学场景,外语音色,巴西葡萄牙语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "pt_female_mari_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Mari"
+      ],
+      "languages": [
+        "巴西葡萄牙语"
+      ],
+      "categories": [
+        "教学场景, 视频配音,外语音色,巴西葡萄牙语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "pt_male_martins_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Toby"
+      ],
+      "languages": [
+        "巴西葡萄牙语"
+      ],
+      "categories": [
+        "通用场景, 教学场景,外语音色,巴西葡萄牙语"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": false
+    },
+    {
+      "id": "pt_male_rael_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Rael"
+      ],
+      "languages": [
+        "巴西葡萄牙语"
+      ],
+      "categories": [
+        "教学场景, 视频配音,外语音色,巴西葡萄牙语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ru_female_af07_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Amelia"
+      ],
+      "languages": [
+        "俄语"
+      ],
+      "categories": [
+        "有声阅读,视频配音,外语音色,俄语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ru_female_irinae_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Irinae"
+      ],
+      "languages": [
+        "俄语"
+      ],
+      "categories": [
+        "有声阅读,视频配音,外语音色,俄语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ru_male_pavel_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Pavel"
+      ],
+      "languages": [
+        "俄语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,俄语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ru_female_sophie_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Ksenia"
+      ],
+      "languages": [
+        "俄语"
+      ],
+      "categories": [
+        "通用场景,外语音色,俄语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "ru_male_vlad_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Silas"
+      ],
+      "languages": [
+        "俄语"
+      ],
+      "categories": [
+        "趣味口音,外语音色,俄语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "th_female_bv568_angry_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Valeria"
+      ],
+      "languages": [
+        "泰语"
+      ],
+      "categories": [
+        "教学场景, 视频配音,外语音色,泰语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "th_female_bv568_fear_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Iris"
+      ],
+      "languages": [
+        "泰语"
+      ],
+      "categories": [
+        "有声阅读,视频配音,外语音色,泰语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "th_female_bv568_happy_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Zara"
+      ],
+      "languages": [
+        "泰语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,泰语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "th_female_bv568_hate_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Valentina"
+      ],
+      "languages": [
+        "泰语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,泰语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "th_female_bv568_neutral_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Mildred"
+      ],
+      "languages": [
+        "泰语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,泰语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "th_female_bv568_sad_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Lydia"
+      ],
+      "languages": [
+        "泰语"
+      ],
+      "categories": [
+        "视频配音, 客服场景,外语音色,泰语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "th_female_bv568_suprise_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Phoebe"
+      ],
+      "languages": [
+        "泰语"
+      ],
+      "categories": [
+        "有声阅读,视频配音,外语音色,泰语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "tl_female_annika_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Annika"
+      ],
+      "languages": [
+        "菲律宾语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,菲律宾语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "tl_male_ed_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Ed"
+      ],
+      "languages": [
+        "菲律宾语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,菲律宾语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "tl_female_hervie_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Hervie"
+      ],
+      "languages": [
+        "菲律宾语"
+      ],
+      "categories": [
+        "有声阅读, 视频配音, 客服场景,外语音色,菲律宾语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "vi_female_hong_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Hong"
+      ],
+      "languages": [
+        "越南语"
+      ],
+      "categories": [
+        "通用场景, 客服场景,外语音色,越南语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "vi_female_ling_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Ling"
+      ],
+      "languages": [
+        "越南语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,越南语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "vi_female_linh_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Linh"
+      ],
+      "languages": [
+        "越南语"
+      ],
+      "categories": [
+        "视频配音,外语音色,越南语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "vi_female_partner_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Partner"
+      ],
+      "languages": [
+        "越南语"
+      ],
+      "categories": [
+        "视频配音, 客服场景,外语音色,越南语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "vi_female_ruan_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Ruan"
+      ],
+      "languages": [
+        "越南语"
+      ],
+      "categories": [
+        "通用场景,有声阅读, 角色扮演,外语音色,越南语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "vi_female_wu_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Wu"
+      ],
+      "languages": [
+        "越南语"
+      ],
+      "categories": [
+        "通用场景, 视频配音,外语音色,越南语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "vi_male_wumg_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Wumg"
+      ],
+      "languages": [
+        "越南语"
+      ],
+      "categories": [
+        "通用场景, 客服场景,外语音色,越南语"
+      ],
+      "transport": "websocket",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": true
+    },
+    {
+      "id": "it_male_enzo_uranus_bigtts",
+      "model": "2.0",
+      "names": [
+        "Enzo"
+      ],
+      "languages": [
+        "意大利语"
+      ],
+      "categories": [
+        "通用场景, 教学场景,外语音色,意大利语"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-2.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_lengkugege_emo_v2_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "冷酷哥哥（多情感）"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "多情感"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_tianxinxiaomei_emo_v2_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "甜心小美（多情感）"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "多情感"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_guangzhoudege_emo_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "广州德哥（多情感）"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "多情感"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_jingqiangkanye_emo_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "京腔侃爷（多情感）"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "多情感"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_linjuayi_emo_v2_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "邻居阿姨（多情感）"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "多情感"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_yourougongzi_emo_v2_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "优柔公子（多情感）"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "多情感"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_ruyayichen_emo_v2_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "儒雅男友（多情感）"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "多情感"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_junlangnanyou_emo_v2_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "俊朗男友（多情感）"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "多情感"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_beijingxiaoye_emo_v2_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "北京小爷（多情感）"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "多情感"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_roumeinvyou_emo_v2_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "柔美女友（多情感）"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "多情感"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_yangguangqingnian_emo_v2_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "阳光青年（多情感）"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "多情感"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_meilinvyou_emo_v2_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "魅力女友（多情感）"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "多情感"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_shuangkuaisisi_emo_v2_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "爽快思思（多情感）"
+      ],
+      "languages": [
+        "中文,英式英语"
+      ],
+      "categories": [
+        "多情感"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_shenyeboke_emo_v2_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "深夜播客（多情感）"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "多情感"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "en_female_candice_emo_v2_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "Candice"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "多情感"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_yingyujiaoyu_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "Tina老师"
+      ],
+      "languages": [
+        "中文,英式英语"
+      ],
+      "categories": [
+        "教育场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_qinqienvsheng_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "亲切女声"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_qingyiyuxuan_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "阳光阿辰"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_xudong_conversation_wvae_bigtts",
+      "model": "1.0",
+      "names": [
+        "快乐小东",
+        "Daniel"
+      ],
+      "languages": [
+        "中文",
+        "美式英语"
+      ],
+      "categories": [
+        "通用场景",
+        "外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "en_male_jason_conversation_wvae_bigtts",
+      "model": "1.0",
+      "names": [
+        "开朗学长"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_tianmeitaozi_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "甜美桃子"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_qingxinnvsheng_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "清新女声"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_zhixingnvsheng_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "知性女声"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_qingshuangnanda_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "清爽男大"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_linjianvhai_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "邻家女孩"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_yuanboxiaoshu_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "渊博小叔"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_yangguangqingnian_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "阳光青年"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_tianmeixiaoyuan_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "甜美小源"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_qingchezizi_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "清澈梓梓"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_jieshuoxiaoming_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "解说小明"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_kailangjiejie_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "开朗姐姐"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_linjiananhai_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "邻家男孩"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_tianmeiyueyue_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "甜美悦悦"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_xinlingjitang_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "心灵鸡汤"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_wenrouxiaoge_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "温柔小哥"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_cancan_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "灿灿/Shiny"
+      ],
+      "languages": [
+        "中文,美式英语"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_shuangkuaisisi_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "爽快思思/Skye"
+      ],
+      "languages": [
+        "中文,美式英语"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_wennuanahu_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "温暖阿虎/Alvin"
+      ],
+      "languages": [
+        "中文,美式英语"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_shaonianzixin_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "少年梓辛/Brayan"
+      ],
+      "languages": [
+        "中文,美式英语"
+      ],
+      "categories": [
+        "通用场景"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_yueyunv_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "粤语小溏"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "趣味口音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_yuzhouzixuan_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "豫州子轩"
+      ],
+      "languages": [
+        "中文-河南口音"
+      ],
+      "categories": [
+        "趣味口音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_daimengchuanmei_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "呆萌川妹"
+      ],
+      "languages": [
+        "中文-四川口音"
+      ],
+      "categories": [
+        "趣味口音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_guangxiyuanzhou_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "广西远舟"
+      ],
+      "languages": [
+        "中文-广西口音"
+      ],
+      "categories": [
+        "趣味口音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_zhoujielun_emo_v2_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "双节棍小哥"
+      ],
+      "languages": [
+        "中文-台湾口音"
+      ],
+      "categories": [
+        "趣味口音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_wanwanxiaohe_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "湾湾小何"
+      ],
+      "languages": [
+        "中文-台湾口音"
+      ],
+      "categories": [
+        "趣味口音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_wanqudashu_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "湾区大叔"
+      ],
+      "languages": [
+        "中文-广东口音"
+      ],
+      "categories": [
+        "趣味口音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_guozhoudege_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "广州德哥"
+      ],
+      "languages": [
+        "中文-广东口音"
+      ],
+      "categories": [
+        "趣味口音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_haoyuxiaoge_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "浩宇小哥"
+      ],
+      "languages": [
+        "中文-青岛口音"
+      ],
+      "categories": [
+        "趣味口音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_beijingxiaoye_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "北京小爷"
+      ],
+      "languages": [
+        "中文-北京口音"
+      ],
+      "categories": [
+        "趣味口音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_jingqiangkanye_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "京腔侃爷/Harmony"
+      ],
+      "languages": [
+        "中文-北京口音,美式英语"
+      ],
+      "categories": [
+        "趣味口音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_meituojieer_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "妹坨洁儿"
+      ],
+      "languages": [
+        "中文-长沙口音"
+      ],
+      "categories": [
+        "趣味口音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_naiqimengwa_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "奶气萌娃"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_popo_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "婆婆"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_gaolengyujie_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "高冷御姐"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_aojiaobazong_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "傲娇霸总"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_meilinvyou_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "魅力女友"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_shenyeboke_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "深夜播客"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_sajiaonvyou_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "柔美女友"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_yuanqinvyou_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "撒娇学妹"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_dongfanghaoran_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "东方浩然"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "角色扮演"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_M100_conversation_wvae_bigtts",
+      "model": "1.0",
+      "names": [
+        "Lucas",
+        "悠悠君子"
+      ],
+      "languages": [
+        "美式英语",
+        "中文"
+      ],
+      "categories": [
+        "外语音色",
+        "视频配音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "en_male_adam_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "Adam"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "en_female_amanda_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "Amanda"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "en_male_jackson_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "Jackson"
+      ],
+      "languages": [
+        "美式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "en_male_smith_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "Smith"
+      ],
+      "languages": [
+        "英式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "en_female_anna_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "Anna"
+      ],
+      "languages": [
+        "英式英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "en_female_sarah_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "Sarah"
+      ],
+      "languages": [
+        "澳洲英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "en_male_dryw_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "Dryw"
+      ],
+      "languages": [
+        "澳洲英语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "multi_female_maomao_conversation_wvae_bigtts",
+      "model": "1.0",
+      "names": [
+        "Diana",
+        "つき（月）"
+      ],
+      "languages": [
+        "西语",
+        "日语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "multi_male_M100_conversation_wvae_bigtts",
+      "model": "1.0",
+      "names": [
+        "Lucía"
+      ],
+      "languages": [
+        "西语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "multi_female_sophie_conversation_wvae_bigtts",
+      "model": "1.0",
+      "names": [
+        "Sofía",
+        "さとみ（智美）"
+      ],
+      "languages": [
+        "西语",
+        "日语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "multi_male_xudong_conversation_wvae_bigtts",
+      "model": "1.0",
+      "names": [
+        "Daníel",
+        "まさお（正男）"
+      ],
+      "languages": [
+        "西语",
+        "日语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "multi_zh_male_youyoujunzi_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "ひかる（光）"
+      ],
+      "languages": [
+        "日语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "multi_female_gaolengyujie_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "あけみ（朱美）"
+      ],
+      "languages": [
+        "日语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "multi_male_jingqiangkanye_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "かずね（和音）/JavierorÁlvaro"
+      ],
+      "languages": [
+        "日语,西语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "multi_female_shuangkuaisisi_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "はるこ（晴子）/Esmeralda"
+      ],
+      "languages": [
+        "日语,西语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "multi_male_wanqudashu_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "ひろし（広志）/Roberto"
+      ],
+      "languages": [
+        "日语,西语"
+      ],
+      "categories": [
+        "外语音色"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_maomao_conversation_wvae_bigtts",
+      "model": "1.0",
+      "names": [
+        "文静毛毛"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_wenrouxiaoya_moon_bigtts",
+      "model": "1.0",
+      "names": [
+        "温柔小雅"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_tiancaitongsheng_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "天才童声"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_sunwukong_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "猴哥"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_xionger_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "熊二"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_peiqi_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "佩奇猪"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_wuzetian_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "武则天"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_gujie_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "顾姐"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_yingtaowanzi_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "樱桃丸子"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_chunhui_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "广告解说"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_shaoergushi_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "少儿故事"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_silang_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "四郎"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_qiaopinvsheng_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "俏皮女声"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_lanxiaoyang_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "懒音绵宝"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_dongmanhaimian_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "亮嗓萌仔"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_jitangmeimei_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "鸡汤妹妹/Hope"
+      ],
+      "languages": [
+        "中文,美式英语"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_tiexinnvsheng_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "贴心女声/Candy"
+      ],
+      "languages": [
+        "中文,美式英语"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_mengyatou_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "萌丫头/Cutey"
+      ],
+      "languages": [
+        "中文,美式英语"
+      ],
+      "categories": [
+        "视频配音"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_changtianyi_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "悬疑解说"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "有声阅读"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_ruyaqingnian_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "儒雅青年"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "有声阅读"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_baqiqingshu_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "霸气青叔"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "有声阅读"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_qingcang_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "擎苍"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "有声阅读"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_yangguangqingnian_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "活力小哥"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "有声阅读"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_gufengshaoyu_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "古风少御"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "有声阅读"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_female_wenroushunv_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "温柔淑女"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "有声阅读"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    },
+    {
+      "id": "zh_male_fanjuanqingnian_mars_bigtts",
+      "model": "1.0",
+      "names": [
+        "反卷青年"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "categories": [
+        "有声阅读"
+      ],
+      "transport": "http",
+      "resource_id": "seed-tts-1.0",
+      "context_instructions": false
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+Product Video includes a directory of public text-to-speech voice identifiers,
+display names, language labels, and routing metadata in:
+
+  scripts/engine/product_video/data/voices.json
+  scripts/engine/examples/voices.csv
+
+Source: Volcengine public voice catalog
+https://docs.volcengine.com/docs/6561/1257544?lang=zh
+
+Snapshot retrieved on 2026-09-09; source update date: 2026-08-31.
+The catalog does not contain voice models, recordings, or account credentials.
+Listing a voice does not grant permission to use the voice service. Access and
+usage are governed by the provider and the user's account permissions.
+
+Third-party Python dependencies, Chromium, FFmpeg, and system fonts are not
+vendored in this repository and remain under their respective licenses.
+The introductory video in docs/assets is a generated product demonstration,
+not a redistributable voice sample library.

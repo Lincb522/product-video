@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "local-product-video"
+version = "1.1.0"
+description = "Local product videos with Volcengine narration, timed captions and screenshot operations"
+requires-python = ">=3.11"
+dependencies = ["websockets==17.0.1", "Pillow==12.3.0", "python-socks[asyncio]>=2.4,<3", "httpx[socks]==0.28.1", "playwright==1.62.0"]
+
+[project.scripts]
+product-video = "product_video.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["product_video*"]
+
+[tool.setuptools.package-data]
+product_video = ["data/*.json", "data/*.html", "data/*.js", "data/*.swift"]

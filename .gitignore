@@ -1,0 +1,16 @@
+.DS_Store
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+output/
+.captures/
+.env
+.env.*
+credentials*.json
+*.pem
+*.key
+*.before-voice
