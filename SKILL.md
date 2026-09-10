@@ -33,7 +33,7 @@ RUN="$SKILL/scripts/engine/run.sh"
 
 ## 全自动主路径
 
-1. 从用户给出的产品目标和需求取得实际功能依据，按 [文案与旁白规范](references/narration.md) 整理并自查文稿；已有确认稿直接沿用。
+1. 从用户给出的产品目标和需求取得实际功能依据，按 [文案与旁白规范](references/narration.md) 整理文稿，再用 [文案复核清单](references/narration-review.md) 检查通用套话、具体事实、术语和改写尺度；已有确认稿直接沿用。
 2. 按介绍内容编写 `project.json`。需要正文开场、要点、解释或收尾时读取 [references/content.md](references/content.md)，可使用纯文案、图文并排、截图与操作镜头混排；不要求每个镜头都有截图。需要真实界面时观察并编写 `capture.json`，用 `capture:<id>` 关联画面，采集规则见 [references/capture.md](references/capture.md)。风格与动效见 [references/motion.md](references/motion.md)：原始版用 `classic`，增强风格用 `product`、`promo`、`tutorial`、`cinema`、`gallery`、`minimal`；用户未指定时默认 `product`。风格和镜头内容分别选择，不必额外进行风格访谈。
 3. 文稿和素材方向确定后运行 `"$RUN" auto /path/to/project.json`：自动截图 → 缺失密钥时引导配置 → 分章配音 → 字幕与视频。没有采集计划的既有截图项目也能使用 `auto`。
 4. 沿用同一个进程等待。登录或本机配置界面需要用户完成时仅提示该步骤；完成后自动继续，不要求用户手动串联命令。
@@ -44,6 +44,8 @@ RUN="$SKILL/scripts/engine/run.sh"
 ## 文稿、角色与画面
 
 需要写或改介绍文案时，读取 [references/narration.md](references/narration.md)；需要把文案放进画面时，再读取 [references/content.md](references/content.md)。只介绍已确认的功能、开发初衷和使用场景；不代编产品经历。画面正文、旁白和试听稿统一采用简洁、专业的陈述句：禁用反问、设问、宣传套话和过度口语，删除重复解释，不自动添加“所有工作都在本地”等空泛收尾。最后一项信息表达完整即可结束。
+
+写作与复核规则已内置，无需安装或调用独立的 `no-ai-slop`。用户只要求审稿时，按复核清单列出原句、问题和修改方向，保持原稿；不输出 AI 概率、作者判断，也不进入配音或渲染。
 
 角色搜索、接口参数、字幕限制、完整项目 JSON 和故障处理见 [scripts/engine/README.md](scripts/engine/README.md)。只按当前需要读取对应部分，不把整张音色表载入上下文。
 
@@ -77,7 +79,7 @@ RUN="$SKILL/scripts/engine/run.sh"
 "$RUN" build /path/to/project.json
 ```
 
-1. 首先核对文稿与素材，自查信息重复、反问、套话、冗长解释与结尾表态；按文案规范修正新稿后进入已授权的生成流程。短试听可用于新的声音选择，已确认角色不必重复试听。
+1. 新稿和获准改写稿先按 [文案复核清单](references/narration-review.md) 逐项检查，修正具体问题后复核，保留事实、专业信息和自然节奏；已有确认稿不重新改写。复核在配音前完成，不把修订说明写入旁白或字幕。短试听可用于新的声音选择，已确认角色不必重复试听。
 2. 中文、英文自动字幕使用 API 字级时间戳并检查原稿匹配。其他语言使用用户确认的 `captions` 时间轴，或明确设 `video.subtitles: "none"`；不要编造自动对齐结果。数字、缩写和发音转写出现文本不一致时，保留音频并处理对应字幕，不伪造成功。
 3. 同一输出目录不要并行启动生成。长任务沿用同一个进程句柄等待；报错时保留已完成章节，不无限重试计费请求。
 4. 用 `output/latest.json` 找到已验证成片。引擎会完整解码 MP4、核对尺寸和时长、写入素材与成片 SHA-256；只完成配音不等于视频已完成。

@@ -113,6 +113,8 @@
 
 写作规范由 Skill 在合成前执行；语气参数仅指导支持该能力的音色朗读。语气提示不能代替文案编辑。[查看完整文案与旁白规范 →](references/narration.md)
 
+已将 [No AI Slop](https://github.com/petergyang/no-ai-slop) 的通用句检查、最小改写和复核方法调整为中文产品文案规则，检查伪分析与术语混乱，保留专业细节和自然节奏。新稿在配音前按[文案复核清单](references/narration-review.md) 检查并修正；只要求审稿时列出原句和问题，保持原稿。不需要额外安装其他 Skill。
+
 ## 安装
 
 已验证环境为 **macOS**，需要 **Python 3.11+、FFmpeg（含 ffprobe）**。macOS 应用自动采集还需要 Command Line Tools、辅助功能与屏幕录制权限。Windows 和 Linux 的完整制作流程尚未验证。
@@ -202,6 +204,7 @@ sh "${CODEX_HOME:-$HOME/.codex}/skills/product-video/scripts/setup.sh"
 | --- | --- |
 | [Skill 使用规则](SKILL.md) | Agent 工作流程与制作要求 |
 | [文案与旁白](references/narration.md) | 写作尺度、朗读语气与合成前检查 |
+| [文案复核清单](references/narration-review.md) | 逐句审稿、最小修改、事实与确认稿边界 |
 | [文案镜头](references/content.md) | 标题、要点、图文版式及完整示例 |
 | [镜头与动效](references/motion.md) | 风格、转场、模拟操作、局部聚焦与离线样片 |
 | [自动采集](references/capture.md) | 网页、macOS 窗口、登录准备与坐标记录 |

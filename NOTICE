@@ -16,3 +16,12 @@ Third-party Python dependencies, Chromium, FFmpeg, and system fonts are not
 vendored in this repository and remain under their respective licenses.
 The introductory video in docs/assets is a generated product demonstration,
 not a redistributable voice sample library.
+
+The writing guidance in references/narration.md and the review checklist in
+references/narration-review.md adapt parts of No AI Slop by Peter Yang for
+Chinese product-video narration and on-screen copy.
+
+Source: https://github.com/petergyang/no-ai-slop
+Revision: 000650b156983f5159695b441477f4e63b25dc85
+Copyright (c) 2026 Peter Yang
+License: MIT; full license text is included in licenses/no-ai-slop.txt.
