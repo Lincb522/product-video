@@ -5,16 +5,17 @@ from pathlib import Path
 import re
 import shutil
 
-from PIL import Image, ImageColor, ImageFont
+from PIL import Image, ImageColor, ImageFont, ImageOps
 
 from .common import VideoError
+from .motion import PRESETS, TRANSITIONS
+from .text_scenes import content_layout
 from .tts import DEFAULT_VOICE
 from .voices import resolve
 
-DEFAULT_VIDEO = {"width": 1920, "height": 1080, "fps": 30, "transition": 0.6,
-                 "chapter_pause": 0.7, "background": "#17191f", "surface": "#23262e",
-                 "foreground": "#f8f6f2", "accent": "#d5ac86", "font": None,
-                 "encoder": "libx264", "subtitles": "auto"}
+DEFAULT_VIDEO = {"width": 1920, "height": 1080, "fps": 30, "font": None,
+                 "encoder": "libx264", "subtitles": "auto", "style": "product",
+                 "reduced_motion": False} | PRESETS['product']
 
 
 def known(value, allowed, label):
@@ -32,6 +33,47 @@ def text(value, label, maximum=2000):
         raise VideoError(f"{label} 不能为空且最多 {maximum} 字符。")
 
 
+def point(value, label):
+    if not isinstance(value, list) or len(value) != 2:
+        raise VideoError(f'{label} 需为截图上的 [x, y] 归一化坐标。')
+    for coordinate in value:
+        number(coordinate, 0, 1, label)
+
+
+def transition_fields(value):
+    if 'transition' in value and value['transition'] not in TRANSITIONS:
+        raise VideoError('transition 类型不受支持，请对照镜头与动效说明。')
+    if 'transition_duration' in value:
+        number(value['transition_duration'], 0, 2, 'transition_duration')
+
+
+def validate_content(content, images, video):
+    known(content, ('layout', 'eyebrow', 'headline', 'body', 'bullets', 'image_side', 'animation'), 'content')
+    layout = content.get('layout')
+    if layout not in ('title', 'bullets', 'split'):
+        raise VideoError('content.layout 仅支持 title、bullets 或 split。')
+    text(content.get('headline'), '画面主标题', 120)
+    for key, limit in (('eyebrow', 60), ('body', 800)):
+        if key in content:
+            text(content[key], f'content.{key}', limit)
+    if content.get('animation', 'reveal') not in ('reveal', 'none'):
+        raise VideoError('content.animation 仅支持 reveal 或 none。')
+    if layout == 'split':
+        if len(images) != 1 or content.get('image_side', 'right') not in ('left', 'right'):
+            raise VideoError('split 需要一张截图，image_side 仅支持 left 或 right。')
+    elif images or 'image_side' in content:
+        raise VideoError('title 和 bullets 是纯文案画面；需要配图时请使用 split。')
+    if layout == 'bullets':
+        items = content.get('bullets')
+        if not isinstance(items, list) or not 1 <= len(items) <= 4 or 'body' in content:
+            raise VideoError('bullets 版式需要 1–4 项要点，不同时使用 body；长文请拆分画面。')
+        for item in items:
+            text(item, '文案要点', 180)
+    elif 'bullets' in content:
+        raise VideoError('bullets 字段只用于 bullets 版式。')
+    content_layout(content, video)
+
+
 def font_path(configured, base):
     if configured:
         text(configured, "字体路径", 4096)
@@ -47,7 +89,7 @@ def font_path(configured, base):
     raise VideoError("没有找到中文字体，请在 video.font 指定有使用授权的字体。")
 
 
-def load(path):
+def load(path, *, check_image_geometry=True):
     path = Path(path).expanduser().resolve()
     try:
         config = json.loads(path.read_text())
@@ -114,7 +156,10 @@ def load(path):
             text(value, "发音词典条目", 100)
     supplied_video = config.get("video", {})
     known(supplied_video, DEFAULT_VIDEO, "video")
-    video = DEFAULT_VIDEO | supplied_video
+    style = supplied_video.get('style', 'product')
+    if not isinstance(style, str) or style not in PRESETS:
+        raise VideoError('video.style 仅支持：' + '、'.join(PRESETS) + '。')
+    video = DEFAULT_VIDEO | PRESETS[style] | supplied_video
     for key in ("width", "height"):
         number(video[key], 320, 3840, key)
         if not isinstance(video[key], int) or video[key] % 2:
@@ -126,6 +171,16 @@ def load(path):
         raise VideoError("fps 必须是整数。")
     number(video["transition"], 0, 2, "transition")
     number(video["chapter_pause"], 0, 5, "chapter_pause")
+    for key in ('transition_style', 'step_transition'):
+        if video[key] not in TRANSITIONS:
+            raise VideoError(f'{key} 类型不受支持，请对照镜头与动效说明。')
+    if video['camera_motion'] not in ('none', 'push'):
+        raise VideoError('camera_motion 仅支持 none 或 push。')
+    for key, low, high in (('cursor_move', .08, 3), ('cursor_hold', 0, 2), ('cursor_linger', 0, 5)):
+        number(video[key], low, high, key)
+    for key in ('progress', 'reduced_motion'):
+        if not isinstance(video[key], bool):
+            raise VideoError(f'{key} 必须是布尔值。')
     if video["encoder"] not in ("libx264", "h264_videotoolbox"):
         raise VideoError("encoder 仅支持 libx264 或 h264_videotoolbox。")
     if video["subtitles"] not in ("auto", "none"):
@@ -139,7 +194,8 @@ def load(path):
     ImageFont.truetype(video["font"], 20)
     seen = set()
     for chapter in config["chapters"]:
-        known(chapter, ("id", "title", "narration", "steps", "captions"), "章节")
+        known(chapter, ("id", "title", "narration", "steps", "captions", "transition", "transition_duration"), "章节")
+        transition_fields(chapter)
         identifier = chapter.get("id", "")
         if not isinstance(identifier, str) or not re.fullmatch(r"[a-z0-9][a-z0-9_-]{0,63}", identifier) or identifier in seen:
             raise VideoError("章节 id 必须为不重复的小写字母、数字、连字符或下划线。")
@@ -162,25 +218,71 @@ def load(path):
         if not isinstance(steps, list) or not steps:
             raise VideoError("每个章节至少需要一个 steps 画面。")
         previous = -1
-        for step in steps:
-            known(step, ("at", "images", "labels", "cursor", "click"), "画面")
+        for step_index, step in enumerate(steps):
+            known(step, ("at", "images", "labels", "cursor", "click", "interaction", "camera",
+                         "transition", "transition_duration", "content"), "画面")
+            transition_fields(step)
             number(step.get("at"), 0, 0.99, "画面 at")
             if step["at"] <= previous or (previous == -1 and step["at"] != 0):
                 raise VideoError("首个画面的 at 必须为 0，后续按升序且不重复。")
             previous = step["at"]
-            if not isinstance(step.get("images"), list) or not 1 <= len(step["images"]) <= 2:
-                raise VideoError("每个画面需要 1–2 张图片。")
+            if 'content' in step:
+                step.setdefault('images', [])
+            if not isinstance(step.get("images"), list) or not 0 <= len(step["images"]) <= 2:
+                raise VideoError("images 必须是最多两张图片的数组。")
+            if 'content' in step:
+                validate_content(step['content'], step['images'], video)
+            elif not step['images']:
+                raise VideoError("每个画面需要 1–2 张图片，或用 content 编排纯文案画面。")
             step["images"] = [asset(x) for x in step["images"]]
             labels = step.setdefault("labels", [""] * len(step["images"]))
             if not isinstance(labels, list) or len(labels) != len(step["images"]) or any(not isinstance(s, str) or len(s) > 60 for s in labels):
                 raise VideoError("labels 数量必须与图片一致，每项最多 60 字符。")
             if "cursor" in step:
-                if len(step["images"]) != 1 or not isinstance(step["cursor"], list) or len(step["cursor"]) != 2:
+                if len(step["images"]) != 1:
                     raise VideoError("cursor 需为单图上的 [x, y] 坐标。")
-                for coordinate in step["cursor"]:
-                    number(coordinate, 0, 1, "cursor")
+                point(step['cursor'], 'cursor')
             if "click" in step and (not isinstance(step["click"], bool) or "cursor" not in step):
                 raise VideoError("click 必须是布尔值，并需指定 cursor。")
+            if 'interaction' in step:
+                if 'cursor' in step or 'click' in step or len(step['images']) != 1:
+                    raise VideoError('interaction 只用于单图，不能与 cursor/click 同时使用。')
+                spec = step['interaction']
+                known(spec, ('kind', 'from', 'to', 'move', 'hold', 'settle', 'linger'), 'interaction')
+                if spec.get('kind') not in ('move', 'click', 'drag'):
+                    raise VideoError('interaction.kind 仅支持 move、click 或 drag。')
+                point(spec.get('to'), 'interaction.to')
+                if 'from' in spec:
+                    point(spec['from'], 'interaction.from')
+                if spec['kind'] == 'drag' and 'from' not in spec:
+                    raise VideoError('拖动需要明确的 interaction.from。')
+                for key, low, high in (('move', .08, 3), ('hold', 0, 2), ('settle', .08, 2), ('linger', 0, 5)):
+                    if key in spec:
+                        number(spec[key], low, high, f'interaction.{key}')
+                if spec['kind'] in ('click', 'drag') and step_index == 0:
+                    raise VideoError('点击或拖动结果前需有一张操作前截图；请先增加 at: 0 的静态画面。')
+            changes_state = step.get('click') or step.get('interaction', {}).get('kind') in ('click', 'drag')
+            if changes_state and step_index:
+                before = steps[step_index - 1]
+                if len(before['images']) != 1:
+                    raise VideoError('操作前后必须都是单图；不能在并排对照上点击。')
+                def image_layout(item):
+                    content = item.get('content', {})
+                    return content.get('layout'), content.get('image_side', 'right')
+                if image_layout(before) != image_layout(step):
+                    raise VideoError('操作前后需使用相同的截图版式和 image_side；请先建立新的静态画面再操作。')
+                if check_image_geometry:
+                    with Image.open(before['images'][0]) as a, Image.open(step['images'][0]) as b:
+                        a, b = ImageOps.exif_transpose(a), ImageOps.exif_transpose(b)
+                        if abs(a.width / a.height - b.width / b.height) > .01:
+                            raise VideoError('操作前后截图比例不同，无法对齐鼠标；请使用同一视口重新采集。')
+            if 'camera' in step:
+                if len(step['images']) != 1:
+                    raise VideoError('局部运镜只用于单图；并排对照保持全图。')
+                camera = step['camera']
+                known(camera, ('zoom', 'center'), 'camera')
+                number(camera.get('zoom', 1), 1, 2.5, 'camera.zoom')
+                point(camera.get('center', [.5, .5]), 'camera.center')
     text(config.get("output", "output"), "输出路径", 4096)
     output = (base / Path(config.get("output", "output")).expanduser()).resolve()
     config.update(voice=voice, video=video, output=str(output))

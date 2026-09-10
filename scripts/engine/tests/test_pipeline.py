@@ -80,3 +80,27 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(json.loads((folder / 'verification.json').read_text())['full_decode'], 'passed')
         cues = json.loads((folder / 'timeline.json').read_text())['chapters'][0]['cues']
         self.assertEqual([cue['text'] for cue in cues], ['测试。'])
+
+    def test_text_only_and_mixed_content_render_with_the_same_narration_cache(self):
+        raw = copy.deepcopy(self.config)
+        raw['chapters'][0]['steps'] = [{'at': 0, 'content': {
+            'layout': 'title', 'headline': '完整文案画面', 'body': '正文与旁白独立编排。'}}]
+        write_json(self.root / 'copy.json', raw)
+        config = load(self.root / 'copy.json')
+        audio_state = (file_hash(self.audio), self.audio.stat().st_mtime_ns)
+        with patch('product_video.pipeline.generate', side_effect=AssertionError('Reuse narration')):
+            first = build(config, allow_api=False)
+            raw['chapters'][0]['steps'][0]['content']['body'] = '更新正文，沿用同一段旁白。'
+            raw['chapters'][0]['steps'].append({'at': .5, 'images': ['image.png'],
+                'content': {'layout': 'split', 'headline': '文字配真实截图'}})
+            write_json(self.root / 'copy.json', raw)
+            second = build(load(self.root / 'copy.json'), allow_api=False)
+        self.assertNotEqual(first, second)
+        for folder in (first, second):
+            report = json.loads((folder / 'verification.json').read_text())
+            self.assertEqual(report['full_decode'], 'passed')
+            self.assertGreater(report['subtitle_cues'], 0)
+            self.assertEqual((folder / 'narration.txt').read_text(), '测试。')
+        first_report = json.loads((first / 'verification.json').read_text())
+        self.assertNotIn(str(self.root / 'image.png'), first_report['assets'])
+        self.assertEqual((file_hash(self.audio), self.audio.stat().st_mtime_ns), audio_state)

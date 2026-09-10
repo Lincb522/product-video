@@ -85,7 +85,7 @@ def read_plan(path):
         raise VideoError('截图计划需包含 1–60 个画面。')
     seen = set()
     for shot in shots:
-        known(shot, ('id', 'actions', 'ready', 'mask'), '截图画面')
+        known(shot, ('id', 'actions', 'ready', 'mask', 'points'), '截图画面')
         sid = shot.get('id')
         if not isinstance(sid, str) or not re.fullmatch(r'[a-z0-9][a-z0-9_-]{0,63}', sid) or sid in seen:
             raise VideoError('截图 id 必须唯一，只用小写字母、数字、连字符和下划线。')
@@ -120,6 +120,13 @@ def read_plan(path):
             raise VideoError('mask 仅支持网页控件列表；原生应用应先隐藏私人内容再截图。')
         for m in masks:
             locator_spec(m)
+        points = shot.get('points', {})
+        if not isinstance(points, dict) or len(points) > 30 or (points and provider != 'web'):
+            raise VideoError('points 仅支持网页上的最多 30 个命名控件。')
+        for name, locator in points.items():
+            if not re.fullmatch(r'[a-z0-9][a-z0-9_-]{0,63}', name):
+                raise VideoError('points 名称只用小写字母、数字、连字符和下划线。')
+            locator_spec(locator)
     return plan
 
 
@@ -290,9 +297,39 @@ def capture_web(page, target, shot, destination):
             loc = web_locator(page, spec)
             loc.wait_for(state='attached')
             masks.append(loc)
+        stage = '记录操作坐标'
+        points = {}
+        for name, spec in shot.get('points', {}).items():
+            loc = web_locator(page, spec)
+            loc.wait_for(state='visible')
+            # Read geometry only. The hit test rejects covered or offscreen controls
+            # instead of recording a plausible but unusable pointer destination.
+            geometry = loc.evaluate("""element => {
+                const r = element.getBoundingClientRect();
+                const x = r.x + r.width / 2, y = r.y + r.height / 2;
+                return {x, y, width: innerWidth, height: innerHeight,
+                    visible: r.width > 0 && r.height > 0 && x >= 0 && y >= 0 &&
+                        x < innerWidth && y < innerHeight && element.contains(document.elementFromPoint(x, y))};
+            }""")
+            if not geometry['visible']:
+                raise VideoError(f"截图 {shot['id']} 的 points.{name} 不在可点击视口内；请调整采集位置。")
+            for mask in masks:
+                for item in mask.all():
+                    box = item.bounding_box()
+                    if box and box['x'] <= geometry['x'] <= box['x'] + box['width'] and box['y'] <= geometry['y'] <= box['y'] + box['height']:
+                        raise VideoError('操作坐标位于已遮盖的区域；请使用不含私人内容的演示控件。')
+            points[name] = [geometry['x'] / geometry['width'], geometry['y'] / geometry['height']]
         stage = '保存截图'
         page.screenshot(path=str(destination), full_page=False, animations='disabled', mask=masks)
+        for name, spec in shot.get('points', {}).items():
+            current = web_locator(page, spec).evaluate("""element => {
+                const r = element.getBoundingClientRect();
+                return [(r.x + r.width / 2) / innerWidth, (r.y + r.height / 2) / innerHeight];
+            }""")
+            if any(abs(a - b) > .001 for a, b in zip(current, points[name])):
+                raise VideoError(f"截图 {shot['id']} 的 points.{name} 在采集时移动了；请等待布局稳定后重试。")
         same_origin()
+        return points
 
     except Error as error:
         raise web_error(error, f"截图 {shot['id']} / {stage}") from None
@@ -311,8 +348,12 @@ def capture_project(project):
         dummy = Path(tmp)/'pending.png'; Image.new('RGB', (32, 32)).save(dummy)
         pending = json.loads(json.dumps(raw)); pending.pop('capture')
         resolve_images(pending, project.parent, {s['id']: str(dummy) for s in plan['shots']})
+        resolve_points(pending, {f"capture:{s['id']}:{name}": [.5, .5]
+                                for s in plan['shots'] for name in s.get('points', {})})
         pending_path = Path(tmp)/'project.json'; write_json(pending_path, pending)
-        load_project(pending_path)
+        # Placeholder images have no capture geometry. Check actual ratios after capture,
+        # including projects that mix existing screenshots and newly captured ones.
+        load_project(pending_path, check_image_geometry=False)
     root = project.parent / '.captures'
     with project_lock(root):
         run = root / 'runs' / uuid.uuid4().hex[:16]
@@ -331,6 +372,8 @@ def capture_project(project):
                     capture_one(shot, run, records, native.capture)
             resolved = json.loads(json.dumps(raw)); resolved.pop('capture')
             resolve_images(resolved, project.parent, {r['id']: str(run / r['file']) for r in records})
+            resolve_points(resolved, {f"capture:{r['id']}:{name}": point
+                                      for r in records for name, point in r.get('points', {}).items()})
             compiled = run / 'project.json'; write_json(compiled, resolved)
             load(compiled)
             source = origin(target['url']) if target['provider'] == 'web' else target['bundle_id']
@@ -348,7 +391,7 @@ def capture_project(project):
 def capture_one(shot, run, records, action):
     print(f"截图 {len(records) + 1}：{shot['id']}", flush=True)
     dest = run / f"{shot['id']}.png"
-    action(shot, dest)
+    points = action(shot, dest)
     with Image.open(dest) as im:
         im.verify()
     with Image.open(dest) as im:
@@ -357,6 +400,22 @@ def capture_one(shot, run, records, action):
         size = [im.width, im.height]
     records.append({'id': shot['id'], 'file': dest.name, 'size': size, 'sha256': file_hash(dest),
                     'captured_at': datetime.now(timezone.utc).isoformat()})
+    if shot.get('points'):
+        records[-1]['points'] = points
+
+
+def resolve_points(raw, points):
+    for chapter in raw.get('chapters', []):
+        for step in chapter.get('steps', []):
+            fields = [(step, 'cursor')]
+            if isinstance(step.get('interaction'), dict):
+                fields += [(step['interaction'], key) for key in ('from', 'to')]
+            for obj, key in fields:
+                value = obj.get(key)
+                if isinstance(value, str):
+                    if value not in points:
+                        raise VideoError('视频引用了不存在的操作坐标；使用 capture:截图id:point名称。')
+                    obj[key] = points[value]
 
 
 def resolve_images(raw, base, captured):

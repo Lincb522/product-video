@@ -38,7 +38,7 @@ def prepare(config, allow_api):
                 raise VideoError(f"{chapter['id']} 尚未生成配音，请先运行 voice 或 build。")
             folder, metadata = generate(chapter, config["voice"], output)
         duration = metadata["duration"]
-        lead = max(0.25, v["transition"])
+        lead = max(0.25, chapter.get('transition_duration', v["transition"]))
         length = math.ceil((lead + duration + v["chapter_pause"]) * v["fps"]) / v["fps"]
         if "captions" in chapter:
             cues = chapter["captions"]
@@ -120,13 +120,14 @@ def build(config, allow_api=True, preview=False):
         write_json(folder / "project.resolved.json", config)
         previews = folder / "preview"
         previews.mkdir(exist_ok=True)
+        preview_index = []
         for i, chapter in enumerate(chapters):
             for j, step in enumerate(chapter["steps"]):
-                next_at = chapter["steps"][j+1]["at"] if j+1 < len(chapter["steps"]) else 1
-                shift = min(0.7, (next_at - step["at"]) * chapter["audio_duration"] * 0.8)
-                t = chapter["start"] + chapter["lead"] + chapter["audio_duration"] * step["at"] + shift
-                t = min(t, chapter["end"] - 0.05)
-                renderer.frame(t).save(previews / f"{i + 1:02}-{chapter['id']}-{j + 1:02}.png")
+                for phase, t in renderer.review_times(i, j).items():
+                    name = f"{i + 1:02}-{chapter['id']}-{j + 1:02}-{phase}.png"
+                    renderer.frame(t).save(previews / name)
+                    preview_index.append({'file': name, 'time': t, 'phase': phase})
+        write_json(previews / 'index.json', preview_index)
         if preview:
             print(f"预览已保存：{previews}")
             return folder

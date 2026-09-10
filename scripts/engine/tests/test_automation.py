@@ -125,6 +125,65 @@ class FixtureHandler(BaseHTTPRequestHandler):
 
 
 class CaptureTests(unittest.TestCase):
+    def test_captured_points_resolve_to_real_control_center_at_both_densities(self):
+        with tempfile.TemporaryDirectory() as d, serving(ThreadingHTTPServer(('127.0.0.1', 0), FixtureHandler)) as server:
+            for width in (390, 1440):
+                folder = Path(d) / str(width); folder.mkdir()
+                plan = self.project(folder, f'http://127.0.0.1:{server.server_port}')
+                plan['target']['viewport']['width'] = width
+                plan['shots'][0]['points'] = {'theme': {'role': 'button', 'name': 'Dark theme'}}
+                write_json(folder / 'capture.json', plan)
+                raw = json.loads((folder / 'project.json').read_text())
+                raw['chapters'][0]['steps'][1]['interaction'] = {'kind': 'click', 'to': 'capture:before:theme'}
+                write_json(folder / 'project.json', raw)
+                compiled = capture_project(folder / 'project.json')
+                project = json.loads(compiled.read_text())
+                point = project['chapters'][0]['steps'][1]['interaction']['to']
+                manifest = json.loads((compiled.parent / 'manifest.json').read_text())
+                self.assertEqual(point, manifest['shots'][0]['points']['theme'])
+                self.assertEqual(manifest['shots'][0]['size'], [width * 2, 1200])
+                with web_session(plan['target']) as page:
+                    box = page.get_by_role('button', name='Dark theme').bounding_box()
+                    self.assertAlmostEqual(point[0] * width, box['x'] + box['width'] / 2, delta=.1)
+                    self.assertAlmostEqual(point[1] * 600, box['y'] + box['height'] / 2, delta=.1)
+
+    def test_unknown_points_stop_before_browser_launch(self):
+        with tempfile.TemporaryDirectory() as d:
+            folder = Path(d); self.project(folder, 'http://localhost:9000')
+            raw = json.loads((folder / 'project.json').read_text())
+            raw['chapters'][0]['steps'][1]['cursor'] = 'capture:before:missing'
+            write_json(folder / 'project.json', raw)
+            with patch('product_video.capture.web_session', side_effect=AssertionError('No browser expected')):
+                with self.assertRaisesRegex(VideoError, '不存在的操作坐标'):
+                    capture_project(folder / 'project.json')
+
+    def test_mixed_existing_and_captured_images_validate_real_geometry(self):
+        with tempfile.TemporaryDirectory() as d, serving(ThreadingHTTPServer(('127.0.0.1', 0), FixtureHandler)) as server:
+            folder = Path(d); self.project(folder, f'http://127.0.0.1:{server.server_port}')
+            Image.new('RGB', (960, 600), 'blue').save(folder / 'existing.png')
+            raw = json.loads((folder / 'project.json').read_text())
+            raw['chapters'][0]['steps'][1].update(images=['existing.png'], cursor=[.2, .3], click=True)
+            write_json(folder / 'project.json', raw)
+            compiled = capture_project(folder / 'project.json')
+            self.assertTrue(compiled.is_file())
+            Image.new('RGB', (400, 800), 'blue').save(folder / 'existing.png')
+            with self.assertRaisesRegex(VideoError, '比例不同'):
+                capture_project(folder / 'project.json')
+
+    def test_hidden_or_masked_point_is_not_published(self):
+        with tempfile.TemporaryDirectory() as d, serving(ThreadingHTTPServer(('127.0.0.1', 0), FixtureHandler)) as server:
+            target = {'url': f'http://127.0.0.1:{server.server_port}', 'viewport': {'width': 960, 'height': 600}}
+            with web_session(target) as page:
+                for hidden in (False, True):
+                    spec = {'css': '.secret'}
+                    shot = {'id': 'masked', 'actions': [], 'mask': [spec] if not hidden else [],
+                            'ready': {'role': 'heading', 'name': 'Capture Fixture'}, 'points': {'private': spec}}
+                    if hidden:
+                        page.locator('.secret').evaluate("element => element.style.top = '1000px'")
+                    with self.assertRaisesRegex(VideoError, '遮盖|视口'):
+                        capture_web(page, target, shot, Path(d) / 'private.png')
+                    self.assertFalse((Path(d) / 'private.png').exists())
+
     def test_scroll_offset_avoids_fixed_header_and_restores_style(self):
         with tempfile.TemporaryDirectory() as d, serving(ThreadingHTTPServer(('127.0.0.1', 0), FixtureHandler)) as server:
             target = {'url': f'http://127.0.0.1:{server.server_port}/scroll', 'viewport': {'width': 960, 'height': 600}}

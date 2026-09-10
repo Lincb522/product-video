@@ -5,7 +5,7 @@ from PIL import Image, ImageDraw, ImageFont
 from .common import VideoError, write_json
 from .config import font_path
 
-FIRST_NARRATION = "产品介绍视频可以直接读取文稿，生成配音和字幕，再把界面截图合成为视频。"
+FIRST_NARRATION = "根据介绍稿生成配音与字幕，按章节合成文案和界面画面。"
 
 
 def create(folder):
@@ -53,7 +53,7 @@ def create(folder):
                  {"at": 0, "images": ["assets/dark-0.png"], "labels": ["示例素材"], "cursor": [0.1, 0.19]},
                  {"at": 0.45, "images": ["assets/dark-1.png"], "labels": ["示例素材"],
                   "cursor": [0.1, 0.27], "click": True}]},
-            {"id": "appearance", "title": "展示不同界面", "narration": "同一份介绍可以展示不同主题，也可以换成其他产品的截图，继续使用这套配音和视频流程。",
+            {"id": "appearance", "title": "展示不同界面", "narration": "深色与浅色界面可并排展示，便于比较布局和视觉差异。",
              "steps": [{"at": 0, "images": ["assets/dark-1.png", "assets/light-1.png"],
                         "labels": ["深色示例", "浅色示例"]}]}]}
     write_json(folder / "project.json", config)

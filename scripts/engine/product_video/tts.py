@@ -18,7 +18,7 @@ DEFAULT_VOICE = {
     "resource_id": "seed-tts-2.0",
     "speech_rate": 0,
     "loudness_rate": 0,
-    "context_texts": ["用自然、亲切的语气向用户介绍产品，语速适中，停顿自然。"],
+    "context_texts": ["语气专业、平稳，发音清晰，语速适中，按语义自然停顿。重音克制，陈述句自然收尾，避免闲聊、促销和夸张播报。"],
 }
 
 

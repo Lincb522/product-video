@@ -63,6 +63,27 @@
 
 采集失败会指出截图 id、操作步骤或资源等待阶段。按错误区分定位器不唯一、内容等待超时、图片加载失败与网络错误；不要仅因失败就重装浏览器或重复登录。错误不包含页面正文、表单值或完整请求地址。
 
+### 记录模拟鼠标的真实落点
+
+网页截图可加 `points`，以唯一定位器记录截图中控件中心。它只读取几何位置，输出归一化坐标，与两倍像素截图对齐。目标必须在视口内、未被其他元素遮挡，也不能位于 `mask` 区域；采集前后位置改变时会停止。
+
+```json
+{"id": "overview", "ready": {"role": "heading", "name": "项目"},
+ "points": {"settings": {"role": "button", "name": "设置"}}}
+```
+
+视频中的操作目标引用**操作前**这张截图：
+
+```json
+"steps": [
+  {"at": 0, "images": ["capture:overview"]},
+  {"at": 0.4, "images": ["capture:settings"],
+   "interaction": {"kind": "click", "to": "capture:overview:settings"}}
+]
+```
+
+也可在旧的 `cursor` 或 `interaction.from` 中引用。解析后的项目写入 `[x,y]`，`manifest.json` 的每张截图附 `points` 记录，原稿保留引用。必须先声明 point，缺失引用在启动采集前报错。原生 macOS 路径目前不支持自动记录 points，需从实际截图确定坐标。更多操作时间规则见 [镜头与动效](motion.md)。
+
 需要登录时，在 `target` 增加：
 
 ```json

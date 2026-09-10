@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "local-product-video"
-version = "1.1.0"
+version = "1.4.1"
 description = "Local product videos with Volcengine narration, timed captions and screenshot operations"
 requires-python = ">=3.11"
 dependencies = ["websockets==17.0.1", "Pillow==12.3.0", "python-socks[asyncio]>=2.4,<3", "httpx[socks]==0.28.1", "playwright==1.62.0"]
