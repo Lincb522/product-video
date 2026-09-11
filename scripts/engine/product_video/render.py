@@ -9,7 +9,7 @@ from .common import VideoError
 from .compositor import Renderer, fit_rect
 
 
-def encode_video(renderer, audio, destination, timeout=7200):
+def encode_video(renderer, audio, destination, timeout=7200, metadata_comment=None):
     v = renderer.v
     frame_count = math.ceil(renderer.total * v["fps"])
     args = ["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s",
@@ -19,6 +19,10 @@ def encode_video(renderer, audio, destination, timeout=7200):
     args += ["-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2",
              "-af", "apad", "-t", str(frame_count / v["fps"]), "-movflags", "+faststart",
              "-metadata", "comment=AI-generated narration; screenshot-based operation simulation", str(destination)]
+    if metadata_comment is not None:
+        args[args.index("-metadata") + 1] = "comment=" + metadata_comment
+    elif any("scene3d" in s for c in renderer.chapters for s in c["steps"]):
+        args[args.index("-metadata") + 1] = "comment=AI-generated narration; 3D device rendering with screen media"
     begin = time.monotonic()
     with tempfile.TemporaryFile() as errors:
         proc = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=errors)

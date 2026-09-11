@@ -42,13 +42,19 @@ def content_layout(content, video):
     scale = video['width'] / 1920
     px = lambda value: round(value * scale)
     split = content['layout'] == 'split'
+    style = video.get('style', 'classic')
     x, width = (112, 760) if split else (144, 1632)
+    if not split and style in ('gallery', 'minimal', 'tutorial'):
+        x, width = {'gallery': (240, 1440), 'minimal': (192, 1536), 'tutorial': (144, 1440)}[style]
     if split and content.get('image_side', 'right') == 'left':
         x = 1048
     groups = []
     if content.get('eyebrow'):
         groups.append((content['eyebrow'], 24, 24, 30, video['accent']))
-    groups.append((content['headline'], 64 if split else 92, 48 if split else 64, 30, video['foreground']))
+    headline_size = {'promo': (76, 116), 'tutorial': (54, 70), 'cinema': (72, 108),
+                     'gallery': (60, 82), 'minimal': (58, 78)}.get(style, (64, 92))[not split]
+    groups.append((content['headline'], headline_size, 48 if split else 64, 30,
+                   video['accent'] if style == 'promo' else video['foreground']))
     if content.get('body'):
         groups.append((content['body'], 34 if split else 38, 28 if split else 32, 0, video['foreground']))
     if content.get('bullets'):
@@ -65,7 +71,9 @@ def content_layout(content, video):
             height = line_height * len(lines)
             blocks.append({'text': value, 'lines': lines, 'font_size': face.size,
                            'line_height': line_height, 'x': px(x), 'y': y,
-                           'width': px(width), 'height': height, 'color': color})
+                           'width': px(width), 'height': height, 'color': color,
+                           'centered': style == 'gallery' and content['layout'] == 'title',
+                           'lift': {'promo': 40, 'cinema': 0, 'gallery': 10, 'minimal': 8}.get(style, 18)})
             y += height + px(gap)
         height = y - px(groups[-1][3])
         if height <= px(628):
@@ -86,9 +94,10 @@ def paint_content(image, content, blocks, progress, reduced_motion, font_path):
         if p <= 0:
             continue
         color = (*ImageColor.getrgb(block['color'])[:3], round(255 * p))
-        y = block['y'] + round(18 * scale * (1 - p))
+        y = block['y'] + round(block['lift'] * scale * (1 - p))
         face = font(font_path, block['font_size'])
         for line in block['lines']:
-            draw.text((block['x'], y), line, font=face, fill=color, anchor='lt')
+            x = block['x'] + block['width']/2 if block['centered'] else block['x']
+            draw.text((x, y), line, font=face, fill=color, anchor='mt' if block['centered'] else 'lt')
             y += block['line_height']
     return image

@@ -15,7 +15,7 @@ from .voices import resolve
 
 DEFAULT_VIDEO = {"width": 1920, "height": 1080, "fps": 30, "font": None,
                  "encoder": "libx264", "subtitles": "auto", "style": "product",
-                 "reduced_motion": False} | PRESETS['product']
+                 "reduced_motion": False, "renderer": "legacy"} | PRESETS['product']
 
 
 def known(value, allowed, label):
@@ -95,9 +95,9 @@ def load(path, *, check_image_geometry=True):
         config = json.loads(path.read_text())
     except (OSError, ValueError):
         raise VideoError("项目配置无法读取或不是有效 JSON。") from None
-    known(config, ("schema_version", "product", "output", "voice", "video", "chapters"), "项目")
-    if config.get("schema_version") != 1:
-        raise VideoError("schema_version 必须为 1。")
+    known(config, ("schema_version", "product", "output", "voice", "video", "chapters", "audio"), "项目")
+    if config.get("schema_version") not in (1, 2):
+        raise VideoError("schema_version 必须为 1 或 2。")
     product = config.get("product")
     known(product, ("name", "logo"), "product")
     text(product.get("name"), "产品名称", 60)
@@ -159,7 +159,14 @@ def load(path, *, check_image_geometry=True):
     style = supplied_video.get('style', 'product')
     if not isinstance(style, str) or style not in PRESETS:
         raise VideoError('video.style 仅支持：' + '、'.join(PRESETS) + '。')
-    video = DEFAULT_VIDEO | PRESETS[style] | supplied_video
+    video = DEFAULT_VIDEO | PRESETS[style] | {'renderer': 'remotion' if config['schema_version'] == 2 else 'legacy'} | supplied_video
+    if video['renderer'] not in ('legacy', 'remotion'):
+        raise VideoError('video.renderer 仅支持 legacy 或 remotion。')
+    if 'audio' in config:
+        if video['renderer'] != 'remotion':
+            raise VideoError('独立音乐与音效轨需要 video.renderer: remotion。')
+        from .shotcraft import validate_audio
+        validate_audio(config['audio'], base)
     for key in ("width", "height"):
         number(video[key], 320, 3840, key)
         if not isinstance(video[key], int) or video[key] % 2:
@@ -220,19 +227,40 @@ def load(path, *, check_image_geometry=True):
         previous = -1
         for step_index, step in enumerate(steps):
             known(step, ("at", "images", "labels", "cursor", "click", "interaction", "camera",
-                         "transition", "transition_duration", "content"), "画面")
+                         "transition", "transition_duration", "content", "scene3d", "shotcraft", "editorial"), "画面")
             transition_fields(step)
             number(step.get("at"), 0, 0.99, "画面 at")
             if step["at"] <= previous or (previous == -1 and step["at"] != 0):
                 raise VideoError("首个画面的 at 必须为 0，后续按升序且不重复。")
             previous = step["at"]
-            if 'content' in step:
+            if any(k in step for k in ('content', 'scene3d', 'shotcraft', 'editorial')):
                 step.setdefault('images', [])
             if not isinstance(step.get("images"), list) or not 0 <= len(step["images"]) <= 2:
                 raise VideoError("images 必须是最多两张图片的数组。")
+            if 'editorial' in step:
+                if video['renderer'] != 'remotion':
+                    raise VideoError('editorial 内容镜头需要 Remotion。')
+                if step['images'] or step.get('labels') or any(k in step for k in ('content', 'scene3d', 'shotcraft', 'cursor', 'click', 'interaction', 'camera')):
+                    raise VideoError('editorial 使用自身图片与版式，不同时使用其他镜头字段。')
+                from .editorial import validate_editorial
+                validate_editorial(step['editorial'], asset, video['font'])
+            if 'shotcraft' in step:
+                if video['renderer'] != 'remotion':
+                    raise VideoError('Shotcraft 镜头需要 schema_version: 2 或 video.renderer: remotion。')
+                if step['images'] or any(k in step for k in ('content', 'scene3d', 'cursor', 'click', 'interaction', 'camera')) or step.get('labels'):
+                    raise VideoError('Shotcraft 镜头通过 text、media 与 colors 替换内容，不同时使用其他镜头字段。')
+                from .shotcraft import validate_motion
+                validate_motion(step['shotcraft'], base)
+            if 'scene3d' in step:
+                from .scene3d import validate_scene
+                validate_scene(step['scene3d'], base, video)
+                if step['images'] or any(k in step for k in ('cursor', 'click', 'interaction', 'camera')) or step.get('labels'):
+                    raise VideoError('三维画面使用 scene3d.devices，不同时使用二维图片、鼠标或相机字段。')
+                if 'content' in step and step['content'].get('layout') != 'split':
+                    raise VideoError('三维画面的文案使用 content.layout: split，纯文字镜头单独编排。')
             if 'content' in step:
-                validate_content(step['content'], step['images'], video)
-            elif not step['images']:
+                validate_content(step['content'], ['3d-screen'] if 'scene3d' in step else step['images'], video)
+            elif not step['images'] and 'scene3d' not in step and 'shotcraft' not in step and 'editorial' not in step:
                 raise VideoError("每个画面需要 1–2 张图片，或用 content 编排纯文案画面。")
             step["images"] = [asset(x) for x in step["images"]]
             labels = step.setdefault("labels", [""] * len(step["images"]))

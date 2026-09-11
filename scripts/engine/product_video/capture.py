@@ -168,7 +168,7 @@ def web_error(error, stage):
 
 
 @contextmanager
-def web_session(target):
+def web_session(target, record_dir=None):
     try:
         from playwright.sync_api import sync_playwright, Error
     except ImportError:
@@ -202,7 +202,9 @@ def web_session(target):
             try:
                 context = browser.new_context(viewport=target['viewport'], device_scale_factor=2,
                                               color_scheme=target.get('color_scheme', 'light'), accept_downloads=False,
-                                              storage_state=state)
+                                              storage_state=state,
+                                              **({'record_video_dir': str(record_dir), 'record_video_size': target['viewport']}
+                                                 if record_dir else {}))
                 state = None
                 page = context.new_page()
                 page.set_default_timeout(15000)
@@ -211,13 +213,14 @@ def web_session(target):
                 stage = '打开目标页面'
                 page.goto(target['url'], wait_until='domcontentloaded')
                 yield page
+                context.close()
             finally:
                 browser.close()
     except Error as error:
         raise web_error(error, stage) from None
 
 
-def capture_web(page, target, shot, destination):
+def capture_web(page, target, shot, destination, recording=False):
     from playwright.sync_api import Error
 
     try:
@@ -237,7 +240,11 @@ def capture_web(page, target, shot, destination):
                 if kind == 'fill':
                     if loc.get_attribute('type') == 'password' or loc.get_attribute('autocomplete') in ('current-password', 'new-password', 'one-time-code'):
                         raise VideoError('不能从截图计划填写密码或验证码，请使用手动登录等待。')
-                    loc.fill(action['value'])
+                    if recording:
+                        loc.fill('')
+                        loc.press_sequentially(action['value'], delay=65)
+                    else:
+                        loc.fill(action['value'])
                 elif kind == 'click':
                     loc.click()
                 elif kind == 'press':
@@ -249,13 +256,14 @@ def capture_web(page, target, shot, destination):
                     # only this idempotent operation, never retry clicks or form submissions.
                     for attempt in range(3):
                         loc.wait_for(state='visible')
-                        if loc.evaluate("""(element, offset) => {
+                        if loc.evaluate("""(element, options) => {
+                            const offset = options.offset;
                             if (!element.isConnected) return false;
                             const margin = element.style.getPropertyValue('scroll-margin-top');
                             const priority = element.style.getPropertyPriority('scroll-margin-top');
                             try {
                                 if (offset) element.style.setProperty('scroll-margin-top', `${offset}px`, 'important');
-                                element.scrollIntoView({block: 'start', inline: 'nearest', behavior: 'instant'});
+                                element.scrollIntoView({block: 'start', inline: 'nearest', behavior: options.smooth ? 'smooth' : 'instant'});
                             } finally {
                                 if (offset) {
                                     if (margin) element.style.setProperty('scroll-margin-top', margin, priority);
@@ -263,13 +271,15 @@ def capture_web(page, target, shot, destination):
                                 }
                             }
                             return true;
-                        }""", action.get('offset', 0)):
+                        }""", {'offset': action.get('offset', 0), 'smooth': recording}):
                             break
                     else:
                         raise VideoError(f"截图 {shot['id']} 的滚动目标持续被页面替换；请等待内容加载完成后重试。")
                 else:
                     loc.wait_for(state='visible')
             same_origin()
+            if recording:
+                page.wait_for_timeout(450)
         stage = '等待 ready 控件'
         web_locator(page, shot['ready']).wait_for(state='visible')
         # Native load promises avoid wait_for_function's repeated string eval under strict CSP.
@@ -320,7 +330,7 @@ def capture_web(page, target, shot, destination):
                         raise VideoError('操作坐标位于已遮盖的区域；请使用不含私人内容的演示控件。')
             points[name] = [geometry['x'] / geometry['width'], geometry['y'] / geometry['height']]
         stage = '保存截图'
-        page.screenshot(path=str(destination), full_page=False, animations='disabled', mask=masks)
+        page.screenshot(path=str(destination), full_page=False, animations='allow' if recording else 'disabled', mask=masks)
         for name, spec in shot.get('points', {}).items():
             current = web_locator(page, spec).evaluate("""element => {
                 const r = element.getBoundingClientRect();
@@ -431,8 +441,38 @@ def resolve_images(raw, base, captured):
                 else:
                     images.append(str((base / Path(value).expanduser()).resolve()))
             step['images'] = images
+            for key, value in step.get('shotcraft', {}).get('media', {}).items():
+                if value.startswith('capture:'):
+                    sid = value.removeprefix('capture:')
+                    if sid not in captured:
+                        raise VideoError('Shotcraft 镜头引用了不存在的截图 id。')
+                    step['shotcraft']['media'][key] = captured[sid]
+                else:
+                    step['shotcraft']['media'][key] = str((base / Path(value).expanduser()).resolve())
+            for item in step.get('editorial', {}).get('items', []):
+                value = item.get('source', '')
+                if value.startswith('capture:'):
+                    sid = value.removeprefix('capture:')
+                    if sid not in captured:
+                        raise VideoError('内容镜头引用了不存在的截图 id。')
+                    item['source'] = captured[sid]
+                else:
+                    item['source'] = str((base / Path(value).expanduser()).resolve())
+            for device in step.get('scene3d', {}).get('devices', []):
+                source = device.get('source', '')
+                if source.startswith('capture:'):
+                    sid = source.removeprefix('capture:')
+                    if sid not in captured:
+                        raise VideoError('三维屏幕引用了不存在的截图 id。')
+                    device['source'] = captured[sid]
+                else:
+                    device['source'] = str((base / Path(source).expanduser()).resolve())
     if raw.get('product', {}).get('logo'):
         raw['product']['logo'] = str((base / raw['product']['logo']).resolve())
     if raw.get('video', {}).get('font'):
         raw['video']['font'] = str((base / raw['video']['font']).resolve())
     raw['output'] = str((base / raw.get('output', 'output')).resolve())
+    for clips in raw.get('audio', {}).values():
+        for clip in clips:
+            if not clip['source'].startswith('shotcraft:'):
+                clip['source'] = str((base / Path(clip['source']).expanduser()).resolve())

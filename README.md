@@ -1,219 +1,226 @@
-<p align="center">
-  <img src="docs/assets/cover.webp" alt="Product Video：画廊风格的图文镜头、宣传风格的文案镜头，以及保留的原始风格" width="100%">
-</p>
+<div align="center">
 
-<h1 align="center">Product Video</h1>
+<img src="docs/assets/cover.svg" alt="Product Video — 产品介绍视频 Skill" width="100%" />
 
-<p align="center">在 Codex 中编排文案、采集实际界面，生成带配音和字幕的产品介绍视频。</p>
+# Product Video
 
-<p align="center">
-  <a href="scripts/engine/pyproject.toml"><img src="https://img.shields.io/badge/version-1.4.1-7f6954?style=flat-square" alt="版本 1.4.1"></a>
-  <a href="#安装"><img src="https://img.shields.io/badge/Python-3.11%2B-346780?style=flat-square" alt="Python 3.11 及以上"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-55634f?style=flat-square" alt="MIT 许可证"></a>
-</p>
+**理解产品，组织内容，把真实界面做成带旁白的视频。**
 
-<p align="center">
-  <a href="#预览">预览</a> ·
-  <a href="#七种风格">七种风格</a> ·
-  <a href="#文案与旁白">文案与旁白</a> ·
-  <a href="#安装">安装</a> ·
-  <a href="#开始制作">开始制作</a> ·
-  <a href="#文档">文档</a>
-</p>
+功能总览与详细演示 · 内容排版 · 完整镜头库 · 配音与字幕 · 可编辑时间轴
 
-适合应用介绍、功能更新和上手教程。提供产品网址或 macOS 应用名称，说明受众和重点；已有文稿、截图和配音项目也可以继续使用。
+[开始使用](#开始使用) · [本次更新](#21-更新) · [效果与示例](#效果与示例) · [配置文档](#配置与命令)
 
-**原始版本已包含在当前版本中。** 选择 `classic` 即可使用原来的视觉布局、配色、字幕位置、进度条和默认淡入淡出。六种增强风格与原始风格均支持文案镜头、截图和操作演示。
+</div>
 
-## 预览
-
-[![图文编排样片：文案与界面并排展示](docs/assets/story-poster.webp)](https://github.com/Lincb522/product-video/raw/refs/heads/main/docs/assets/story-demo.mp4)
-
-| 样片 | 展示内容 | 观看 |
-| --- | --- | --- |
-| **图文编排** · 28 秒 | 文案开场、要点列表、图文并排、模拟点击、完整界面与收尾 | [播放 / 下载](https://github.com/Lincb522/product-video/raw/refs/heads/main/docs/assets/story-demo.mp4) |
-| **转场与镜头** · 25 秒 | 影院风格、局部聚焦、双图对照及六种增强转场 | [播放 / 下载](https://github.com/Lincb522/product-video/raw/refs/heads/main/docs/assets/motion-demo.mp4) |
-| **原始介绍视频** · 1 分 34 秒 | 最初版本的介绍视频，保留原有内容与配音 | [播放 / 下载](https://github.com/Lincb522/product-video/raw/refs/heads/main/docs/assets/product-video-intro.mp4) |
-
-前两支为引擎实际渲染的**无配音验收样片**，使用明确标注的示例界面。图文样片采用当前文案规范；原始介绍视频保留历史版本，不代表新版文案。正式制作会使用目标产品的实际素材和已确认的旁白。
-
-## 七种风格
-
-风格控制画面配色、默认镜头、转场和操作节奏，内容版式独立选择。下图均来自当前引擎；静态图展示配色与版式，动态效果见上方样片。
-
-<table>
-  <tr>
-    <td width="50%"><img src="docs/assets/styles/classic.webp" alt="Classic 原始版：深灰渐变、原有截图布局与底部进度条"><br><strong>Classic · 原始版</strong><br>保留初版视觉与淡入淡出，继续使用修正后的操作时序。</td>
-    <td width="50%"><img src="docs/assets/styles/product.webp" alt="Product 产品演示：深色画面，文案与截图并排"><br><strong>Product · 产品演示</strong><br>默认风格。深色画面、轻微推进，适合功能介绍与更新。</td>
-  </tr>
-  <tr>
-    <td><img src="docs/assets/styles/promo.webp" alt="Promo 节奏宣传：深色文案开场"><br><strong>Promo · 节奏宣传</strong><br>缩放与水平推移，停留较短，适合重点速览。</td>
-    <td><img src="docs/assets/styles/tutorial.webp" alt="Tutorial 教学演示：浅色画面与分点说明"><br><strong>Tutorial · 教学演示</strong><br>固定镜头、较慢指针和较长停留，便于跟随操作。</td>
-  </tr>
-  <tr>
-    <td><img src="docs/assets/styles/cinema.webp" alt="Cinema 影院：墨黑画面中的完整界面"><br><strong>Cinema · 影院</strong><br>墨黑与冷灰，景深叠化、层叠推进，适合细节展示。</td>
-    <td><img src="docs/assets/styles/gallery.webp" alt="Gallery 画廊：暖白画面中的图文讲解"><br><strong>Gallery · 画廊</strong><br>暖白与棕灰，圆角开幕、固定镜头，适合设计与主题展示。</td>
-  </tr>
-  <tr>
-    <td><img src="docs/assets/styles/minimal.webp" alt="Minimal 极简：纸白与灰绿的文案收尾"><br><strong>Minimal · 极简</strong><br>纸白与灰绿，上移遮罩，适合简洁的工具介绍。</td>
-    <td><strong>所有风格均支持</strong><br><br>文案开场与章节说明<br>功能要点列表<br>文字与截图左右并排<br>完整截图与双图对照<br>模拟点击、指针拖动和局部聚焦<br><br><a href="references/motion.md">查看风格与转场参数 →</a></td>
-  </tr>
-</table>
-
-直接告诉 Agent「用原始版」或「改成画廊风格」即可。手动编辑项目时设置 `video.style`：
-
-```json
-{
-  "video": {
-    "style": "classic"
-  }
-}
-```
-
-显式颜色、镜头和转场参数会覆盖预设；切换风格时，移除不再需要的覆盖项。
-
-### 转场与模拟操作
-
-支持 **15 种切换方式**，包含直接切换。章节与单个镜头可分别配置，通常选两三种保持节奏一致。
-
-| 类型 | 效果 |
-| --- | --- |
-| 基础衔接 | 直接切换、淡入淡出、水平推移、向上推移、柔边擦除、缩放叠化、虚化叠化 |
-| 增强转场 | 景深叠化、层叠推进、上移遮罩、圆角开幕、双侧揭幕、玻璃扫光 |
-
-模拟操作遵循 **移动 → 停留 → 按下 / 拖动 → 显示结果 → 留出阅读时间**。网页采集可记录真实控件坐标，放大界面时指针同步变换；操作完成前保持操作前截图，避免结果提前出现。
-
-视频会标注「操作演示」。当前模拟基于静态截图，指针拖动只展示按住、移动和释放，不能还原打字、滚动惯性或拖动中的内容变化；引擎尚不接收真实录屏素材。支持 `reduced_motion`，可关闭推进和复杂转场。
-
-## 文案与旁白
-
-### 画面不只放截图
-
-画面正文、旁白和字幕分别编排。七种风格都支持以下版式，也可以与截图镜头混排；纯文案片无需虚构截图。
-
-| 版式 | 内容 | 适合的位置 |
-| --- | --- | --- |
-| `title` | 主标题，可加短标签与正文 | 开场、章节说明、必要的收尾 |
-| `bullets` | 主标题与 1–4 项要点 | 功能概览、操作条件、关键差异 |
-| `split` | 文字与一张等比截图，支持左右互换 | 功能讲解、操作前后说明 |
-
-正文按字体和分辨率测量、换行，保留底部字幕区域。内容仍放不下时要求拆分镜头，不截断或用省略号隐藏正文。只修改画面文字，可以复用未改变的配音。[查看字段与完整示例 →](references/content.md)
-
-### 默认写作与朗读规范
-
-| 范围 | 要求 |
-| --- | --- |
-| 信息 | 围绕实际功能、操作和结果展开；名称准确，保留必要的专业信息 |
-| 句式 | 使用陈述句，禁用反问、设问、自问自答和串场填充 |
-| 措辞 | 不用宣传套话、重复解释、夸张承诺；避免过度口语化和名词堆砌 |
-| 收尾 | 最后一项实际信息表达完整即可结束，不自动补本地处理、隐私或效率口号 |
-| 朗读 | 专业、平稳、清晰，按语义停顿，重音克制；保留用户指定的角色与语气 |
-
-例如：「字幕根据配音时间戳对齐」「修改画面时可复用原有配音」。画面文字可以提炼，字幕跟随实际旁白。已有确认稿不会在 TTS 或字幕阶段被擅自改写。
-
-写作规范由 Skill 在合成前执行；语气参数仅指导支持该能力的音色朗读。语气提示不能代替文案编辑。[查看完整文案与旁白规范 →](references/narration.md)
-
-已将 [No AI Slop](https://github.com/petergyang/no-ai-slop) 的通用句检查、最小改写和复核方法调整为中文产品文案规则，检查伪分析与术语混乱，保留专业细节和自然节奏。新稿在配音前按[文案复核清单](references/narration-review.md) 检查并修正；只要求审稿时列出原句和问题，保持原稿。不需要额外安装其他 Skill。
-
-## 安装
-
-已验证环境为 **macOS**，需要 **Python 3.11+、FFmpeg（含 ffprobe）**。macOS 应用自动采集还需要 Command Line Tools、辅助功能与屏幕录制权限。Windows 和 Linux 的完整制作流程尚未验证。
-
-在终端执行：
-
-```sh
-git clone https://github.com/Lincb522/product-video.git "${CODEX_HOME:-$HOME/.codex}/skills/product-video"
-sh "${CODEX_HOME:-$HOME/.codex}/skills/product-video/scripts/setup.sh"
-```
-
-安装脚本准备 Skill 专用 Python 环境、依赖和 Chromium。系统 Python、FFmpeg 和语音服务需另行准备。如果已有同名 Skill，先确认目录内的修改，再决定如何更新。
-
-安装完成后，在 Codex 新开对话，使用 `$product-video`。
-
-## 开始制作
-
-把网址替换为目标产品：
+Product Video 是面向 Codex 等 Agent 的产品视频制作 Skill。提供项目、网址或应用和介绍要求，Agent 核对实际功能、采集所需界面、整理文稿、编排镜头，再生成配音、字幕和 MP4。你可以制作产品宣传、操作演示、功能讲解或版本更新报告，也可以继续修改已有视频。
 
 ```text
-使用 $product-video，为 https://example.com 制作一分钟的产品介绍。
-面向首次使用的用户，重点介绍搜索、收藏和导出。
-自动采集当前界面，使用 gallery 风格。
-安排文案开场、功能要点和图文讲解，关键步骤加点击演示。
-配音用小何 2.0，带中文字幕。先给我看文稿，确认后再生成。
+使用 $product-video，给这个项目做一支带中文旁白的宣传视频。
+先认真检查项目和最新界面，开头介绍主要功能，再按使用流程详细展开。
+按内容排版，多使用不同用途的镜头，三维只在需要时出现。
+文案简洁、专业，不用反问、套话或空泛收尾，最后交付视频文件。
 ```
 
-介绍本机应用时，将网址换成应用名称并说明要展示的页面。Agent 根据真实界面整理文稿和采集计划，无需手写 JSON。
+## 2.1 更新
 
-| 阶段 | 处理内容 |
+这次把实际制作中需要反复调整的内容组织、版式和运动做成了可复用能力。功能数量、标题、素材、聚焦时机和切片边界都来自当前项目。
+
+| 更新 | 具体变化 |
 | --- | --- |
-| 文稿与编排 | 核对产品事实，整理旁白、画面正文和镜头顺序 |
-| 界面采集 | 网页用独立后台浏览器；macOS 按指定窗口和辅助功能控件采集 |
-| 配音与字幕 | 分章生成语音；中文、英文根据返回的时间戳对齐字幕 |
-| 预览与导出 | 检查转场、指针和结果关键帧，输出并完整解码验证 MP4 |
+| **先总览，再展开** | 完整介绍先建立功能关系，再展示入口、操作和结果；短预告、单项教程与已确认结构按各自需求编排 |
+| **六种内容版式** | 功能总览、总览进入细节、卡片展开、宽幅界面、图文并排、双图对照，直接绑定产品图片与说明 |
+| **更多有用途的运动** | 按实际分栏或内容行展开、焦点回归、倾斜回正、遮罩、面板展开、连续浏览、翻面与主题对照 |
+| **旁白决定展示节奏** | 镜头沿用实际音频时长；总览可按讲解时间逐项聚焦，长镜头后半段继续运动 |
+| **检查导出的文件** | 新增 `review`，直接从已验证 MP4 提取复核帧；支持长视频的大量采样点 |
+| **修复长视频校验** | FFmpeg 超时参数取整，避免渲染完成后因小数参数导致校验失败 |
 
-网页登录使用独立准备窗口，完成后回到后台采集。应用无法后台操作、窗口不可采集或权限不足时，会说明具体原因。其他语言可提供字幕时间轴，或明确关闭字幕。
+[内容组织方法](references/storytelling.md) · [内容镜头配置](references/editorial.md) · [2.1 验证记录](docs/validation-2.1.md)
 
-### 配置配音
+### 从初版到现在
 
-配音使用**火山引擎豆包语音**，默认「小何 2.0」。内置音色目录可按角色名称与语言查找，也可先生成短试听；目录列出的角色是否可用，取决于账号授权。
-
-1. 打开[豆包语音控制台](https://console.volcengine.com/speech/new/overview)，按要求完成账号认证，选择项目和语音合成服务。
-2. 在同一项目的 API Key 管理中创建或选择可用的 **豆包语音 API Key**。
-3. 回到任务自动打开的本机配音设置页，粘贴 Key，点击「保存并继续」。后续任务沿用已有配置。
-
-**可先领取免费试用额度。** 默认小何 2.0 使用的豆包语音合成模型 2.0，目前提供 **20,000 字符、半年有效期**，需在控制台点击「试用」领取。额度用尽、试用到期或转为正式服务后失效；以领取页面为准（2026-09-10 核对）。[官方试用说明](https://docs.volcengine.com/docs/6561/1359369?lang=zh) · [Key 配置说明](https://docs.volcengine.com/docs/6561/1167802?lang=zh)
-
-使用豆包语音 Key，不使用火山方舟 Key 或账号通用 Access Key。Key 通过本机设置页保存到当前用户配置目录，文件权限为 `0600`，无需发送给 Agent。配音会将旁白文本与音色参数发送给火山引擎；引擎不向语音服务上传截图。[首次配置与声音试听 →](references/first-run.md)
-
-### 继续修改
-
-| 需求 | 可以直接这样说 |
+| 初版基础 | 当前能力 |
 | --- | --- |
-| 使用原始视觉 | 「切换到 classic，保留原始版布局和默认淡入淡出。」 |
-| 修改文案 | 「精简第二章的重复解释，保留功能与限制。先给我看稿，不生成配音。」 |
-| 增加图文讲解 | 「这一段左侧放功能说明，右侧展示实际设置界面。」 |
-| 试听声音 | 「用 Vivi 2.0 读第一段，先试听，不重做整支视频。」 |
-| 更新界面 | 「重新采集当前版本，保持原文稿和配音，只更新画面。」 |
-| 调整操作 | 「展示从列表打开详情，保留操作前后截图，点击完成后再显示结果。」 |
+| 章节文稿、截图与配音 | 增加产品理解、功能总览、内容排版和按工作流程展开的分镜规则 |
+| 原始二维布局 | **`classic` 继续保留**，另有六种构图与入场方式不同的二维风格 |
+| 截图切换与指针演示 | 增加移动、停留、按下、结果与驻留的因果时序，以及实际控件坐标绑定 |
+| 静态界面素材 | 增加网页自动采集、真实操作录屏和按需采集 macOS 窗口 |
+| 二维合成 | 增加 Three.js 设备场景、灯光材质、镜头路径和屏幕视频纹理 |
+| 原有视频管线 | 将完整 video-shotcraft 源库、Remotion 工作台、配音和字幕整合到同一项目 |
+| 成片导出 | 增加可编辑工程、多轨音频、素材哈希、完整解码和成片逐帧复核入口 |
 
-相同文稿和配音设置复用已验证音频。只改一章文稿，只重新生成受影响的章节；只改截图、正文、颜色或转场，复用未改变的配音。网络失败后保留已完成章节，不自动反复调用计费接口，也不自动替换音色。
+旧项目 `schema_version: 1` 默认使用原合成器；新项目 `schema_version: 2` 默认使用 Remotion。已有 `classic` 项目、声音选择、文案和操作配置可继续使用。
 
-## 输出文件
+## 开始使用
 
-默认 **16:9 · 1080p · 30 fps · H.264 / AAC**。当前支持横屏输出；正式项目需要旁白，不提供静音或纯音乐制作流程。
+### 安装 Skill
 
-| 文件 | 内容 |
+需要 **Python 3.11+、Node.js 22+、npm、FFmpeg、ffprobe** 和中文字体。macOS 使用系统字体；其他环境可在项目中指定字体文件。macOS 窗口采集需要系统权限，网页采集使用 Playwright。Windows 运行环境尚未验证。
+
+首次安装到 Codex：
+
+```sh
+git clone https://github.com/Lincb522/product-video.git ~/.codex/skills/product-video
+sh ~/.codex/skills/product-video/scripts/setup.sh
+```
+
+setup 在 Skill 目录安装 Python 虚拟环境、Node 依赖和浏览器运行环境；FFmpeg 需事先安装。若目录已存在，先保留自定义改动，再更新完整 Skill 目录。通过 Git 安装且没有本地改动时可运行：
+
+```sh
+git -C ~/.codex/skills/product-video pull --ff-only
+sh ~/.codex/skills/product-video/scripts/setup.sh
+```
+
+也可下载 [Releases](https://github.com/Lincb522/product-video/releases) 中的完整安装包。源码、镜头素材和许可证需要一起安装，不能只复制 `SKILL.md`。
+
+### 生成视频
+
+在 Codex 中使用 `$product-video` 并描述项目和要求。Skill 负责整理配置与采集计划，不要求你手写 JSON。第一次生成旁白时会打开本机设置页，引导配置火山引擎 TTS；已有音色和配置会继续使用。
+
+常用请求：
+
+- **产品宣传**：「先介绍主要功能，再详细展示常用流程，带中文旁白，交付 1080p MP4。」
+- **版本报告**：「从初版到当前版本梳理新增、优化与修复，在对应画面说明技术栈和实现方式。」
+- **操作教程**：「展示创建项目到导出的完整流程，界面文字要能看清，每步保留操作结果。」
+- **修改已有视频**：「保留素材和声音，调整前半段结构，增加对照镜头，减少重复三维展示。」
+
+文案与旁白统一遵循 [写作规范](references/narration.md) 和 [No AI Slop 适配复核](references/narration-review.md)：使用简洁、专业的陈述句，删除反问、重复解释、夸张措辞和无依据的收尾。正文补充界面信息，字幕跟随旁白。
+
+## 效果与示例
+
+### 内容镜头
+
+<img src="docs/assets/editorial-poster.webp" alt="内容总览、界面细节、图文说明与主题对照" width="100%" />
+
+[播放内容镜头示例](docs/assets/editorial-demo.mp4)。这是使用演示界面和静音音轨生成的布局样片，用于检查版式与运动；正式产品视频使用目标产品的真实素材和配音。
+
+| 版式 | 适合内容 |
 | --- | --- |
-| `product-introduction.mp4` | 含配音的视频；按项目配置添加字幕 |
-| `subtitles.srt` | 独立字幕，可导入剪辑软件 |
-| `narration.wav` / `narration.txt` | 完整旁白音轨与原稿 |
-| `preview/` | 稳定画面、转场、移动、按下及结果关键帧；索引记录对应时间 |
-| `project.resolved.json` / `timeline.json` | 实际配置与时间轴 |
+| `overview` | 2–6 项主要功能，先看全貌，再逐项放大 |
+| `portal` | 从总览进入具体功能 |
+| `fan` | 同组页面或结果的卡片陈列 |
+| `full` | 大幅界面与上方标题，适合阅读细节 |
+| `side` | 界面与必要说明并排 |
+| `pair` | 两种状态、主题或版本的对应比较 |
 
-`output/latest.json` 指向最新完成解码校验的成片，旧成片保留在对应版本目录中。解码校验检查文件可播放性；画面、字幕与配音仍需完整审看。
+这些版式可以与截图操作、三维场景和原始 Shotcraft 镜头交替使用。不是每个镜头都需要截图，但功能演示应有相应界面或结果，避免连续文字页。
 
-## 当前版本
+### 完整 Shotcraft 镜头库
 
-**v1.4.1** 包含此前全部增强：原始 `classic`、六种增强风格、十五种切换方式、三种正文版式、操作时序与坐标修正，以及统一的文案和旁白规范。旧的截图项目可继续使用；原始视觉通过 `classic` 选择。
+[video-shotcraft](https://github.com/Vincentwei1021/video-shotcraft) 的完整源库已经植入：**157 张镜头卡、214 个画廊样式全部映射，运行目录共 218 个镜头组件**。覆盖开场、界面入场、交互、运镜、转场、文字、数据、节奏与收尾。目录另含 149 条音效和 5 条 BGM。
 
-当前源码通过 83 项回归测试；原始画面、文案镜头和增强转场已有离线渲染与解码验证。本次维护未调用配音 API，新默认朗读语气未做实际听感验收。测试命令和本地运行方式见[引擎说明](scripts/engine/README.md)。
+原组件的文案、逐字动画、颜色、字体和媒体可通过内容映射替换。依赖特定界面几何的镜头仍需按实际页面调整；不能把上游示例画面直接当成目标产品。新增内容镜头使用自己的产品版式，不改变上游目录数量。
 
-## 文档
+```sh
+SKILL="$HOME/.codex/skills/product-video"
+RUN="$SKILL/scripts/engine/run.sh"
+"$RUN" motions --search 转场
+"$RUN" motions --search 卡片
+"$RUN" motions --kind sfx
+```
 
-| 文档 | 内容 |
+[镜头、内容绑定与多轨语音](references/shotcraft.md)
+
+### 七种二维风格
+
+原生二维镜头有各自的构图、文字层级、截图陈列和入场方式。`video.style` 控制这些原生镜头；选定的 Shotcraft 组件与 `editorial` 内容版式使用自身构图。
+
+| 原始 `classic` | 产品 `product` | 宣传 `promo` | 教程 `tutorial` |
+| --- | --- | --- | --- |
+| ![原始风格](docs/assets/styles/classic.webp) | ![侧栏叙事](docs/assets/styles/product.webp) | ![大标题与错位底板](docs/assets/styles/promo.webp) | ![步骤导览](docs/assets/styles/tutorial.webp) |
+
+| 影院 `cinema` | 画廊 `gallery` | 极简 `minimal` |
+| --- | --- | --- |
+| ![宽幅舞台](docs/assets/styles/cinema.webp) | ![装裱陈列](docs/assets/styles/gallery.webp) | ![平面网格](docs/assets/styles/minimal.webp) |
+
+[二维构图与操作规则](references/motion.md) · [六款风格差异验证](docs/validation-2.0.1.md)
+
+### 三维与真实操作
+
+[![三维设备与录屏示例](docs/assets/studio-poster.webp)](docs/assets/studio-demo.mp4)
+
+Three.js 场景支持设备组合、材质、灯光、环境反射、地面投影和镜头路径，屏幕可以放入实际截图或录屏。包含具体设备模型及通用手机、平板、笔记本和屏幕面板。介绍对象可以是网页、桌面软件或移动应用；设备只是展示选项。
+
+截图模拟操作遵循「移动 → 停留 → 按下或释放 → 展示真实结果 → 驻留」。连续输入、滚动或拖动中的内容变化使用真实录屏。采集和结果需按实际来源标注。
+
+[三维场景与录屏](references/three-dimensional.md) · [真实界面采集](references/capture.md)
+
+## 配置与命令
+
+日常通过 Skill 完成制作；需要检查、继续渲染或编辑工程时使用 CLI：
+
+| 命令 | 作用 | 语音 API |
+| --- | --- | --- |
+| `check PROJECT` | 检查配置、素材和布局约束 | 不调用 |
+| `capture PROJECT` | 执行采集计划，生成素材与解析配置 | 不调用 |
+| `voice PROJECT` | 分章生成旁白 | 缺缓存时调用 |
+| `prepare-motion PROJECT` | 用已有旁白准备可编辑时间轴 | 默认不调用 |
+| `studio PROJECT` | 打开镜头库、预览与多轨工作台 | 主动生成旁白时调用 |
+| `preview PROJECT` | 用已有配音生成关键帧 | 不调用 |
+| `render PROJECT` | 用已有配音渲染并完整解码验证 | 不调用 |
+| `review PROJECT` | 从已验证 MP4 提取关键帧 | 不调用 |
+| `auto PROJECT` | 采集、首次配置、配音、字幕、成片 | 缺缓存时调用 |
+
+当前主合成器支持 **16:9、24–60 fps**，默认 **1920×1080 / 30 fps**；不是任意画幅导出器。中文、英文自动字幕使用 API 时间戳；其他语言需提供对齐字幕或明确关闭字幕。音色目录快照含 547 个不同 ID，具体可用性取决于当前账号授权。
+
+工作台可编辑镜头顺序、时长、文案、旁白、字幕和音频轨。新增内容镜头的图片列表、布局、聚焦时机与切片边界在项目 JSON 中设置，当前属性面板尚未覆盖全部嵌套字段。
+
+[完整命令与语音配置](scripts/engine/README.md) · [内容镜头字段](references/editorial.md) · [正文版式](references/content.md) · [Skill 工作流](SKILL.md)
+
+## 交付文件
+
+`output/latest.json` 指向通过校验的最新成片。对应渲染目录包含：
+
+```text
+product-introduction.mp4    H.264 + AAC 视频
+subtitles.srt              外挂字幕
+narration.txt              实际旁白稿
+project.resolved.json      解析后的配置
+timeline.json              配音和章节时间轴
+verification.json          规格、时长、素材哈希与完整解码结果
+studio/project.json        Remotion 可编辑工程
+studio/public/             对应图片、字体与分章音频
+preview/                   渲染前的关键帧
+review/                    从实际 MP4 提取的复核帧
+```
+
+`preview/` 和 `review/` 由对应命令生成。原引擎另输出合并旁白 `narration.wav`。相同文稿与音色参数复用已验证音频；改图片、排版或转场无需重新合成语音。旧成片保留，视觉、操作因果和听感需结合实际播放检查。
+
+## 实现与开发
+
+| 技术 | 职责 |
 | --- | --- |
-| [Skill 使用规则](SKILL.md) | Agent 工作流程与制作要求 |
-| [文案与旁白](references/narration.md) | 写作尺度、朗读语气与合成前检查 |
-| [文案复核清单](references/narration-review.md) | 逐句审稿、最小修改、事实与确认稿边界 |
-| [文案镜头](references/content.md) | 标题、要点、图文版式及完整示例 |
-| [镜头与动效](references/motion.md) | 风格、转场、模拟操作、局部聚焦与离线样片 |
-| [自动采集](references/capture.md) | 网页、macOS 窗口、登录准备与坐标记录 |
-| [首次配置](references/first-run.md) | Key 配置、音色选择与短试听 |
-| [引擎说明](scripts/engine/README.md) | 命令行、项目格式、测试与故障处理 |
-| [音色目录](scripts/engine/examples/voices.csv) | 可搜索的公开音色 ID、名称与语言 |
+| Python + Pillow | 配置检查、素材处理、原生二维构图、字幕和项目编排 |
+| Playwright / macOS 窗口采集 | 获取实际页面、控件位置与操作录屏 |
+| React + TypeScript + Remotion | 内容镜头、Shotcraft 组件、多轨时间轴与最终合成 |
+| Three.js | 三维设备、材质灯光、镜头与屏幕纹理 |
+| 火山引擎 TTS | 角色配音与字级时间戳；沿用既有语音管线 |
+| FFmpeg + ffprobe | 音视频处理、H.264/AAC 编码、完整解码与成片抽帧 |
 
-遇到问题可[提交 Issue](https://github.com/Lincb522/product-video/issues)，附系统版本、制作步骤和已脱敏的错误信息。
+镜头和字幕按实际音频边界换算到共享帧时钟。旧版截图操作与三维画面先生成片段，再和新镜头一起进入 Remotion 时间轴。镜头内容映射在组件作用域内生效，原库的示例文字与图片不会自动变成产品事实。
 
----
+```sh
+cd scripts/engine
+PYTHONPATH=. .venv/bin/python -m unittest discover -s tests -v
 
-[MIT License](LICENSE) · 语音服务、音色授权与费用由对应提供方管理。官方音色目录来源及第三方说明见 [NOTICE](NOTICE)。
+cd ../../vendor/video-shotcraft/workbench
+npm run build
+npm run test:integration
+```
+
+离线示例与打包：
+
+```sh
+# 在 scripts/engine 下：使用标明来源的演示图片和静音，不调用 TTS
+.venv/bin/python examples/render_editorial_demo.py ~/Movies/editorial-demo --mode preview
+./run.sh render ~/Movies/editorial-demo/project.json
+./run.sh review ~/Movies/editorial-demo/project.json
+
+# 在仓库根目录，安装包写到仓库外
+python3 scripts/package.py ../product-video-2.1.0.zip
+```
+
+[2.0 整合验证](docs/validation-2.0.md) · [2.1 验证记录](docs/validation-2.1.md)
+
+## 许可与来源
+
+Product Video 自有代码采用 [MIT](LICENSE)。Shotcraft 快照固定在 `5e71af3`，保留 [Apache-2.0 许可证](vendor/video-shotcraft/LICENSE)、来源与修改说明。Three.js、No AI Slop、Remotion、音频素材及其他依赖遵守各自许可；本项目的 MIT 不替代这些条款。完整来源见 [NOTICE](NOTICE)，适配修改见 [MODIFICATIONS](vendor/video-shotcraft/MODIFICATIONS.md)。

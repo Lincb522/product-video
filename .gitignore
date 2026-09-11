@@ -14,3 +14,13 @@ credentials*.json
 *.pem
 *.key
 *.before-voice
+
+node_modules/
+*.tsbuildinfo
+vendor/video-shotcraft/workbench/exports/
+vendor/video-shotcraft/workbench/.render-public/
+vendor/video-shotcraft/workbench/.product-video-studio.lock
+vendor/video-shotcraft/workbench/proj
+vendor/video-shotcraft/workbench/public/
+vendor/video-shotcraft/workbench/src/mediaManifest.ts
+vendor/video-shotcraft/workbench/src/projMeta.ts

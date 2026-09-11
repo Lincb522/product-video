@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="600" viewBox="0 0 1600 600" role="img" aria-labelledby="title desc">
+<title id="title">Product Video 2.1</title><desc id="desc">先讲清功能，再展开细节。产品内容、镜头与声音组成同一条时间轴。</desc>
+<rect width="1600" height="600" fill="#111b18"/>
+<g fill="none" stroke="#34483e"><path d="M64 94H1536M64 515H1536"/><path d="M810 142V468"/></g>
+<g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif">
+<rect x="64" y="47" width="7" height="23" fill="#c4e49a"/><text x="88" y="67" font-size="20" fill="#c4e49a" letter-spacing="3">PRODUCT VIDEO</text>
+<text x="1536" y="67" text-anchor="end" font-size="20" fill="#c4e49a">SKILL / 2.1.0</text>
+<text x="64" y="224" font-size="82" font-weight="600" letter-spacing="-3" fill="#f2f0e7">Product Video</text>
+<text x="68" y="311" font-size="44" font-weight="500" fill="#f2f0e7">先讲清功能，再展开细节。</text>
+<text x="68" y="374" font-size="24" fill="#a6b8ac">真实界面与专业文案，按内容编排镜头。</text>
+<text x="68" y="417" font-size="24" fill="#a6b8ac">配音、字幕、画面，共用一条时间轴。</text>
+<text x="864" y="171" font-size="18" letter-spacing="2" fill="#a6b8ac">CONTENT → MOTION → VOICE</text>
+<rect x="864" y="202" width="260" height="152" rx="10" fill="#c4e49a"/>
+<g fill="#2e4436"><rect x="879" y="217" width="74" height="41" rx="4"/><rect x="962" y="217" width="73" height="41" rx="4"/><rect x="1044" y="217" width="65" height="41" rx="4"/><rect x="879" y="267" width="74" height="41" rx="4"/><rect x="962" y="267" width="73" height="41" rx="4"/><rect x="1044" y="267" width="65" height="41" rx="4"/></g>
+<text x="879" y="338" font-size="18" fill="#16231a">01 / 功能总览</text>
+<rect x="1138" y="202" width="174" height="152" rx="10" fill="#273c31" stroke="#698367"/>
+<rect x="1154" y="218" width="143" height="89" rx="4" fill="#16281e"/><path d="M1171 241h63m-63 15h105m-105 15h83" stroke="#b2c8a8" stroke-width="4"/>
+<text x="1154" y="338" font-size="18" fill="#e0e8d8">02 / 详细演示</text>
+<rect x="1326" y="202" width="210" height="152" rx="10" fill="#273c31" stroke="#698367"/>
+<rect x="1342" y="218" width="80" height="89" rx="4" fill="#b2c8a8"/><rect x="1431" y="218" width="89" height="89" rx="4" fill="#16281e"/>
+<text x="1342" y="338" font-size="18" fill="#e0e8d8">03 / 状态与结果</text>
+<rect x="864" y="377" width="672" height="31" rx="5" fill="#32473a"/>
+<g stroke="#b8d5a8" stroke-width="2"><path d="M883 388v10m10-13v16m10-10v4m10-13v22m10-26v30m10-21v12m10-8v4m10-15v24m10-28v32m10-23v14m10-10v6m10-15v24m10-27v30m10-21v12m10-7v2m10-12v22m10-25v28m10-20v12m10-17v22m10-14v6m10-11v16m10-23v30m10-19v8m10-13v18m10-15v12m10-20v28m10-18v8m10-14v20m10-13v6"/></g>
+<text x="1226" y="398" font-size="15" fill="#d4e3cc">旁白与字幕 · 按实际音频对齐</text>
+<path d="M1124 188V444" stroke="#f2f0e7" stroke-width="2"/><path d="M1118 187h12l-6 8z" fill="#f2f0e7"/>
+<text x="864" y="455" font-size="18" fill="#a6b8ac">从内容结构，到可编辑工程与 MP4。</text>
+<text x="64" y="557" font-size="19" fill="#a6b8ac">六种内容版式</text><text x="398" y="557" font-size="19" fill="#a6b8ac">218 个原库镜头</text><text x="840" y="557" font-size="19" fill="#a6b8ac">角色配音与字幕</text><text x="1280" y="557" font-size="19" fill="#a6b8ac">二维 / 三维 / 真实录屏</text>
+</g></svg>

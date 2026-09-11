@@ -1,0 +1,570 @@
+{
+  "GrazeFaceTour": {
+    "frames": 150,
+    "recipe": "references/shots/camera/graze-face-tour.md"
+  },
+  "OverheadTabletopDrop": {
+    "frames": 144,
+    "recipe": "references/shots/camera/overhead-camera-moves.md"
+  },
+  "TiltReveal": {
+    "frames": 141,
+    "recipe": "references/shots/camera/overhead-camera-moves.md"
+  },
+  "DroneDiveLanding": {
+    "frames": 150,
+    "recipe": "references/shots/camera/space-camera-moves.md"
+  },
+  "ExplodedView": {
+    "frames": 150,
+    "recipe": "references/shots/camera/space-camera-moves.md"
+  },
+  "SteepTiltGlide": {
+    "frames": 120,
+    "recipe": "references/shots/camera/steep-tilt-glide.md"
+  },
+  "BulletTimeFreezeOrbit": {
+    "frames": 150,
+    "recipe": "references/shots/camera/tension-camera-moves.md"
+  },
+  "DutchRollToLevel": {
+    "frames": 150,
+    "recipe": "references/shots/camera/tension-camera-moves.md"
+  },
+  "PullBackIsolation": {
+    "frames": 150,
+    "recipe": "references/shots/camera/tension-camera-moves.md"
+  },
+  "SlowPushIn": {
+    "frames": 150,
+    "recipe": "references/shots/camera/tension-camera-moves.md"
+  },
+  "BeforeAfterSliderScrub": {
+    "frames": 150,
+    "recipe": "references/shots/data/before-after-slider-scrub.md"
+  },
+  "AxisRescaleShockV2": {
+    "frames": 150,
+    "recipe": "references/shots/data/chart-live-moves.md"
+  },
+  "OscilloscopeStreamV2": {
+    "frames": 150,
+    "recipe": "references/shots/data/chart-live-moves.md"
+  },
+  "UnitDotSwarmRegroupV2": {
+    "frames": 150,
+    "recipe": "references/shots/data/chart-live-moves.md"
+  },
+  "NeedleSweepSelftest": {
+    "frames": 150,
+    "recipe": "references/shots/data/gauge-readout-moves.md"
+  },
+  "TapeScrollFixedPointer": {
+    "frames": 150,
+    "recipe": "references/shots/data/gauge-readout-moves.md"
+  },
+  "OdometerDigitRoll": {
+    "frames": 150,
+    "recipe": "references/shots/data/odometer-digit-roll.md"
+  },
+  "ConfettiCrossfire": {
+    "frames": 150,
+    "recipe": "references/shots/data/particle-celebrate-hits.md"
+  },
+  "CounterTickSparks": {
+    "frames": 120,
+    "recipe": "references/shots/data/particle-celebrate-hits.md"
+  },
+  "ParticleSandFill": {
+    "frames": 150,
+    "recipe": "references/shots/data/particle-sand-fill.md"
+  },
+  "BrakeReticleLock": {
+    "frames": 150,
+    "recipe": "references/shots/data/scroll-brake-moves.md"
+  },
+  "ChangelogScrollBrake": {
+    "frames": 150,
+    "recipe": "references/shots/data/scroll-brake-moves.md"
+  },
+  "TimelineTravel": {
+    "frames": 150,
+    "recipe": "references/shots/data/timeline-travel.md"
+  },
+  "BrandFrameSnap": {
+    "frames": 130,
+    "recipe": "references/shots/effects/brand-frame-snap.md"
+  },
+  "LineUnfoldPanel": {
+    "frames": 120,
+    "recipe": "references/shots/effects/fui-hud-moves.md"
+  },
+  "ReticleLockOn": {
+    "frames": 90,
+    "recipe": "references/shots/effects/fui-hud-moves.md"
+  },
+  "FlylineArc": {
+    "frames": 150,
+    "recipe": "references/shots/effects/glow-flyline-moves.md"
+  },
+  "GlowOrbAmbient": {
+    "frames": 141,
+    "recipe": "references/shots/effects/glow-flyline-moves.md"
+  },
+  "OrbFlylineRelay": {
+    "frames": 156,
+    "recipe": "references/shots/effects/glow-flyline-moves.md"
+  },
+  "AttentionBounce": {
+    "frames": 120,
+    "recipe": "references/shots/effects/icon-performance-moves.md"
+  },
+  "PopBurstConfirm": {
+    "frames": 150,
+    "recipe": "references/shots/effects/icon-performance-moves.md"
+  },
+  "AnimeImpact": {
+    "frames": 150,
+    "recipe": "references/shots/effects/impact-feedback.md"
+  },
+  "HitCounter": {
+    "frames": 150,
+    "recipe": "references/shots/effects/impact-feedback.md"
+  },
+  "HalationBloom": {
+    "frames": 159,
+    "recipe": "references/shots/effects/light-play-moves.md"
+  },
+  "SheenSweepRetry": {
+    "frames": 141,
+    "recipe": "references/shots/effects/light-play-moves.md"
+  },
+  "SpotlightSweepReveal": {
+    "frames": 144,
+    "recipe": "references/shots/effects/light-play-moves.md"
+  },
+  "LineBoil": {
+    "frames": 150,
+    "recipe": "references/shots/effects/line-boil.md"
+  },
+  "RisoBeatPump": {
+    "frames": 120,
+    "recipe": "references/shots/effects/riso-print-hits.md"
+  },
+  "RisoMisregistrationHit": {
+    "frames": 141,
+    "recipe": "references/shots/effects/riso-print-hits.md"
+  },
+  "ImpactBurstKit": {
+    "frames": 120,
+    "recipe": "references/shots/effects/slam-entrance-moves.md"
+  },
+  "KanadaPerspectiveSnap": {
+    "frames": 120,
+    "recipe": "references/shots/effects/slam-entrance-moves.md"
+  },
+  "ScoreSlam": {
+    "frames": 120,
+    "recipe": "references/shots/effects/slam-entrance-moves.md"
+  },
+  "CornerSpotlightReveal": {
+    "frames": 135,
+    "recipe": "references/shots/effects/spotlight-sweep-moves.md"
+  },
+  "GlowWakeSleepPanel": {
+    "frames": 135,
+    "recipe": "references/shots/effects/spotlight-sweep-moves.md"
+  },
+  "SlideSpotlightPan": {
+    "frames": 135,
+    "recipe": "references/shots/effects/spotlight-sweep-moves.md"
+  },
+  "StreamResponse": {
+    "frames": 150,
+    "recipe": "references/shots/interaction/ai-stream-response.md"
+  },
+  "AutolayoutGapDial": {
+    "frames": 120,
+    "recipe": "references/shots/interaction/autolayout-gap-dial.md"
+  },
+  "DiagramCascadeBuild": {
+    "frames": 130,
+    "recipe": "references/shots/interaction/canvas-materialize-moves.md"
+  },
+  "PanelToCanvasMaterialize": {
+    "frames": 160,
+    "recipe": "references/shots/interaction/canvas-materialize-moves.md"
+  },
+  "CursorCastEnsemble": {
+    "frames": 140,
+    "recipe": "references/shots/interaction/collab-cursor-moves.md"
+  },
+  "CursorDialogueDuet": {
+    "frames": 140,
+    "recipe": "references/shots/interaction/collab-cursor-moves.md"
+  },
+  "CommandPaletteSummon": {
+    "frames": 150,
+    "recipe": "references/shots/interaction/command-palette-summon.md"
+  },
+  "HashtagToPillMaterialize": {
+    "frames": 105,
+    "recipe": "references/shots/interaction/hashtag-to-pill-materialize.md"
+  },
+  "CursorPerformancePunchIn": {
+    "frames": 150,
+    "recipe": "references/shots/interaction/input-trigger-moves.md"
+  },
+  "KeycapSmashCut": {
+    "frames": 150,
+    "recipe": "references/shots/interaction/input-trigger-moves.md"
+  },
+  "SegmentedThumbHero": {
+    "frames": 110,
+    "recipe": "references/shots/interaction/segmented-thumb-hero.md"
+  },
+  "PaletteThemeRipple": {
+    "frames": 120,
+    "recipe": "references/shots/interaction/theme-switch-moves.md"
+  },
+  "ThemeSweepToggle": {
+    "frames": 180,
+    "recipe": "references/shots/interaction/theme-switch-moves.md"
+  },
+  "VoiceWaveformLive": {
+    "frames": 150,
+    "recipe": "references/shots/interaction/voice-waveform-live.md"
+  },
+  "CraneRiseReveal": {
+    "frames": 150,
+    "recipe": "references/shots/opening/crane-rise-reveal.md"
+  },
+  "DatavizLandscapeOpen": {
+    "frames": 180,
+    "recipe": "references/shots/opening/dataviz-landscape-open.md"
+  },
+  "IconFieldColorize": {
+    "frames": 120,
+    "recipe": "references/shots/opening/icon-field-colorize.md"
+  },
+  "LetterspaceMaterialize": {
+    "frames": 110,
+    "recipe": "references/shots/opening/letterspace-materialize.md"
+  },
+  "MagicianCardFlourish": {
+    "frames": 126,
+    "recipe": "references/shots/opening/magician-card-flourish.md"
+  },
+  "StrokeSegmentBuild": {
+    "frames": 150,
+    "recipe": "references/shots/opening/stroke-segment-build.md"
+  },
+  "TextAsMask": {
+    "frames": 150,
+    "recipe": "references/shots/opening/text-as-mask.md"
+  },
+  "LogoStingButton": {
+    "frames": 150,
+    "recipe": "references/shots/outro/edit-hook-moves.md"
+  },
+  "NeonTripleMarquee": {
+    "frames": 150,
+    "recipe": "references/shots/outro/neon-triple-marquee.md"
+  },
+  "UiStripAwayOutro": {
+    "frames": 130,
+    "recipe": "references/shots/outro/ui-strip-away-outro.md"
+  },
+  "IconFlipBloomLogo": {
+    "frames": 130,
+    "recipe": "references/shots/outro/ui-to-brand-morph.md"
+  },
+  "InputMorphsIntoLogo": {
+    "frames": 140,
+    "recipe": "references/shots/outro/ui-to-brand-morph.md"
+  },
+  "BeatCutAccelerando": {
+    "frames": 130,
+    "recipe": "references/shots/rhythm/beat-cut-moves.md"
+  },
+  "PaparazziFlash": {
+    "frames": 130,
+    "recipe": "references/shots/rhythm/beat-cut-moves.md"
+  },
+  "BeatStepListThemeCycle": {
+    "frames": 110,
+    "recipe": "references/shots/rhythm/beat-step-list-theme-cycle.md"
+  },
+  "DominoCascade": {
+    "frames": 130,
+    "recipe": "references/shots/rhythm/montage-rhythm-moves.md"
+  },
+  "DropBlackoutSlam": {
+    "frames": 130,
+    "recipe": "references/shots/rhythm/montage-rhythm-moves.md"
+  },
+  "WrightTripleCut": {
+    "frames": 150,
+    "recipe": "references/shots/rhythm/montage-rhythm-moves.md"
+  },
+  "ComicPanelSplit": {
+    "frames": 141,
+    "recipe": "references/shots/rhythm/panel-grid-moves.md"
+  },
+  "FlipGridReflow": {
+    "frames": 144,
+    "recipe": "references/shots/rhythm/panel-grid-moves.md"
+  },
+  "GridFlashMosaic": {
+    "frames": 150,
+    "recipe": "references/shots/rhythm/panel-grid-moves.md"
+  },
+  "JumpCutPunchIn": {
+    "frames": 135,
+    "recipe": "references/shots/rhythm/rhythm-interrupt-moves.md"
+  },
+  "StrobeBlackFrames": {
+    "frames": 135,
+    "recipe": "references/shots/rhythm/rhythm-interrupt-moves.md"
+  },
+  "SakugaTimingShift": {
+    "frames": 150,
+    "recipe": "references/shots/rhythm/sakuga-timing-shift.md"
+  },
+  "SmearMultiples": {
+    "frames": 90,
+    "recipe": "references/shots/rhythm/smear-multiples.md"
+  },
+  "SpectrumMorphUi": {
+    "frames": 141,
+    "recipe": "references/shots/rhythm/spectrum-morph-ui.md"
+  },
+  "CardFootageCadence": {
+    "frames": 141,
+    "recipe": "references/shots/rhythm/trailer-grammar-moves.md"
+  },
+  "SmashCut": {
+    "frames": 150,
+    "recipe": "references/shots/rhythm/trailer-grammar-moves.md"
+  },
+  "TrailerBumper": {
+    "frames": 135,
+    "recipe": "references/shots/rhythm/trailer-grammar-moves.md"
+  },
+  "BottomPushStackWipe": {
+    "frames": 140,
+    "recipe": "references/shots/transition/bottom-push-stack-wipe.md"
+  },
+  "BubbleSwarmTakeover": {
+    "frames": 130,
+    "recipe": "references/shots/transition/bubble-swarm-takeover.md"
+  },
+  "CardFlipReveal": {
+    "frames": 147,
+    "recipe": "references/shots/transition/card-flip-reveal.md"
+  },
+  "CardFlockTumble": {
+    "frames": 135,
+    "recipe": "references/shots/transition/card-flock-tumble.md"
+  },
+  "CircleMatchIris": {
+    "frames": 170,
+    "recipe": "references/shots/transition/circle-match-iris.md"
+  },
+  "ColorBlockStepWipe": {
+    "frames": 150,
+    "recipe": "references/shots/transition/color-block-step-wipe.md"
+  },
+  "LineCarryTransition": {
+    "frames": 160,
+    "recipe": "references/shots/transition/line-carry-transition.md"
+  },
+  "BarnDoorSplit": {
+    "frames": 141,
+    "recipe": "references/shots/transition/page-turn-transitions.md"
+  },
+  "CubeRotate": {
+    "frames": 141,
+    "recipe": "references/shots/transition/page-turn-transitions.md"
+  },
+  "PaperPlaneMessenger": {
+    "frames": 150,
+    "recipe": "references/shots/transition/paper-plane-messenger.md"
+  },
+  "InkBleedReveal": {
+    "frames": 135,
+    "recipe": "references/shots/transition/print-texture-transitions.md"
+  },
+  "PortalWipeV2": {
+    "frames": 150,
+    "recipe": "references/shots/transition/shot-transitions.md"
+  },
+  "GlitchDisplace": {
+    "frames": 140,
+    "recipe": "references/shots/transition/tear-streak-transitions.md"
+  },
+  "InvisibleCut": {
+    "frames": 150,
+    "recipe": "references/shots/transition/transition-hidden-cut.md"
+  },
+  "LightLeakBurn": {
+    "frames": 150,
+    "recipe": "references/shots/transition/transition-hidden-cut.md"
+  },
+  "VersusSlam": {
+    "frames": 150,
+    "recipe": "references/shots/transition/transition-hidden-cut.md"
+  },
+  "LetterformZoom": {
+    "frames": 150,
+    "recipe": "references/shots/transition/transition-travel.md"
+  },
+  "SharedElementMorph": {
+    "frames": 150,
+    "recipe": "references/shots/transition/transition-travel.md"
+  },
+  "BlindsSlice": {
+    "frames": 150,
+    "recipe": "references/shots/transition/wipe-transitions.md"
+  },
+  "ClockWipe": {
+    "frames": 150,
+    "recipe": "references/shots/transition/wipe-transitions.md"
+  },
+  "CelFlashStomp": {
+    "frames": 144,
+    "recipe": "references/shots/typography/cel-flash-stomp.md"
+  },
+  "GradientWordSweep": {
+    "frames": 105,
+    "recipe": "references/shots/typography/gradient-word-sweep.md"
+  },
+  "MarkerUnderlineTitle": {
+    "frames": 45,
+    "recipe": "references/shots/typography/marker-underline-title.md"
+  },
+  "PillSlotCycle": {
+    "frames": 175,
+    "recipe": "references/shots/typography/pill-slot-cycle.md"
+  },
+  "SplitFlapFlip": {
+    "frames": 140,
+    "recipe": "references/shots/typography/split-flap-title.md"
+  },
+  "TextColumnConverge": {
+    "frames": 180,
+    "recipe": "references/shots/typography/text-column-converge.md"
+  },
+  "TitleDemoteToLabel": {
+    "frames": 196,
+    "recipe": "references/shots/typography/title-demote-to-label.md"
+  },
+  "LetterformDriftAssembly": {
+    "frames": 150,
+    "recipe": "references/shots/typography/type-assembly-moves.md"
+  },
+  "SplitTextStagger": {
+    "frames": 150,
+    "recipe": "references/shots/typography/type-assembly-moves.md"
+  },
+  "TextOnPath": {
+    "frames": 150,
+    "recipe": "references/shots/typography/type-assembly-moves.md"
+  },
+  "TrackingExpandReveal": {
+    "frames": 150,
+    "recipe": "references/shots/typography/type-assembly-moves.md"
+  },
+  "LetterDropPhysics": {
+    "frames": 150,
+    "recipe": "references/shots/typography/type-entrance-moves.md"
+  },
+  "ScrambleDecode": {
+    "frames": 150,
+    "recipe": "references/shots/typography/type-entrance-moves.md"
+  },
+  "FontWeightPump": {
+    "frames": 150,
+    "recipe": "references/shots/typography/type-rhythm-sync.md"
+  },
+  "KaraokeFillSync": {
+    "frames": 150,
+    "recipe": "references/shots/typography/type-rhythm-sync.md"
+  },
+  "TerminalTypewriter": {
+    "frames": 150,
+    "recipe": "references/shots/typography/typewriter-moves.md"
+  },
+  "TypewriterErrorRetype": {
+    "frames": 165,
+    "recipe": "references/shots/typography/typewriter-moves.md"
+  },
+  "WordRelayFilmstrip": {
+    "frames": 210,
+    "recipe": "references/shots/typography/word-relay-filmstrip.md"
+  },
+  "ClonerDepthEcho": {
+    "frames": 150,
+    "recipe": "references/shots/ui-entrance/cloner-depth-echo.md"
+  },
+  "DrawSvgTrace": {
+    "frames": 105,
+    "recipe": "references/shots/ui-entrance/draw-svg-trace.md"
+  },
+  "AxialStretch": {
+    "frames": 141,
+    "recipe": "references/shots/ui-entrance/element-body-moves.md"
+  },
+  "ContactShadowLift": {
+    "frames": 159,
+    "recipe": "references/shots/ui-entrance/element-body-moves.md"
+  },
+  "IntegrationHubMap": {
+    "frames": 150,
+    "recipe": "references/shots/ui-entrance/integration-hub-map.md"
+  },
+  "MorphFromPrimitive": {
+    "frames": 141,
+    "recipe": "references/shots/ui-entrance/morph-from-primitive.md"
+  },
+  "NeonFrameForerun": {
+    "frames": 135,
+    "recipe": "references/shots/ui-entrance/neon-frame-forerun.md"
+  },
+  "NeonFrameForerunOrbit": {
+    "frames": 135,
+    "recipe": "references/shots/ui-entrance/neon-frame-orbit-drop.md"
+  },
+  "PageWaterfallWall": {
+    "frames": 150,
+    "recipe": "references/shots/ui-entrance/page-waterfall-wall.md"
+  },
+  "MaskingTapeSlap": {
+    "frames": 120,
+    "recipe": "references/shots/ui-entrance/paper-craft-moves.md"
+  },
+  "PopupBookRise": {
+    "frames": 165,
+    "recipe": "references/shots/ui-entrance/paper-craft-moves.md"
+  },
+  "RunwayGroundSkim": {
+    "frames": 120,
+    "recipe": "references/shots/ui-entrance/runway-ground-skim.md"
+  },
+  "SkeletonReveal": {
+    "frames": 172,
+    "recipe": "references/shots/ui-entrance/skeleton-reveal.md"
+  },
+  "BentoLightUp": {
+    "frames": 150,
+    "recipe": "references/shots/ui-entrance/wall-reveal-moves.md"
+  },
+  "GridWaveFlip": {
+    "frames": 130,
+    "recipe": "references/shots/ui-entrance/wall-reveal-moves.md"
+  },
+  "WireframeDrawOn": {
+    "frames": 150,
+    "recipe": "references/shots/ui-entrance/wall-reveal-moves.md"
+  }
+}

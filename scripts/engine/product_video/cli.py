@@ -21,6 +21,9 @@ def parser():
     auth.add_argument("--timeout", type=int, default=900)
     auth.add_argument("--no-open", action="store_true")
     auth.add_argument("--replace", action="store_true", help="主动重新配置已有密钥")
+    record = sub.add_parser("record-web", help="执行网页采集计划并录制真实操作，不调用语音 API")
+    record.add_argument("plan")
+    record.add_argument("--output", required=True)
     capture = sub.add_parser("capture", help="自动操作目标并采集真实界面，不调用语音 API")
     capture.add_argument("project")
     auto = sub.add_parser("auto", help="自动截图、首次密钥引导、配音和成片")
@@ -32,6 +35,19 @@ def parser():
     inspect.add_argument("--output", default=".captures")
     init = sub.add_parser("init", help="创建可直接生成短片的示例项目")
     init.add_argument("directory")
+    init.add_argument("--legacy", action="store_true", help="创建旧版渲染项目")
+    motions = sub.add_parser('motions', help='查看完整 Shotcraft 镜头库与音效库')
+    motions.add_argument('--search', default='')
+    motions.add_argument('--kind', choices=('motions', 'sfx', 'bgm'), default='motions')
+    motions.add_argument('--json', action='store_true')
+    prepare_motion = sub.add_parser('prepare-motion', help='把素材、旁白和字幕导出为可编辑的 Remotion 时间轴')
+    prepare_motion.add_argument('project')
+    prepare_motion.add_argument('--generate-voice', action='store_true', help='为缺少缓存的章节生成配音（调用语音 API）')
+    studio = sub.add_parser('studio', help='打开带完整镜头库和语音编辑的 Product Video 工作台')
+    studio.add_argument('project')
+    studio.add_argument('--port', type=int, default=5197)
+    review = sub.add_parser('review', help='从已验证 MP4 提取镜头与操作复核帧，不调用语音 API')
+    review.add_argument('project')
     listing = sub.add_parser("voices", help="列出全部官方 TTS 音色，可搜索")
     listing.add_argument("--search", default="")
     listing.add_argument("--language", default="")
@@ -82,6 +98,33 @@ def apply_voice(config, name):
 
 
 def execute(args):
+    if args.command == 'review':
+        from .review import review
+        return review(args.project)
+    if args.command == 'motions':
+        from .shotcraft import catalogue, runtime_root
+        if args.kind == 'motions':
+            rows = catalogue()['motions']
+            rows = [m for m in rows if args.search.lower() in json.dumps(m, ensure_ascii=False).lower()]
+        else:
+            base = runtime_root() / 'assets/audio'
+            rows = [{'source': 'shotcraft:' + str(p.relative_to(base)), 'name': p.stem} for p in sorted((base / args.kind).rglob('*')) if p.is_file() and p.suffix.lower() in ('.mp3', '.wav', '.m4a', '.ogg') and args.search.lower() in p.name.lower()]
+        if args.json:
+            print(json.dumps(rows, ensure_ascii=False, indent=2))
+        else:
+            for row in rows:
+                print(f"{row.get('style', row.get('source'))}  |  {row['name']}")
+            print(f'共 {len(rows)} 项。')
+        return
+    if args.command in ('prepare-motion', 'studio'):
+        from .shotcraft import build as prepare_motion
+        config = load(args.project)
+        config['video']['renderer'] = 'remotion'
+        folder = prepare_motion(config, allow_api=getattr(args, 'generate_voice', False), project_only=True)
+        if args.command == 'studio':
+            from .motion_studio import serve
+            return serve(Path(args.project).expanduser().resolve(), folder / 'studio', args.port)
+        return folder
     if args.command == "credentials":
         if args.action == "setup":
             from .onboarding import setup
@@ -89,8 +132,11 @@ def execute(args):
                 raise VideoError("配置等待时间必须在 1–1800 秒之间。")
             return setup(timeout=args.timeout, open_browser=not args.no_open, replace=args.replace)
         return credentials.configure() if args.action == "set" else credentials.status()
+    if args.command == "record-web":
+        from .recording import record_web
+        return record_web(args.plan, args.output)
     if args.command == "init":
-        return create(args.directory)
+        return create(args.directory, schema_version=1 if args.legacy else 2)
     if args.command == "voices":
         rows = voices.search(args.search, args.language, args.model)
         if args.csv:

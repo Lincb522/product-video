@@ -1,4 +1,4 @@
-from contextlib import contextmanager
+from contextlib import contextmanager, ExitStack
 import fcntl
 import json
 import math
@@ -100,20 +100,26 @@ def verify(path, config, duration):
 
 
 def build(config, allow_api=True, preview=False):
+    if config['video'].get('renderer') == 'remotion':
+        from .shotcraft import build as build_motion
+        return build_motion(config, allow_api=allow_api, preview=preview)
     output = Path(config["output"])
-    with project_lock(output):
+    with project_lock(output), ExitStack() as resources:
         chapters = prepare(config, allow_api)
         assets = {p for c in chapters for s in c["steps"] for p in s["images"]}
+        assets.update(d["source"] for c in chapters for s in c["steps"] for d in s.get("scene3d", {}).get("devices", []))
         if config["product"].get("logo"):
             assets.add(config["product"]["logo"])
         assets.add(config["video"]["font"])
         hashes = {p: file_hash(p) for p in sorted(assets)}
-        source_hash = digest({p.name: file_hash(p) for p in Path(__file__).parent.glob("*.py")})
+        source_root = Path(__file__).parent
+        source_hash = digest({str(p.relative_to(source_root)): file_hash(p) for p in source_root.rglob("*")
+                              if p.is_file() and p.suffix in (".py", ".js", ".html")})
         signature = digest({"version": __version__, "source": source_hash, "config": config, "assets": hashes,
                             "audio": [c["audio_sha256"] for c in chapters]})[:16]
         folder = output / "renders" / signature
         folder.mkdir(parents=True, exist_ok=True)
-        renderer = Renderer(config, chapters)
+        renderer = resources.enter_context(Renderer(config, chapters))
         write_json(folder / "timeline.json", {"chapters": chapters, "duration": renderer.total})
         atomic_write(folder / "subtitles.srt", srt([cue for c in chapters for cue in c["cues"]]).encode())
         atomic_write(folder / "narration.txt", "\n\n".join(c["narration"] for c in chapters).encode())
@@ -151,7 +157,8 @@ def build(config, allow_api=True, preview=False):
                       chapters=len(chapters), subtitle_cues=sum(len(c["cues"]) for c in chapters),
                       assets=hashes, voice=config["voice"]["speaker"], api="Volcengine TTS v3",
                       caption_alignment="API word timestamps or explicit chapter captions; see project.resolved.json",
-                      visual_review="unverified", listening_review="unverified")
+                      visual_review="unverified", listening_review="unverified",
+                      renderer_3d=renderer.studio.info if renderer.studio else None)
         write_json(report_path, report)
         write_json(output / "latest.json", {"movie": str(movie), "report": str(report_path)})
         print(f"成片已生成并通过完整解码：{movie}")

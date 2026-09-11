@@ -1,10 +1,11 @@
 """Compose real screenshots, camera transforms and an independent pointer layer."""
 from functools import lru_cache
 
-from PIL import Image, ImageColor, ImageDraw, ImageFilter, ImageFont, ImageOps
+from PIL import Image, ImageColor, ImageDraw, ImageFont, ImageOps
 
 from .common import VideoError
 from .motion import blend_transition, camera_rect, interaction_for, pointer_position, smooth
+from .presentation import Presentation
 from .text_scenes import content_layout, paint_content
 
 
@@ -23,7 +24,9 @@ class Renderer:
         self.w, self.h = self.v['width'], self.v['height']
         self.scale = self.w / 1920
         self.total = chapters[-1]['end']
+        self.studio = None
         self.classic = self.v['style'] == 'classic'
+        self.presentation = None if self.classic else Presentation(self)
         self.base = self.background()
         self.content = {(ci, si): content_layout(step['content'], self.v)
                         for ci, chapter in enumerate(chapters) for si, step in enumerate(chapter['steps'])
@@ -56,13 +59,7 @@ class Renderer:
                 color = tuple(round(a * (1 - mix) + b * mix) for a, b in zip(bg, surface))
                 draw.line((0, y, self.w, y), fill=color)
             return self.base
-        glow = Image.new('RGBA', self.base.size)
-        d = ImageDraw.Draw(glow)
-        color = ImageColor.getrgb(self.v['accent'])[:3]
-        d.ellipse((-self.w * .2, -self.h * .6, self.w * .75, self.h * .6), fill=(*color, 24))
-        d.ellipse((self.w * .65, self.h * .35, self.w * 1.2, self.h * 1.2), fill=(*color, 12))
-        return Image.alpha_composite(self.base.convert('RGBA'), glow.filter(
-            ImageFilter.GaussianBlur(self.px(100)))).convert('RGB')
+        return self.presentation.background()
 
     def px(self, value):
         return round(value * self.scale)
@@ -95,7 +92,10 @@ class Renderer:
         if step.get('content', {}).get('layout') == 'split':
             x = 104 if step['content'].get('image_side', 'right') == 'left' else 960
             return [fit_rect(self.source(images[0]).size, tuple(self.px(v) for v in (x, 216, 856, 654)))]
-        x, y, total, height, gap = (72, 158, 1776, 730, 30) if self.classic else (64, 144, 1792, 772, 40)
+        if not self.classic:
+            return [fit_rect(self.source(path).size, tuple(self.px(v) for v in box))
+                    for path, box in zip(images, self.presentation.boxes(len(images)))]
+        x, y, total, height, gap = (72, 158, 1776, 730, 30)
         width = (total - gap * (len(images) - 1)) / len(images)
         return [fit_rect(self.source(path).size, tuple(self.px(v) for v in
                 (x + i * (width + gap), y, width, height))) for i, path in enumerate(images)]
@@ -105,33 +105,56 @@ class Renderer:
         image = self.base.copy()
         if self.classic:
             return image
-        shadow = Image.new('RGBA', image.size)
-        d = ImageDraw.Draw(shadow)
-        for x, y, w, h in self.layout(ci, si):
-            d.rounded_rectangle((x, y + self.px(14), x + w, y + h + self.px(14)),
-                                radius=self.px(16), fill=(0, 0, 0, 80))
-        return Image.alpha_composite(image.convert('RGBA'), shadow.filter(
-            ImageFilter.GaussianBlur(self.px(22)))).convert('RGB')
+        return self.presentation.surface(self.layout(ci, si), 'content' in self.chapters[ci]['steps'][si])
 
     @lru_cache(maxsize=12)
     def step_frame(self, chapter_index, step_index):
         return self.shot(chapter_index, step_index, {}, 1, False)
 
-    def shot(self, ci, si, camera, progress, push, text_progress=1.):
-        rects = self.layout(ci, si)
+    def close(self):
+        if self.studio is not None:
+            self.studio.close()
+            self.studio = None
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        self.close()
+
+    def shot(self, ci, si, camera, progress, push, text_progress=1., elapsed=None, entrance=1.):
+        step = self.chapters[ci]['steps'][si]
+        if 'scene3d' in step:
+            if self.studio is None:
+                from .studio3d import Studio3D
+                self.studio = Studio3D(self.v)
+            duration = self.durations[ci, si]
+            elapsed = duration if elapsed is None else elapsed
+            region = None
+            if 'content' in step:
+                x = 64 if step['content'].get('image_side', 'right') == 'left' else 950
+                region = [self.px(v) for v in (x, 110, 906, 830)]
+            image = self.studio.frame(f'{ci}:{si}', step['scene3d'], elapsed, elapsed / max(.001, duration), region)
+            if (ci, si) in self.content:
+                paint_content(image, step['content'], self.content[ci, si], text_progress,
+                              self.v['reduced_motion'], self.v['font'])
+            return image, []
+        rects = tuple(self.layout(ci, si))
+        if not self.classic:
+            rects = self.presentation.place(rects, entrance)
         views = tuple(camera_rect(rect, camera if len(rects) == 1 else {}, progress,
                                   push and len(rects) == 1) for rect in rects)
-        image = self.composed_shot(ci, si, views).copy()
+        reveal = smooth(entrance) if self.v['style'] == 'minimal' else 1.
+        image = self.composed_shot(ci, si, views, rects, reveal).copy()
         if (ci, si) in self.content:
             paint_content(image, self.chapters[ci]['steps'][si]['content'], self.content[ci, si],
                           text_progress, self.v['reduced_motion'], self.v['font'])
         return image, list(views)
 
     @lru_cache(maxsize=6)
-    def composed_shot(self, ci, si, views):
+    def composed_shot(self, ci, si, views, rects, reveal=1.):
         step = self.chapters[ci]['steps'][si]
-        rects = self.layout(ci, si)
-        image = self.stage(ci, si).copy()
+        image = self.stage(ci, si).copy() if self.classic or rects == tuple(self.layout(ci, si)) else self.presentation.surface(rects, 'content' in step)
         for path, rect, view in zip(step['images'], rects, views):
             x, y, w, h = rect
             vx, vy, vw, vh = view
@@ -146,8 +169,14 @@ class Renderer:
             if self.classic:
                 d.rounded_rectangle((x - self.px(1), y - self.px(1), x + w + self.px(1), y + h + self.px(1)),
                                     radius=self.px(12), outline=self.v['surface'], width=self.px(2))
-            image.paste(content, (x, y), content)
-            if not self.classic:
+            if reveal < 1:
+                visible = round(h * reveal)
+                if visible:
+                    strip = content.crop((0, h-visible, w, h))
+                    image.paste(strip, (x, y+h-visible), strip)
+            else:
+                image.paste(content, (x, y), content)
+            if not self.classic and self.v['style'] not in ('minimal', 'promo', 'gallery'):
                 d.rounded_rectangle((x - 1, y - 1, x + w, y + h), radius=self.px(8),
                                     outline=self.v['surface'], width=max(1, self.px(2)))
         return image
@@ -169,27 +198,11 @@ class Renderer:
         return target, min(1, max(0, elapsed) / max(.1, min(duration * .65, 1.5))), self.v['camera_motion'] == 'push' and not target
 
     def chrome(self, image, ci, si):
+        if 'scene3d' in self.chapters[ci]['steps'][si]:
+            return image
         if self.classic:
             return self.classic_chrome(image, ci, si)
-        d = ImageDraw.Draw(image)
-        chapter = self.chapters[ci]
-        product = self.config['product']
-        left = 66
-        if product.get('logo'):
-            logo = ImageOps.contain(self.source(product['logo']), (self.px(34), self.px(34)))
-            image.paste(logo, (self.px(66), self.px(34)), logo)
-            left = 112
-        self.label(d, product['name'], (left, 52), 24, 1200 - left, self.v['accent'], 'lm')
-        self.label(d, chapter['title'], (64, 104), 38, 1530, anchor='lm')
-        self.label(d, self.narration_label, (1856, 50), 18, 180, self.v['accent'], 'rm')
-        if any(self.tracks[ci, i] for i in range(len(chapter['steps']))):
-            self.label(d, '操作演示', (1856, 97), 18, 180, self.v['accent'], 'rm')
-        labels = chapter['steps'][si]['labels']
-        for label, (x, y, w, h) in zip(labels, self.layout(ci, si)):
-            if label:
-                self.label(d, label, ((x + w / 2) / self.scale, 944), 22,
-                           w / self.scale, self.v['accent'], 'mm')
-        return image
+        return self.presentation.chrome(image, ci, si)
 
     def classic_chrome(self, image, ci, si):
         draw = ImageDraw.Draw(image)
@@ -271,7 +284,10 @@ class Renderer:
         shown = si - 1 if action and elapsed < reveal else si
         camera, progress, push = self.camera(ci, si, elapsed, reveal, action)
         text_progress = 1. if shown != si else max(0, elapsed - reveal) / min(.85, self.durations[ci, si] * .35)
-        image, views = self.shot(ci, shown, camera, progress, push, text_progress)
+        entrance = 1.
+        if not self.classic and not track and not step.get('camera') and 'content' not in step:
+            entrance = self.presentation.progress(elapsed, self.durations[ci, si])
+        image, views = self.shot(ci, shown, camera, progress, push, text_progress, elapsed=elapsed, entrance=entrance)
         if self.classic:
             image = self.chrome(image, ci, shown)
         kind, duration = self.transitions[ci, si]
@@ -332,6 +348,10 @@ class Renderer:
         duration = self.durations[ci, si]
         track = self.tracks[ci, si]
         samples = {'settled': duration * .85}
+        if 'scene3d' in chapter['steps'][si]:
+            samples.update(start=0, middle=duration * .5, end=duration)
+        elif not self.classic and chapter['steps'][si]['images'] and not track and 'content' not in chapter['steps'][si]:
+            samples['entrance'] = min(.3, duration * .15)
         if (ci, si) in self.content:
             samples['text-reveal'] = min(.85, duration * .35) * .5
         if track:

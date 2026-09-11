@@ -8,7 +8,7 @@ from .config import font_path
 FIRST_NARRATION = "根据介绍稿生成配音与字幕，按章节合成文案和界面画面。"
 
 
-def create(folder):
+def create(folder, schema_version=1):
     folder = Path(folder).expanduser().resolve()
     if folder.exists() and any(folder.iterdir()):
         raise VideoError("示例目录不是空目录，请另选一个目录；不会覆盖已有项目。")
@@ -44,7 +44,7 @@ def create(folder):
             label(1230, 785, "生成视频", 28, "#181b21")
             im.save(assets / f"{'dark' if dark else 'light'}-{selected}.png")
     config = {
-        "schema_version": 1, "product": {"name": "产品视频示例"}, "output": "output",
+        "schema_version": schema_version, "product": {"name": "产品视频示例"}, "output": "output",
         "voice": {"speaker": "zh_female_xiaohe_uranus_bigtts"},
         "video": {"width": 1920, "height": 1080, "fps": 30},
         "chapters": [
