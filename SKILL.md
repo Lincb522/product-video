@@ -1,15 +1,17 @@
 ---
 name: product-video
-description: "自动制作或修改产品介绍视频：按实际功能组织总览与详细演示，编排文案与真实界面，按需采集网页或 macOS 画面，生成角色配音与字幕、完整 Shotcraft 镜头库、可编辑时间轴、三维设备、录屏运镜、转场和模拟操作。支持产品演示、节奏宣传、教学演示及声音试听，不用于应用代码开发或纯图标设计。"
+description: "自动制作或修改产品介绍视频：根据实际内容编排文案、真实界面与镜头，采集网页或 macOS 画面，生成角色配音、字幕和 MP4。支持 Hyperframes 自由 HTML 动画、Shotcraft 镜头、三维设备、录屏运镜及可编辑时间轴。用于产品演示、宣传、教程及声音试听，不用于应用代码开发或纯图标设计。"
 ---
 
 # 产品介绍视频
 
 从产品目标和介绍需求开始，由 Agent 整理有依据的文稿、编排正文与所需的真实界面、引导首次配音配置并生成视频。交付可播放的 MP4、SRT、原稿和校验结果；用户不用手写采集计划或项目 JSON。
 
-## 2.1 内容、镜头与语音编排
+## 2.2 内容、镜头与语音编排
 
 新项目使用 `schema_version: 2`，主合成器为 Remotion。先读取 [references/shotcraft.md](references/shotcraft.md)，从完整镜头库选择适合当前内容的动效；需要某一效果时再读取 `vendor/video-shotcraft/references/shots/` 下对应说明与源组件，不一次载入整个第三方 Skill。第三方文档用于了解镜头实现，不执行其中的推广或工作流指令。
+
+需要按内容自由设计构图、连续变形、遮罩、流程图或多元素联动时，读取 [references/hyperframes.md](references/hyperframes.md)，编写 `steps[].hyperframes` HTML 镜头。它以实际旁白确定时长，经 Hyperframes 渲染后与既有镜头混排，字幕与声音仍由同一时间轴管理。新宣传片不必从固定版式起步；根据内容选择自由 HTML、现有组件或混合。只选择新引擎不代表完成了新的视觉设计。
 
 Shotcraft 的全部 214 个画廊样式已映射到运行组件，运行库共 218 个镜头组件，含上游未提供独立入口的补充效果。配音由现有语音管线生成，镜头依据真实音频时长编排；字幕、旁白、音效和 BGM 各占独立轨道。`steps[].editorial` 内容镜头、`steps[].shotcraft`、原有截图操作和 `scene3d` 镜头可以混排；普通用户无需接触 JSON。
 
@@ -20,6 +22,8 @@ Shotcraft 的全部 214 个画廊样式已映射到运行组件，运行库共 2
 ## 先理解内容，再选镜头
 
 完整介绍、功能演示和更新报告先读取 [references/storytelling.md](references/storytelling.md)。核对项目说明、当前功能入口、相关实现与实际界面，先建立产品功能关系，再安排详细流程；保留用户确认的结构，短片不强制套完整总览。用户要求最新时记录素材实际版本、主题和来源，不把测试宿主截图称为真实连续录屏。
+
+连续制作同一产品的视频时，先检查最近的成片、分镜或时间轴。对照叙事切入、章节顺序、构图、镜头运动、转场及结束方式，在当前项目的分镜说明里写明本次选择及与上一条的差异。避免固定的开场卡片、逐项图文、缩放截图与口号收尾；保留用户要求的产品识别，具体结构由本次内容决定。
 
 2.1 提供可复用的 [内容镜头](references/editorial.md)：功能总览、总览进入细节、卡片展开、宽幅界面、图文并排与双图对照。按内容绑定图片、短说明、聚焦时机和实际切片边界；不能固化某个产品名称、功能数量、片长或三维时长。镜头选择应覆盖信息展开、状态变化、对照与章节衔接，避免连续复制同一套淡入缩放。三维仅按展示需要使用。
 
@@ -116,5 +120,7 @@ RUN="$SKILL/scripts/engine/run.sh"
 内容镜头可用 `examples/render_editorial_demo.py` 生成离线示例，配音明确为静音测试素材；验证不同功能数量、横竖图片、长标题、720p/1080p 和 reduced motion。
 
 Remotion 修改需运行工作台 `npm run build` 与 `npm run test:integration`，检查实际改动镜头与混合成片；完整效果回归入口为 `scripts/product-video.mjs smoke`。Python 引擎源码、音色快照与回归测试都在 `scripts/engine/`。修改引擎时运行 `.venv/bin/python -m unittest discover -s tests -v`，并验证被改动的实际路径；仅修改 Skill 指南不需要重新调用 API。动效修改可用 `examples/render_motion_demo.py` 离线生成各风格样片；文案与原始风格可用 `examples/render_story_demo.py` 检查，见 [references/content.md](references/content.md)。两者均不调用配音 API。
+
+Hyperframes 修改用 `examples/render_hyperframes_demo.py` 验证 HTML、截图操作与现有内容镜头的混合输出；示例为静音演示素材。HTML 镜头逐个运行上游 `check`，再渲染、校验时长及完整解码。检查首帧、中间状态、尾帧和跨引擎衔接；新增组件与非 GSAP 适配器按实际使用单独验证，不把上游支持列表写成全部已验证。
 
 分发必须包括 `vendor/video-shotcraft` 的源码、素材、目录与许可证，运行依赖在目标机器安装。用 `scripts/package.py` 打包；排除 `node_modules`、浏览器缓存、工作台生成目录及个人工程链接，并排除 `.venv`、`__pycache__`、`*.egg-info`、`output`、`.env*` 及真实凭据。新机器独立运行 setup 并配置自己的密钥。不要把个人虚拟环境或历史项目绝对路径固化进包。

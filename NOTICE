@@ -54,3 +54,16 @@ Product Video's MIT license does not replace those licenses.
 Product Video 2.1 content-layout demonstrations use synthetic, labeled example
 interfaces and silent audio. The editorial motion adapter uses Shotcraft
 motion primitives; its scope is recorded in vendor/video-shotcraft/MODIFICATIONS.md.
+
+Product Video 2.2 integrates Hyperframes as an HTML shot renderer.
+Source: https://github.com/heygen-com/hyperframes
+Inspected revision: e2d60cf27c80849cb6c0fa5c22be34c85b8f6e05
+Runtime: hyperframes 0.8.40, installed from npm using the committed lockfile.
+License: Apache-2.0; licenses/hyperframes.txt.
+Hyperframes is installed as an unmodified dependency, not vendored source.
+The Product Video adapter and example HTML compositions are original code.
+GSAP 3.14.2 is a separate dependency, distributed under its own Standard License:
+https://gsap.com/community/standard-license/
+Full runtime dependency versions and integrity hashes are recorded in
+scripts/hyperframes/package-lock.json. Dependencies and downloaded browsers are
+excluded from the Skill archive.

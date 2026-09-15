@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8">
+<!-- product-video:head -->
+<style>
+  *{box-sizing:border-box}body{margin:0;font-family:ProductVideoFont,sans-serif;color:#f3f2e9}
+  #root{position:relative;width:100%;height:100%;overflow:hidden;background:#182e29}
+  .kicker{position:absolute;left:5%;top:6%;font-size:1.25vw;letter-spacing:.12em;color:#bbd5c3}
+  h1{position:absolute;left:5%;top:12%;margin:0;font-size:4.5vw;line-height:1.2;letter-spacing:-.045em}
+  #diagram{position:absolute;left:5%;top:29%;width:90%;height:12%;display:flex;justify-content:space-between;align-items:center}
+  #rail{position:absolute;left:5%;right:5%;height:2px;background:#658278}
+  #progress{position:absolute;left:5%;right:5%;height:3px;background:#d3ee8c;transform-origin:left center}
+  .node{position:relative;padding:1.3vw 2.3vw;border:1px solid #658278;background:#182e29;border-radius:4vw;font-size:1.85vw;z-index:1}
+  #panels{position:absolute;left:5%;top:46%;width:90%;height:39%;display:grid;grid-template-columns:1fr 1fr;gap:2vw}
+  .panel{position:relative;min-width:0;overflow:hidden;border:1px solid #658278;border-radius:1.2vw}
+  .panel img{width:100%;height:100%;object-fit:contain;display:block;background:#223a32}
+  .caption{position:absolute;left:1vw;bottom:1vw;background:#f3f2e9;color:#182e29;padding:.5vw 1vw;border-radius:2vw;font-size:1.1vw}
+</style></head><body>
+<div id="root" data-composition-id="flow" data-width="{{pv.width}}" data-height="{{pv.height}}" data-duration="{{pv.duration}}">
+  <div class="kicker">PRODUCT VIDEO / 共同时间轴</div><h1>声音与画面，按内容对齐</h1>
+  <div id="diagram"><div id="rail"></div><div id="progress"></div><div class="node">文稿</div><div class="node">配音</div><div class="node">镜头</div><div class="node">成片</div></div>
+  <div id="panels"><div class="panel" id="first"><img src="{{pv.media.screen}}" alt="示例项目界面"><div class="caption">界面与讲解</div></div><div class="panel" id="second"><img src="{{pv.media.detail}}" alt="示例配音界面"><div class="caption">旁白与字幕</div></div></div>
+</div>
+<script>
+  const pv=window.PRODUCT_VIDEO;
+  if(pv.reduced_motion) document.getElementById('root').setAttribute('data-no-timeline','');
+  const tl=gsap.timeline({paused:true});
+  tl.to({}, {duration:pv.duration}, 0);
+  if(!pv.reduced_motion){
+    tl.fromTo('#progress',{scaleX:0},{scaleX:1,duration:Math.max(.5,pv.duration*.65),ease:'power1.inOut'},.25);
+    tl.fromTo('.node',{y:20,opacity:0},{y:0,opacity:1,duration:.5,stagger:.14,ease:'power3.out'},.1);
+    tl.fromTo('#first',{clipPath:'inset(100% 0 0 0)'},{clipPath:'inset(0% 0 0 0)',duration:.85,ease:'power3.inOut'},.5);
+    tl.fromTo('#second',{clipPath:'inset(100% 0 0 0)'},{clipPath:'inset(0% 0 0 0)',duration:.85,ease:'power3.inOut'},Math.min(1.5,pv.duration*.32));
+  }
+  window.__timelines.flow=tl;
+</script></body></html>

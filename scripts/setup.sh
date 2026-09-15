@@ -34,6 +34,7 @@ fi
 "$ENGINE/.venv/bin/python" -m playwright install chromium
 "$ENGINE/run.sh" --help >/dev/null
 sh "$HERE/setup-motion.sh"
+sh "$HERE/setup-hyperframes.sh"
 echo 'Skill 运行环境已就绪。未调用语音 API，也未修改密钥。'
 for command in ffmpeg ffprobe; do
   if ! command -v "$command" >/dev/null 2>&1; then

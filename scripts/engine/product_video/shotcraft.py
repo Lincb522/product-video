@@ -91,6 +91,8 @@ def runtime_sources():
             if p.is_file() and p.suffix in ('.tsx', '.ts', '.json', '.mjs', '.css'):
                 yield p
     yield root / 'workbench/package-lock.json'
+    from .hyperframes import runtime_files
+    yield from runtime_files()
     for p in sorted((Path(__file__).parent / 'data').rglob('*.js')):
         yield p
 
@@ -158,7 +160,11 @@ def timeline(config, chapters, public, render_plate):
             end = round((chapter['start'] + chapter['lead'] + next_step['at'] * chapter['audio_duration'] if next_step else chapter['end']) * fps)
             if end <= start:
                 raise VideoError('镜头不足一帧，请合并镜头或延长旁白。')
-            if 'editorial' in step:
+            if 'hyperframes' in step:
+                plate = render_plate(ci, si, start, end)
+                tracks['shots'].append(clip(f'shot-{ci}-{si}', 'video-clip', start, end-start,
+                    props={'file': asset(plate), 'muted': True, 'fit': 'contain'}, label=chapter['title']))
+            elif 'editorial' in step:
                 spec = step['editorial']
                 items = []
                 for item in spec['items']:
@@ -198,7 +204,7 @@ def timeline(config, chapters, public, render_plate):
     for ci, chapter in enumerate(chapters):
         for si, step in enumerate(chapter['steps']):
             shot = next(x for x in shots if x['id'] == f'shot-{ci}-{si}')
-            external = si == 0 or any(k in item for item in (step, chapter['steps'][si-1]) for k in ('shotcraft', 'editorial'))
+            external = si == 0 or any(k in item for item in (step, chapter['steps'][si-1]) for k in ('shotcraft', 'editorial', 'hyperframes'))
             if not external or shot['start'] == 0 or v['reduced_motion']:
                 continue
             if si == 0:
@@ -234,13 +240,16 @@ def build(config, allow_api=False, preview=False, project_only=False):
         assets = {p for c in chapters for s in c['steps'] for p in s['images']}
         assets.update(p for c in chapters for s in c['steps'] for p in s.get('shotcraft', {}).get('media', {}).values())
         assets.update(i['source'] for c in chapters for s in c['steps'] for i in s.get('editorial', {}).get('items', []))
+        from .hyperframes import source_files, render_scene
+        assets.update(str(p) for c in chapters for s in c['steps'] if 'hyperframes' in s for p in source_files(s['hyperframes']))
+        assets.update(p for c in chapters for s in c['steps'] for p in s.get('hyperframes', {}).get('media', {}).values())
         assets.update(d['source'] for c in chapters for s in c['steps'] for d in s.get('scene3d', {}).get('devices', []))
         assets.update(x['source'] for clips in config.get('audio', {}).values() for x in clips)
         assets.add(config['video']['font'])
         if config['product'].get('logo'):
             assets.add(config['product']['logo'])
         hashes = {str(p): file_hash(p) for p in assets}
-        sources = {str(p.relative_to(runtime_root())) if p.is_relative_to(runtime_root()) else 'native/' + p.name: file_hash(p) for p in runtime_sources()}
+        sources = {str(p.relative_to(runtime_root())) if p.is_relative_to(runtime_root()) else str(p.relative_to(Path(__file__).resolve().parents[3])): file_hash(p) for p in runtime_sources()}
         sources.update({p.name: file_hash(p) for p in Path(__file__).parent.glob('*.py')})
         source_hash = digest(sources)
         signature = digest({'config': config, 'audio': [c['audio_sha256'] for c in chapters], 'assets': hashes, 'motion': source_hash})[:16]
@@ -253,16 +262,23 @@ def build(config, allow_api=False, preview=False, project_only=False):
         legacy = copy.deepcopy(chapters)
         for ci, chapter in enumerate(legacy):
             for i, step in enumerate(chapter['steps']):
-                if any(k in step for k in ('shotcraft', 'editorial')):
+                if any(k in step for k in ('shotcraft', 'editorial', 'hyperframes')):
                     step.clear()
                     step.update(at=chapters[ci]['steps'][i]['at'], images=[], labels=[])
-                if i and any(k in chapters[ci]['steps'][i-1] for k in ('shotcraft', 'editorial')):
+                if i and any(k in chapters[ci]['steps'][i-1] for k in ('shotcraft', 'editorial', 'hyperframes')):
                     step.update(transition='cut')
+        html_shots = []
         with Renderer(config, legacy) as renderer:
             def render_plate(ci, si, start, end):
+                if 'hyperframes' in chapters[ci]['steps'][si]:
+                    movie = render_scene(chapters[ci]['steps'][si]['hyperframes'], config, chapters[ci], start, end, output / 'hyperframes')
+                    html_shots.append({'id': f'shot-{ci}-{si}', 'start': start, 'duration': end-start,
+                        'entry': str(movie.parent / 'project/index.html'), 'movie': str(movie),
+                        'report': str(movie.parent / 'verification.json')})
+                    return movie
                 plate_key = digest({'chapter': legacy[ci], 'step': si, 'range': [start, end],
                     'video': config['video'], 'product': config['product'], 'assets': hashes,
-                    'renderer': {name: value for name, value in sources.items() if name.startswith('native/') or name in ('compositor.py', 'presentation.py', 'motion.py', 'premium_transitions.py', 'text_scenes.py', 'studio3d.py', 'scene3d.py')}})[:20]
+                    'renderer': {name: value for name, value in sources.items() if name.startswith('scripts/engine/') or name in ('compositor.py', 'presentation.py', 'motion.py', 'premium_transitions.py', 'text_scenes.py', 'studio3d.py', 'scene3d.py')}})[:20]
                 plate_cache = output / 'plates'
                 plate_cache.mkdir(exist_ok=True)
                 destination = plate_cache / f'{plate_key}.mp4'
@@ -291,6 +307,8 @@ def build(config, allow_api=False, preview=False, project_only=False):
                 return destination
             project = timeline(config, chapters, public, render_plate)
         write_json(folder / 'studio/project.json', project)
+        if html_shots:
+            write_json(folder / 'hyperframes.json', {'shots': html_shots})
         write_json(folder / 'timeline.json', {'chapters': chapters, 'duration': chapters[-1]['end']})
         write_json(folder / 'project.resolved.json', config)
         atomic_write(folder / 'subtitles.srt', srt([cue for c in chapters for cue in c['cues']]).encode())
@@ -327,6 +345,7 @@ def build(config, allow_api=False, preview=False, project_only=False):
             frames=math.ceil(chapters[-1]['end'] * config['video']['fps'] - 1e-8), chapters=len(chapters),
             subtitle_cues=sum(len(c['cues']) for c in chapters), renderer='Remotion + video-shotcraft',
             upstream=catalogue()['upstream'], studio=str(folder / 'studio/project.json'),
+            hyperframes=html_shots,
             visual_review='unverified', listening_review='unverified')
         write_json(folder / 'verification.json', report)
         write_json(output / 'latest.json', {'movie': str(movie), 'report': str(folder / 'verification.json'), 'studio': str(folder / 'studio/project.json')})

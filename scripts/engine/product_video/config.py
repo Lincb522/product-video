@@ -227,16 +227,23 @@ def load(path, *, check_image_geometry=True):
         previous = -1
         for step_index, step in enumerate(steps):
             known(step, ("at", "images", "labels", "cursor", "click", "interaction", "camera",
-                         "transition", "transition_duration", "content", "scene3d", "shotcraft", "editorial"), "画面")
+                         "transition", "transition_duration", "content", "scene3d", "shotcraft", "editorial", "hyperframes"), "画面")
             transition_fields(step)
             number(step.get("at"), 0, 0.99, "画面 at")
             if step["at"] <= previous or (previous == -1 and step["at"] != 0):
                 raise VideoError("首个画面的 at 必须为 0，后续按升序且不重复。")
             previous = step["at"]
-            if any(k in step for k in ('content', 'scene3d', 'shotcraft', 'editorial')):
+            if any(k in step for k in ('content', 'scene3d', 'shotcraft', 'editorial', 'hyperframes')):
                 step.setdefault('images', [])
             if not isinstance(step.get("images"), list) or not 0 <= len(step["images"]) <= 2:
                 raise VideoError("images 必须是最多两张图片的数组。")
+            if 'hyperframes' in step:
+                if video['renderer'] != 'remotion':
+                    raise VideoError('Hyperframes 镜头需要 schema_version: 2 或 video.renderer: remotion，以共享旁白和字幕时间轴。')
+                if step['images'] or step.get('labels') or any(k in step for k in ('content', 'scene3d', 'shotcraft', 'editorial', 'cursor', 'click', 'interaction', 'camera')):
+                    raise VideoError('Hyperframes 使用自身 HTML 画面和 media 素材，不同时使用其他镜头字段。')
+                from .hyperframes import validate_scene as validate_html
+                validate_html(step['hyperframes'], base, video)
             if 'editorial' in step:
                 if video['renderer'] != 'remotion':
                     raise VideoError('editorial 内容镜头需要 Remotion。')
@@ -260,7 +267,7 @@ def load(path, *, check_image_geometry=True):
                     raise VideoError('三维画面的文案使用 content.layout: split，纯文字镜头单独编排。')
             if 'content' in step:
                 validate_content(step['content'], ['3d-screen'] if 'scene3d' in step else step['images'], video)
-            elif not step['images'] and 'scene3d' not in step and 'shotcraft' not in step and 'editorial' not in step:
+            elif not step['images'] and not any(k in step for k in ('scene3d', 'shotcraft', 'editorial', 'hyperframes')):
                 raise VideoError("每个画面需要 1–2 张图片，或用 content 编排纯文案画面。")
             step["images"] = [asset(x) for x in step["images"]]
             labels = step.setdefault("labels", [""] * len(step["images"]))

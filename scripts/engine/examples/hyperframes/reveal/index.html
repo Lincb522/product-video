@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <!-- product-video:head -->
+  <style>
+    *{box-sizing:border-box}body{margin:0;font-family:ProductVideoFont,sans-serif;color:#14261f}
+    #root{position:relative;width:100%;height:100%;overflow:hidden;background:#f3f1e7}
+    .rule{position:absolute;left:4%;right:4%;top:12%;height:2px;background:#14261f}
+    .brand{position:absolute;left:4%;top:5%;font-size:2vw;letter-spacing:.04em}
+    .edition{position:absolute;right:4%;top:5.8%;font-size:1.2vw}
+    #copy{position:absolute;left:5%;top:22%;width:35%;z-index:2}
+    h1{font-size:6.1vw;line-height:1.16;letter-spacing:-.065em;margin:0;word-break:keep-all}
+    .accent{color:#276748}.note{font-size:1.45vw;line-height:1.5;margin-top:2.2vw;max-width:26vw}
+    #stage{position:absolute;left:44%;top:21%;width:51%;height:65%;}
+    #back{position:absolute;inset:3%;background:#c4d940;border:1px solid #14261f;border-radius:1.5vw}
+    #screen{position:absolute;left:0;top:6%;width:100%;height:auto;box-shadow:0 1.1vw 2.2vw #16282025;border-radius:1vw}
+    .tag{position:absolute;left:0;bottom:0;font-size:1.15vw;letter-spacing:.05em}
+  </style>
+</head>
+<body>
+<div id="root" data-composition-id="reveal" data-width="{{pv.width}}" data-height="{{pv.height}}" data-duration="{{pv.duration}}">
+  <div class="brand">PRODUCT VIDEO</div><div class="edition">HTML MOTION / 01</div><div class="rule"></div>
+  <div id="copy"><h1>画面<br><span class="accent">随内容</span><br>展开</h1><p class="note">文案、界面与运动<br>在同一场景中编排</p></div>
+  <div id="stage"><div id="back"></div><img id="screen" src="{{pv.media.screen}}" alt="演示工作台"><div class="tag">示例素材 · 自由图文构图</div></div>
+</div>
+<script>
+  const pv = window.PRODUCT_VIDEO;
+  if (pv.reduced_motion) document.getElementById('root').setAttribute('data-no-timeline', '');
+  const tl = gsap.timeline({paused:true});
+  tl.to({}, {duration:pv.duration}, 0);
+  if (!pv.reduced_motion) {
+    tl.fromTo('#copy', {y:32, opacity:0}, {y:0, opacity:1, duration:.75, ease:'power3.out'}, .05);
+    tl.fromTo('#screen', {clipPath:'inset(0 100% 0 0 round 1vw)', x:40}, {clipPath:'inset(0 0% 0 0 round 1vw)', x:0, duration:1.05, ease:'power3.inOut'}, .18);
+    tl.fromTo('#back', {rotation:0, scale:.92}, {rotation:5, scale:1, duration:.9, ease:'power2.out'}, .2);
+    tl.to('#screen', {y:-10, duration:Math.max(.2,pv.duration-1.6), ease:'sine.inOut'}, 1.3);
+  }
+  window.__timelines.reveal = tl;
+</script>
+</body></html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8">
+<!-- product-video:head -->
+<style>
+  *{box-sizing:border-box}body{margin:0;font-family:ProductVideoFont,sans-serif;color:#162b23}
+  #root{position:relative;width:100%;height:100%;overflow:hidden;background:#d7e795}
+  h1{position:absolute;left:5%;top:5%;margin:0;font-size:4vw;line-height:1.2;letter-spacing:-.04em}
+  .label{position:absolute;right:5%;top:7%;font-size:1.2vw}
+  #window{position:absolute;left:14%;top:19%;width:72%;height:68%;border-radius:1.2vw;overflow:hidden;background:#f3f2e9;box-shadow:0 1vw 3vw #20371930}
+  #light,#dark{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+  #divider{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#d7e795}
+  #handle{position:absolute;top:42%;left:-1.6vw;width:3.2vw;height:3.2vw;border-radius:50%;background:#d7e795;display:grid;place-items:center;color:#162b23;font-size:1.6vw}
+  .mark{position:absolute;bottom:4%;font-size:1.15vw}.left{left:5%}.right{right:5%}
+</style></head><body>
+<div id="root" data-composition-id="compare" data-width="{{pv.width}}" data-height="{{pv.height}}" data-duration="{{pv.duration}}">
+  <h1>同一界面，直接对照</h1><div class="label">示例素材 / 遮罩比较</div>
+  <div id="window"><img id="light" src="{{pv.media.light}}" alt="浅色示例"><img id="dark" src="{{pv.media.dark}}" alt="深色示例"><div id="divider"><div id="handle" data-layout-allow-overflow>↔</div></div></div>
+  <div class="mark left">浅色</div><div class="mark right">深色</div>
+</div>
+<script>
+  const pv=window.PRODUCT_VIDEO;
+  if(pv.reduced_motion) document.getElementById('root').setAttribute('data-no-timeline','');
+  const tl=gsap.timeline({paused:true});
+  tl.to({}, {duration:pv.duration}, 0);
+  tl.set('#dark',{clipPath:'inset(0 0 0 50%)'},0);
+  if(!pv.reduced_motion){
+    const d=Math.max(.25,pv.duration*.24);
+    tl.to('#dark',{clipPath:'inset(0 0 0 8%)',duration:d,ease:'power2.inOut'},pv.duration*.12);
+    tl.to('#divider',{x:-pv.width*.72*.42,duration:d,ease:'power2.inOut'},pv.duration*.12);
+    tl.to('#dark',{clipPath:'inset(0 0 0 92%)',duration:d,ease:'power2.inOut'},pv.duration*.44);
+    tl.to('#divider',{x:pv.width*.72*.42,duration:d,ease:'power2.inOut'},pv.duration*.44);
+    tl.to('#dark',{clipPath:'inset(0 0 0 50%)',duration:d*.55,ease:'power2.inOut'},pv.duration*.76);
+    tl.to('#divider',{x:0,duration:d*.55,ease:'power2.inOut'},pv.duration*.76);
+  }
+  window.__timelines.compare=tl;
+</script></body></html>

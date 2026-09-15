@@ -35,7 +35,8 @@ def package(root, destination):
             entries.append((file, rel, str(target).encode(), True))
         elif file.is_file():
             entries.append((file, rel, None, False))
-    required = {'SKILL.md', 'scripts/engine/product_video/shotcraft.py', 'scripts/engine/product_video/credentials.py', 'scripts/engine/product_video/presentation.py', 'scripts/engine/product_video/editorial.py', 'scripts/engine/product_video/review.py', 'vendor/video-shotcraft/motion-catalog.json', 'vendor/video-shotcraft/workbench/package-lock.json', 'vendor/video-shotcraft/LICENSE'}
+    required = {'SKILL.md', 'scripts/engine/product_video/shotcraft.py', 'scripts/engine/product_video/credentials.py', 'scripts/engine/product_video/presentation.py', 'scripts/engine/product_video/editorial.py', 'scripts/engine/product_video/review.py', 'scripts/engine/product_video/hyperframes.py', 'scripts/hyperframes/package-lock.json', 'scripts/setup-hyperframes.sh', 'references/hyperframes.md', 'licenses/hyperframes.txt', 'vendor/video-shotcraft/motion-catalog.json', 'vendor/video-shotcraft/workbench/package-lock.json', 'vendor/video-shotcraft/LICENSE'}
+    required.add('scripts/hyperframes/browser.mjs')
     if not required.issubset({str(rel) for _, rel, _, _ in entries}):
         raise ValueError('The skill source is incomplete.')
     destination.parent.mkdir(parents=True, exist_ok=True)

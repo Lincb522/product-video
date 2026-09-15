@@ -449,6 +449,17 @@ def resolve_images(raw, base, captured):
                     step['shotcraft']['media'][key] = captured[sid]
                 else:
                     step['shotcraft']['media'][key] = str((base / Path(value).expanduser()).resolve())
+            if 'hyperframes' in step:
+                spec = step['hyperframes']
+                spec['entry'] = str((base / Path(spec['entry']).expanduser()).resolve())
+                for key, value in spec.get('media', {}).items():
+                    if value.startswith('capture:'):
+                        sid = value.removeprefix('capture:')
+                        if sid not in captured:
+                            raise VideoError('HTML 镜头引用了不存在的截图 id。')
+                        spec['media'][key] = captured[sid]
+                    else:
+                        spec['media'][key] = str((base / Path(value).expanduser()).resolve())
             for item in step.get('editorial', {}).get('items', []):
                 value = item.get('source', '')
                 if value.startswith('capture:'):

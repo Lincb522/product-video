@@ -1,0 +1,13 @@
+{
+  "name": "product-video-hyperframes",
+  "version": "2.2.0",
+  "private": true,
+  "description": "Pinned HTML shot renderer for Product Video",
+  "dependencies": {
+    "@puppeteer/browsers": "3.2.1",
+    "hyperframes": "0.8.40",
+    "gsap": "3.14.2"
+  },
+  "engines": {"node": ">=22"},
+  "productVideo": {"browserVersion": "152.0.7977.30"}
+}

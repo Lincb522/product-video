@@ -1,6 +1,6 @@
 # 产品介绍视频生成器
 
-2.1 新项目默认使用 Remotion 镜头编排，支持完整 Shotcraft 库与可编辑工作台；本文保留原有采集、语音和截图项目字段。新镜头字段、音频轨和工作台见 [镜头与语音集成](../../references/shotcraft.md)。`schema_version: 1` 默认沿用原合成器，`schema_version: 2` 默认使用 Remotion。
+2.2 使用 Remotion 编排主时间轴，支持 Hyperframes HTML 镜头、完整 Shotcraft 库与可编辑工作台；本文保留原有采集、语音和截图项目字段。镜头字段、音频轨和工作台见 [镜头与语音集成](../../references/shotcraft.md)，自由 HTML 动画见 [Hyperframes 镜头](../../references/hyperframes.md)。`schema_version: 1` 默认沿用原合成器，`schema_version: 2` 默认使用 Remotion。
 
 ```sh
 ./run.sh motions --search 转场
@@ -271,3 +271,13 @@ Mac 默认使用系统中文字体，Linux 可在 `video.font` 指定 Noto CJK�
 - [单向 HTTP](https://docs.volcengine.com/docs/6561/2528925?lang=zh)：单向音色配音。
 - [历史版 HTTP 接口说明](https://docs.volcengine.com/docs/6561/1598757?lang=zh)：1.0 资源、成功结束状态与时间戳区别。
 - [公开音色列表](https://docs.volcengine.com/docs/6561/1257544?lang=zh)：角色、语言及单向限制。
+
+## Hyperframes HTML 镜头（2.2）
+
+在 `schema_version: 2` 项目的 `steps` 中声明 `hyperframes`，可将自行设计的 HTML 动画与 Shotcraft、截图操作、内容镜头及三维场景混合编排。完整契约、变量、素材目录与编辑路径见 [HTML 镜头说明](../../references/hyperframes.md)。主合成器仍使用 Remotion，命令与配音缓存保持一致。
+
+```json
+{"at":0,"hyperframes":{"entry":"scenes/intro/index.html","media":{"screen":"assets/screen.png"},"variables":{"title":"功能介绍"}}}
+```
+
+环境：`sh "$SKILL/scripts/setup-hyperframes.sh"`。镜头源码声明宽高与实际时长占位符，在 `head` 中保留 `<!-- product-video:head -->`；引擎注入 GSAP、字体与真实旁白时间。生成目录的 `hyperframes.json` 列出各镜头的可编辑 HTML 工程，`studio/project.json` 是整片时间轴。HTML 内的音轨不进入成片，旁白、字幕、BGM 与音效使用主项目配置。
